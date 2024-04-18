@@ -9,7 +9,7 @@ public class City : MonoBehaviour
     private int healthy;
     private int infected;
     private int GDP;
-    private Buildings buildings;
+    private GameObject buildings;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,8 @@ public class City : MonoBehaviour
     void Update()
     {
     }
+
+    void generateMap() { }
 }
 
 struct Buildings
