@@ -6,6 +6,7 @@ TagManager:
   tags:
   - office_zone
   - residental_zone
+  - commercial_zone
   layers:
   - Default
   - TransparentFX
