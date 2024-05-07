@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d626bdb45918e4d5a9ca068a2b471241
+guid: afaf495d43385419faabc37da0a12274
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4594549418809413186
-    second: Shop2_0
+      213: -2862961688057574507
+    second: Mall_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shop2_0
+      name: Mall_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eb133e485a1ec30c0800000000000000
-      internalID: -4594549418809413186
+      spriteID: 59b86c96387b448d0800000000000000
+      internalID: -2862961688057574507
       vertices: []
       indices: 
       edges: []
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Shop2_0: -4594549418809413186
+      Mall_0: -2862961688057574507
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

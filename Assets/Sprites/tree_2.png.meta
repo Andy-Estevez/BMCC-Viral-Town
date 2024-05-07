@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 37349a911aabbee4aa7a7d5a5415c0d4
+guid: a722d89d32df044298de2bba0245d951
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8528757615209181770
-    second: glass_residential_build_0
+      213: -6170301780317497036
+    second: tree_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: glass_residential_build_0
+      name: tree_2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 48
-        height: 97
+        y: 1
+        width: 19
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4273fd1ddb3c5670800000000000000
-      internalID: 8528757615209181770
+      spriteID: 4391733f83fae5aa0800000000000000
+      internalID: -6170301780317497036
       vertices: []
       indices: 
       edges: []
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      glass_residential_build_0: 8528757615209181770
+      tree_2_0: -6170301780317497036
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

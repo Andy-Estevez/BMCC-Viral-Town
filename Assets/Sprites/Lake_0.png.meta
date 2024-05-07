@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 37349a911aabbee4aa7a7d5a5415c0d4
+guid: a5b077fa25ff046c9834acab978d8895
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8528757615209181770
-    second: glass_residential_build_0
+      213: 6897365579524659897
+    second: lake2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: glass_residential_build_0
+      name: lake2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 97
+        width: 3528
+        height: 1856
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4273fd1ddb3c5670800000000000000
-      internalID: 8528757615209181770
+      spriteID: 9bad295637d58bf50800000000000000
+      internalID: 6897365579524659897
       vertices: []
       indices: 
       edges: []
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      glass_residential_build_0: 8528757615209181770
+      lake2_0: 6897365579524659897
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
