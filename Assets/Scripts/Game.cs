@@ -4,7 +4,7 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     // Variables
-    [SerializeField] private int initialPopulation;
+    [SerializeField] private float initialOccupancyRate;
     [SerializeField] private int initialHealthy;
     [SerializeField] private int initialInfected;
     [SerializeField] private int initialGDP;
@@ -23,7 +23,7 @@ public class Game : MonoBehaviour
     void Start()
     {
         // Initialize town class data
-        Town.init(initialPopulation, initialHealthy, initialInfected, initialGDP);
+        Town.init(initialOccupancyRate, initialHealthy, initialInfected, initialGDP);
         // Load map
         Town.generateTown();
 

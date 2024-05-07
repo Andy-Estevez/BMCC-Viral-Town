@@ -17,14 +17,14 @@ public static class Town
     // Methods
 
     // Initializes class
-    public static void init(int tot, int hlt, int inf, int gdp)
+    public static void init(float ort, int hlt, int inf, int gdp)
     {
         // Create structs
         stats = new TownStatistics();
         buildings = new TownBuildings();
 
         // Initial town statistics
-        stats.totalPop = tot;
+        //stats.totalPop = totalCapacity * ort;
         stats.healthyPop = hlt;
         stats.infectedPop = inf;
         stats.gdp = gdp;
@@ -39,7 +39,7 @@ public static class Town
         Debug.Log("Loading town...");
 
         // Generate Town
-        // ...
+        // townSpawner.spawn();
     }
 
     // Updates town's total, healthy, & infected population data
@@ -74,7 +74,7 @@ public static class Town
     public static void propagateTownInfections()
     {
         foreach (GameObject residence in buildings.residentialBuildings) {
-            //residence.GetComponent<BuildingTemplate>().propagateInfection();
+            //residence.GetComponent<BuildingTemplate>().propagateInfections();
         }
     }
 
@@ -83,7 +83,7 @@ public static class Town
     {
         foreach (GameObject residence in buildings.residentialBuildings)
         {
-            //residence.GetComponent<BuildingTemplate>().propagateMortality();
+            //residence.GetComponent<BuildingTemplate>().propagateFatalities();
         }
     }
 }

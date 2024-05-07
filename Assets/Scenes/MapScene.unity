@@ -167,7 +167,7 @@ MonoBehaviour:
   initialHealthy: 10000
   initialInfected: 0
   initialGDP: 10000000
-  roundLengthSec: 12
+  roundLengthSec: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
