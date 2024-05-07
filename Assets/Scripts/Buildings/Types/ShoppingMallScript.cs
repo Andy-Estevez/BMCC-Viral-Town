@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MallScript : BuildingTemplate
+public class ShoppingMallScript : BuildingTemplate
 {
     // Start is called before the first frame update
     void Start()

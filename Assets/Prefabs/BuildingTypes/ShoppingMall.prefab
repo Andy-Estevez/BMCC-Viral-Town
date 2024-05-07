@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5165319020135479427}
   - component: {fileID: 1909885051299811672}
+  - component: {fileID: -8195039167797726193}
   - component: {fileID: 8490289285523239125}
   m_Layer: 0
   m_Name: ShoppingMall
@@ -87,6 +88,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-8195039167797726193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152058121215365100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0eeba14210fa8d4da0ba39cfc45368e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capacity: 0
+  occupants: 0
+  healthyOccupants: 0
+  infectedOccupants: 0
 --- !u!61 &8490289285523239125
 BoxCollider2D:
   m_ObjectHideFlags: 0

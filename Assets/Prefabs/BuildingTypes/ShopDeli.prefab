@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7353993561518208767}
   - component: {fileID: -5654686104506827485}
+  - component: {fileID: 4592522056616413873}
   - component: {fileID: -1914748339012684502}
   m_Layer: 0
   m_Name: ShopDeli
@@ -87,6 +88,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4592522056616413873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6161887634326667476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d89d7b6f832c1948a859c4d980ac45d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capacity: 0
+  occupants: 0
+  healthyOccupants: 0
+  infectedOccupants: 0
 --- !u!61 &-1914748339012684502
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2107832556142295243}
   - component: {fileID: 169171705723036703}
+  - component: {fileID: 663835043461178192}
   - component: {fileID: 7968140443521753571}
   m_Layer: 0
   m_Name: OfficeBlue
@@ -87,6 +88,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &663835043461178192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7161051089556120765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6460c163b521542a98b91ae5aba332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capacity: 0
+  occupants: 0
+  healthyOccupants: 0
+  infectedOccupants: 0
 --- !u!61 &7968140443521753571
 BoxCollider2D:
   m_ObjectHideFlags: 0
