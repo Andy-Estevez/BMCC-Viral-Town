@@ -6,21 +6,25 @@ using static UnityEditor.Experimental.GraphView.Port;
 // abstract class to contain elements
 public abstract class BuildingTemplate : MonoBehaviour
 {
-
-    public int occupancy;
     public int capacity;
-    public int healthy;
-    public int sick;
+
+    public int occupants;
+    public int healthyOccupants;
+    public int infectedOccupants;
+
+    int residents;
+    int healthyResidents;
+    int infectedResidents;
 
     // spreads the virus 
     public virtual void PropagateVirus()
     {
-        if (occupancy == 0)
+        if (occupants == 0)
         {
             Debug.Log($"Building [{gameObject.name}] is unoccupied. Please remove from list.");
             return;
         }
-        if (sick == occupancy)
+        if (infectedOccupants == occupants)
         {
             Debug.Log($"Cannot propagate virus when all residents are already infected");
             return;
@@ -31,62 +35,62 @@ public abstract class BuildingTemplate : MonoBehaviour
             // amount of people to infect
             int infectAmount;
 
-            if (sick > 0)
+            if (infectedOccupants > 0)
             {
-                infectAmount = (int)( Mathf.Ceil(occupancy * (Random.Range(0.01f, VirusScript.infectionRate) + (sick / occupancy)) ));
+                infectAmount = (int)( Mathf.Ceil(occupants * (Random.Range(0.01f, VirusScript.infectionRate) + (infectedOccupants / occupants)) ));
             }
             else
             {
-                infectAmount = (int)(Mathf.Ceil(occupancy * Random.Range(0.01f, VirusScript.infectionRate)));
+                infectAmount = (int)(Mathf.Ceil(occupants * Random.Range(0.01f, VirusScript.infectionRate)));
             }
 
-            if (infectAmount + sick + healthy >= occupancy)
+            if (infectAmount + infectedOccupants + healthyOccupants >= occupants)
             {
                 Debug.Log($"Succeeded to propagate virus at {VirusScript.infectionChance * 100}% chance | " +
-                            $"{sick} sick / {healthy} healthy to {occupancy} sick / {0} healthy");
-                healthy = 0;
-                sick = occupancy;
+                            $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants to {occupants} infectedOccupants / {0} healthyOccupants");
+                healthyOccupants = 0;
+                infectedOccupants = occupants;
             }
             else
             {
                 Debug.Log($"Succeeded to propagate virus at {VirusScript.infectionChance * 100}% chance | " +
-                            $"{sick} sick / {healthy} healthy to {sick + infectAmount} sick / {occupancy - (sick + infectAmount)} healthy");
-                sick = sick + infectAmount;
-                healthy = occupancy - sick;
+                            $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants to {infectedOccupants + infectAmount} infectedOccupants / {occupants - (infectedOccupants + infectAmount)} healthyOccupants");
+                infectedOccupants = infectedOccupants + infectAmount;
+                healthyOccupants = occupants - infectedOccupants;
             }
         }
         else
         {
             Debug.Log($"Failed to propagate virus at {VirusScript.infectionRate * 100}% chance| " +
-                        $"{sick} sick / {healthy} healthy of {occupancy} occupants");
+                        $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
         }
     }
 
     // kills people with 10% or deathChance probability. random.value returns value bewteen 0.0 (inclusive) and 1.0 (inclusive)
     public virtual void PropagateDeath()
     {
-        if (sick == 0)
+        if (infectedOccupants == 0)
         {
-            Debug.Log($"Death cannot be propagated for {sick} sick occupants | " +
-                        $"{sick} sick / {healthy} healthy of {occupancy} occupants");
+            Debug.Log($"Death cannot be propagated for {infectedOccupants} infectedOccupants occupants | " +
+                        $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
             return;
         }
         else if (Random.value <= VirusScript.deathChance)
         {
-            int deathAmount = (int)(Mathf.Ceil(sick * Random.Range(0.01f, VirusScript.deathRate)));
+            int deathAmount = (int)(Mathf.Ceil(infectedOccupants * Random.Range(0.01f, VirusScript.deathRate)));
 
-            sick = sick - deathAmount;
-            occupancy = sick + healthy;
+            infectedOccupants = infectedOccupants - deathAmount;
+            occupants = infectedOccupants + healthyOccupants;
 
             Debug.Log($"Succeeded to cause infection deaths at {VirusScript.deathChance * 100}% chance | " + 
-                        $"{deathAmount} out of {sick + deathAmount} sick occupants died | " +
-                        $"{sick} sick / {healthy} healthy of {occupancy} occupants");
+                        $"{deathAmount} out of {infectedOccupants + deathAmount} infectedOccupants occupants died | " +
+                        $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
         }
         else
         {
             Debug.Log($"Failed to cause infection deaths at {VirusScript.deathChance * 100}% chance | " + 
-                        $"{sick} sick occupants still alive | " +
-                        $"{sick} sick / {healthy} healthy of {occupancy} occupants");
+                        $"{infectedOccupants} infectedOccupants occupants still alive | " +
+                        $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
         }
 
     }

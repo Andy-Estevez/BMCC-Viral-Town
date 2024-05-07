@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6117305606206086032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4115862405010534599}
+  - component: {fileID: 2498483667505023220}
+  - component: {fileID: -3620493624478556969}
+  m_Layer: 0
+  m_Name: GameSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4115862405010534599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117305606206086032}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8997465, y: -0.626385, z: -0.051192872}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2498483667505023220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117305606206086032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7cc42d1ebf88d409567ef194ff0534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialOccupancyRate: 0
+  initialHealthy: 0
+  initialInfected: 0
+  initialGDP: 0
+  roundLengthSec: 0
+--- !u!114 &-3620493624478556969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117305606206086032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3284a350285a94ad098a5090cafdd791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  officeBuildings:
+  - {fileID: 5097251354902746643, guid: 0c574e9f0fbdeb942917ce5bf321799f, type: 3}
+  - {fileID: 7161051089556120765, guid: cb2aa4730d94044e890d4d16e8fb786d, type: 3}
+  residentalBuildings:
+  - {fileID: 2362959046854919492, guid: 4ac52f74ff2c0406b83477ab3ee29ec2, type: 3}
+  - {fileID: 2362959046854919492, guid: 4ac52f74ff2c0406b83477ab3ee29ec2, type: 3}
+  - {fileID: 3052694733303184076, guid: 7e8e6609653b843fe9a864d09ec7ec9f, type: 3}
+  - {fileID: 4388795791781137472, guid: 7241149feda234708af1423838eb2d42, type: 3}
+  - {fileID: 4388795791781137472, guid: 7241149feda234708af1423838eb2d42, type: 3}
+  - {fileID: 6375222467675241815, guid: e834dccb52b304c32a00b420f7dc739c, type: 3}
+  - {fileID: 6375222467675241815, guid: e834dccb52b304c32a00b420f7dc739c, type: 3}
+  - {fileID: 6161887634326667476, guid: 721527a53cfb646bbbd4500af43969f1, type: 3}
+  - {fileID: 4388795791781137472, guid: 7241149feda234708af1423838eb2d42, type: 3}
+  commercialBuildings:
+  - {fileID: 6161887634326667476, guid: 721527a53cfb646bbbd4500af43969f1, type: 3}
+  - {fileID: 4123225453446639958, guid: e04023c578ace4db39abfebac4a15518, type: 3}
+  - {fileID: 2920104475596643693, guid: 0808174069d8647d3989f0cc70e57183, type: 3}
+  - {fileID: 1152058121215365100, guid: d3836f095814549d7934aedb9afd77d2, type: 3}
+  - {fileID: 5358176294730198139, guid: 00df4ae01b4304be98db711dd602c239, type: 3}
+  - {fileID: 3052694733303184076, guid: 7e8e6609653b843fe9a864d09ec7ec9f, type: 3}
+  officeBorder:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  residentalBorder: {fileID: 0}
+  commercialBorder: {fileID: 0}
+  officeContainer: {fileID: 0}
+  residentalContainer: {fileID: 0}
+  commercialContainer: {fileID: 0}
