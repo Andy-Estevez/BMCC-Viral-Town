@@ -12,9 +12,9 @@ public abstract class BuildingTemplate : MonoBehaviour
     public int healthyOccupants;
     public int infectedOccupants;
 
-    int residents;
-    int healthyResidents;
-    int infectedResidents;
+    public int residents;
+    public int healthyResidents;
+    public int infectedResidents;
 
     // spreads the virus 
     public virtual void PropagateVirus()
