@@ -1,15 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
+using UnityEditor;
 using UnityEngine;
 
 public class Game : MonoBehaviour
 {
     // Variables
-    [SerializeField] private int roundLengthSec = 30;
-    private string roundSection = "day";
-    private int roundNum = 1;
+    [SerializeField] private int initialPopulation;
+    [SerializeField] private int initialHealthy;
+    [SerializeField] private int initialInfected;
+    [SerializeField] private int initialGDP;
 
+    [SerializeField] private int roundLengthSec;
+    private string roundSection = "night";
+    private int roundNum = 0;
+
+    private bool gameOver = false;
+    
     private Timer timer;
 
     // Methods
@@ -17,6 +22,9 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Initialize town class data
+        Town.init(initialPopulation, initialHealthy, initialInfected, initialGDP);
+        // Load map
         Town.generateTown();
 
         timer = new Timer();
@@ -26,35 +34,58 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer.IsFinished)
+        if (!gameOver)
         {
-            Debug.Log("timer is finished");
-            // Day Section Logic
-            if (roundSection == "day") 
+            // If section (night/day) is over
+            if (timer.IsFinished)
             {
-                roundSection = "night";
+                // DAWN: When night ends & day begins
+                if (roundSection == "night") 
+                {
+                    Debug.Log("Night has ended...");
 
-                // Do Night Section Things
+                    // Propagate Virus Infection & Virus Death
+                    // ...
+
+                    roundSection = "day";
+                    roundNum++;
+
+                    // Move population to commercial buildings
+                    // Town.movePopToCom();
+
+                    // ...
+                }
+                // DUSK: When day ends & night begins
+                else if (roundSection == "day") 
+                {
+                    Debug.Log("Day has ended...");
+
+                    // Propagate Hospital Healing
+                    // ...
+
+                    roundSection = "night";
+
+                    // Move population to residential buildings
+                    // Town.movePopToRes();
+
+                    // Execute Game Events & Player Policies
+                    // ...
+
+                    // ...
+                }
+                else 
+                {
+                    Debug.LogError("Invalid roundSection value given during round #" + roundNum);
+                }
+
+                // Restart section timer
+                timer.startTimer();
             }
-            // Night Section Logic
-            else if (roundSection == "night") 
+            else
             {
-                roundSection = "day";
-                roundNum++;
-
-                // Do Day Section Things
+                // Increment section timer
+                timer.updateTimer(Time.deltaTime);
             }
-            else 
-            {
-                Debug.LogError("Invalid roundSection value given during round #" + roundNum);
-            }
-
-            timer.startTimer();
-        }
-        else
-        {
-            // Increment Timer
-            timer.updateTimer(Time.deltaTime);
         }
     }
 }
