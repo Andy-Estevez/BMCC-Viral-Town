@@ -1,0 +1,34 @@
+{
+    "Occurrences": [
+        {
+            "IntensityValue": 1,
+            "EventTitle": "Example 1",
+            "Description": "Description of Example 1",
+            "Moodles": [
+                {
+                    "MoodleName": "Mood1",
+                    "Intensity": 3
+                },
+                {
+                    "MoodleName": "Mood2",
+                    "Intensity": 2
+                }
+            ]
+        },
+        {
+            "IntensityValue": 2,
+            "EventTitle": "Example 2",
+            "Description": "Description of Example 2",
+            "Moodles": [
+                {
+                    "MoodleName": "Mood1",
+                    "Intensity": 1
+                },
+                {
+                    "MoodleName": "Mood3",
+                    "Intensity": 4
+                }
+            ]
+        }
+    ]
+}
