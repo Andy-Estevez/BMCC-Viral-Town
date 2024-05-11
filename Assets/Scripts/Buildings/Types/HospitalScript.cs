@@ -4,6 +4,24 @@ using UnityEngine;
 
 public class HospitalScript : BuildingTemplate
 {
+
+    public float cureChance = 0.50f;
+
+    public void VirusCure()
+    {
+        if (Random.value <= cureChance)
+        {
+            int randCuredPeople = Random.Range(1, infectedOccupants);
+            healthyOccupants = healthyOccupants + randCuredPeople;
+            infectedOccupants = infectedOccupants - randCuredPeople;
+        }
+    }
+
+    private void Awake()
+    {
+        ViralTownEvents.PropagateHealing.AddListener(VirusCure);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
