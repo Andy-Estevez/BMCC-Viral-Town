@@ -16,6 +16,7 @@ public abstract class BuildingTemplate : MonoBehaviour
     public int origHealthyOccupants;
     public int origInfectedOccupants;
 
+
     // spreads the virus 
     public virtual void PropagateVirus()
     {
@@ -30,30 +31,30 @@ public abstract class BuildingTemplate : MonoBehaviour
             return;
         }
 
-        if (Random.value <= VirusStats.infectionChance)
+        if (Random.value <= VirusScript.infectionChance)
         {
             // amount of people to infect
             int infectAmount;
 
             if (infectedOccupants > 0)
             {
-                infectAmount = (int)( Mathf.Ceil(occupants * (Random.Range(0.01f, VirusStats.infectionRate) + (infectedOccupants / occupants)) ));
+                infectAmount = (int)(Mathf.Ceil(occupants * (Random.Range(0.01f, VirusScript.infectionRate) + (infectedOccupants / occupants)) ));
             }
             else
             {
-                infectAmount = (int)(Mathf.Ceil(occupants * Random.Range(0.01f, VirusStats.infectionRate)));
+                infectAmount = (int)(Mathf.Ceil(occupants * Random.Range(0.01f, VirusScript.infectionRate)));
             }
 
             if (infectAmount + infectedOccupants + healthyOccupants >= occupants)
             {
-                Debug.Log($"Succeeded to propagate virus at {VirusStats.infectionChance * 100}% chance | " +
+                Debug.Log($"Succeeded to propagate virus at {VirusScript.infectionChance * 100}% chance | " +
                             $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants to {occupants} infectedOccupants / {0} healthyOccupants");
                 healthyOccupants = 0;
                 infectedOccupants = occupants;
             }
             else
             {
-                Debug.Log($"Succeeded to propagate virus at {VirusStats.infectionChance * 100}% chance | " +
+                Debug.Log($"Succeeded to propagate virus at {VirusScript.infectionChance * 100}% chance | " +
                             $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants to {infectedOccupants + infectAmount} infectedOccupants / {occupants - (infectedOccupants + infectAmount)} healthyOccupants");
                 infectedOccupants = infectedOccupants + infectAmount;
                 healthyOccupants = occupants - infectedOccupants;
@@ -61,7 +62,7 @@ public abstract class BuildingTemplate : MonoBehaviour
         }
         else
         {
-            Debug.Log($"Failed to propagate virus at {VirusStats.infectionRate * 100}% chance| " +
+            Debug.Log($"Failed to propagate virus at {VirusScript.infectionRate * 100}% chance| " +
                         $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
         }
     }
@@ -75,20 +76,20 @@ public abstract class BuildingTemplate : MonoBehaviour
                         $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
             return;
         }
-        else if (Random.value <= VirusStats.deathChance)
+        else if (Random.value <= VirusScript.deathChance)
         {
-            int deathAmount = (int)(Mathf.Ceil(infectedOccupants * Random.Range(0.01f, VirusStats.deathRate)));
+            int deathAmount = (int)(Mathf.Ceil(infectedOccupants * Random.Range(0.01f, VirusScript.deathRate)));
 
             infectedOccupants = infectedOccupants - deathAmount;
             occupants = infectedOccupants + healthyOccupants;
 
-            Debug.Log($"Succeeded to cause infection deaths at {VirusStats.deathChance * 100}% chance | " + 
+            Debug.Log($"Succeeded to cause infection deaths at {VirusScript.deathChance * 100}% chance | " + 
                         $"{deathAmount} out of {infectedOccupants + deathAmount} infectedOccupants occupants died | " +
                         $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
         }
         else
         {
-            Debug.Log($"Failed to cause infection deaths at {VirusStats.deathChance * 100}% chance | " + 
+            Debug.Log($"Failed to cause infection deaths at {VirusScript.deathChance * 100}% chance | " + 
                         $"{infectedOccupants} infectedOccupants occupants still alive | " +
                         $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
         }
@@ -98,7 +99,7 @@ public abstract class BuildingTemplate : MonoBehaviour
     //// Start is called before the first frame update
     //void Start()
     //{
-        
+
     //}
 
     //// Update is called once per frame

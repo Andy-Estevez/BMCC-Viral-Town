@@ -8,9 +8,40 @@ public static class ViralTownEvents
     public static UnityEvent dayTime = new UnityEvent();
     public static UnityEvent nightTime = new UnityEvent();
 
+
+
+    // ex1:
+    // public static IndicatorEvent stageOne = new IndicatorEvent();
+
+    // ex2:
+    // public static PolicyEvent enactPolicy = new PolicyEvent();
+
 }
 
-//public class UEvent : UnityEvent<int> { }
+
+// example1 (passing one parameter):
+// public class IndicatorEvent : UnityEvent<int> { }
+// 
+// invoke looks like: 
+// ViralTownEvents.stageOne.Invoke();
+//
+// listener looks like:
+// ViralTownEvents.stageOne.AddListener([insertFunctionName]);
+
+
+// example2 (passing multiple parameters):
+// public class PolicyEvent : UnityEvent<float, int, float> { }
+// 
+// invoke looks like:
+// ViralTownEvents.enactPolicy.Invoke();
+//
+// listener looks like:
+// ViralTownEvents.enactPolicy.AddListener([insertFunctionName]);
+
+
+// example3 (passing multple object parameters): 
+// public class 
+
 
 
 
