@@ -7,8 +7,8 @@ public static class Virus
 {
     // chance is how likely it is to happen
     // rate is how many people it impacts
-    public static float infectionChance = 0.20f;
-    public static float deathChance = 0.10f;
+    public static float infectionChance = 0.70f;
+    public static float deathChance = 0.30f;
     public static float infectionRate = 0.20f;
     public static float deathRate = 0.10f;
 

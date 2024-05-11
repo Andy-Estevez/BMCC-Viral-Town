@@ -17,8 +17,9 @@ public class HospitalScript : BuildingTemplate
         }
     }
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         ViralTownEvents.PropagateHealing.AddListener(VirusCure);
     }
 
