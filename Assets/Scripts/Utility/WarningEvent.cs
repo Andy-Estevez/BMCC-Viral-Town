@@ -9,7 +9,7 @@ public class WarningEvents : MonoBehaviour
 
     public void Awake()
     {
-        ViralTownEvents.warning.AddListener(); 
+        //ViralTownEvents.warning.AddListener(); 
     }
 
     public void OnUpdateUI(float infectionRate, GameObject exclamationMarkPrefab)

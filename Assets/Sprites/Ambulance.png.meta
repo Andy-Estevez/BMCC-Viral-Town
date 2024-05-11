@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ambulance_0: 6053844527251203986
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
