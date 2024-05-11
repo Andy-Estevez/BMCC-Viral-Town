@@ -20,9 +20,10 @@ public abstract class BuildingTemplate : MonoBehaviour
     // spreads the virus 
     public virtual void PropagateVirus()
     {
+        Debug.Log($"VIRUS PROPAGATED! -{gameObject.name}");
         if (occupants == 0)
         {
-            Debug.Log($"Building [{gameObject.name}] is unoccupied. Please remove from list.");
+            Debug.Log($"Building [{gameObject.name}] is unoccupied. Cannot propagate virus in empty building.");
             return;
         }
         if (infectedOccupants == occupants)
@@ -70,13 +71,19 @@ public abstract class BuildingTemplate : MonoBehaviour
     // kills people with 10% or deathChance probability. random.value returns value bewteen 0.0 (inclusive) and 1.0 (inclusive)
     public virtual void PropagateDeath()
     {
+        Debug.Log($"DEATH PROPAGATED! -{gameObject.name}");
+        if (occupants == 0)
+        {
+            Debug.Log($"Building [{gameObject.name}] is unoccupied. Cannot propagate death in empty building.");
+            return;
+        }
         if (infectedOccupants == 0)
         {
             Debug.Log($"Death cannot be propagated for {infectedOccupants} infectedOccupants occupants | " +
                         $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
             return;
         }
-        else if (Random.value <= Virus.deathChance)
+        if (Random.value <= Virus.deathChance)
         {
             int deathAmount = (int)(Mathf.Ceil(infectedOccupants * Random.Range(0.01f, Virus.deathRate)));
 
@@ -94,6 +101,13 @@ public abstract class BuildingTemplate : MonoBehaviour
                         $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
         }
 
+    }
+
+    public virtual void Awake()
+    {
+        Debug.Log($"buildingTemplate {gameObject.name} : I'm being called");
+        ViralTownEvents.PropagateVirus.AddListener(PropagateVirus);
+        ViralTownEvents.PropagateDeath.AddListener(PropagateDeath);
     }
 
     //// Start is called before the first frame update

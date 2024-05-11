@@ -87,7 +87,7 @@ public class Game : MonoBehaviour
 
                     // Move population to residential buildings
                     Town.movePopToRes();
-
+                    
                     // Execute Random Occurrences & Player Policies
                     ViralTownEvents.ActivateOccurrences.Invoke();
                 }

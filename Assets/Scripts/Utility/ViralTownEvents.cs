@@ -14,6 +14,8 @@ public static class ViralTownEvents
     public static UnityEvent ActivateOccurrences = new UnityEvent();
     public static UnityEvent TerminateOccurrencePopups = new UnityEvent();
 
+
+
     // ex1:
     // public static IndicatorEvent stageOne = new IndicatorEvent();
 
@@ -21,6 +23,10 @@ public static class ViralTownEvents
     // public static PolicyEvent enactPolicy = new PolicyEvent();
 
 }
+
+
+
+
 
 
 // example1 (passing one parameter):
