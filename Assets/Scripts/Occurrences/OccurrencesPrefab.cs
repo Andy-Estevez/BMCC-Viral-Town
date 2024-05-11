@@ -6,31 +6,60 @@ using UnityEngine;
 public class OccurrencesPreFab : MonoBehaviour
 {
     [SerializeField]
-    private TMP_Text textDesc_title;
+    private TMP_Text mainTitle;
     [SerializeField]
-    private TMP_Text textDesc_text;
+    private TMP_Text mainDesc;
 
     [SerializeField]
-    private TMP_Text textSide_title;
+    private TMP_Text sideTitle;
     [SerializeField]
-    private TMP_Text textSide_text;
+    private TMP_Text sideDesc;
+    [SerializeField]
+    private TMP_Text moodleHolder;
+    private TMP_Text leftSide;
+    private TMP_Text rightSide;
 
-    public void setDescTitle(string text)
+    private void Start()
     {
-        textDesc_title.text = text;
-    }
-    void setDescText(string text)
-    {
-        textDesc_text.text = text;
+        sideTitle.text = "Choice:";
+        moodleHolder.text = "The effects of your choices:";
+        // Access the child TMP_Text components
+        leftSide = moodleHolder.transform.GetChild(0).GetComponent<TMP_Text>();
+        Debug.Log(leftSide);
+        rightSide = moodleHolder.transform.GetChild(1).GetComponent<TMP_Text>();
+        leftSide.text = "";
+        rightSide.text = "";
     }
 
-    void setSideTitle(string text)
+    public void SetMainTitle(string text)
     {
-        textSide_title.text = text;
+        mainTitle.text = text;
     }
-    void setSideText(string text)
+    public void SetMainDesc(string text)
     {
-        textSide_text.text = text;
+        mainDesc.text = text;
+    }
+
+
+    public void SetSideDesc(string text)
+    {
+        sideDesc.text = text;
+    }
+    public void SetMoodles(OccurrenceMoodles[] moodles)
+    {
+        foreach (OccurrenceMoodles moodle in moodles)
+        {
+            // If the trait is negative, go left
+            if(moodle.Trait == "Negative")
+            {
+                leftSide.text += "•" + moodle.MoodleName + "\nEffect: " + moodle.Intensity + "\n";
+
+            }
+            else // Else, go right
+            {
+                rightSide.text += "•" + moodle.MoodleName + "\nEffect: " + moodle.Intensity + "\n";
+            }
+        }
     }
 
     public void onClick_closeButton()
