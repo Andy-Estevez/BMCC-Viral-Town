@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6117305606206086032}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8997465, y: -0.626385, z: -0.051192872}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7cc42d1ebf88d409567ef194ff0534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialOccupancyRate: 0
-  initialHealthy: 0
-  initialInfected: 0
-  initialGDP: 0
-  roundLengthSec: 0
+  initialPopulation: 100
+  initialHealthy: 9990
+  initialInfected: 5
+  initialGDP: 10000000
+  roundLengthSec: 30
 --- !u!114 &-3620493624478556969
 MonoBehaviour:
   m_ObjectHideFlags: 0

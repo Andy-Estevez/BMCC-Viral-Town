@@ -5,10 +5,14 @@ using UnityEngine.Events;
 
 public static class ViralTownEvents
 {
-    public static UnityEvent dayTime = new UnityEvent();
-    public static UnityEvent nightTime = new UnityEvent();
+    public static UnityEvent SpawnTown = new UnityEvent();
+    public static UnityEvent PropagateVirus = new UnityEvent();
+    public static UnityEvent PropagateDeath = new UnityEvent();
 
+    public static UnityEvent UpdateHUD = new UnityEvent();
 
+    public static UnityEvent ActivateOccurrences = new UnityEvent();
+    public static UnityEvent TerminateOccurrencePopups = new UnityEvent();
 
     // ex1:
     // public static IndicatorEvent stageOne = new IndicatorEvent();

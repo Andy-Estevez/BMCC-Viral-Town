@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,54 +8,164 @@ public static class Town
     // Variables (Structs)
     private static TownStatistics stats;
     private static TownBuildings buildings;
+    private static BuildingSpawner spawner;
 
     // Properties
-    public static int TotalPop => stats.totalPop;
+    public static int InitialPop => stats.initPop;
+    public static int CurrentPop => stats.curPop;
     public static int HealthyPop => stats.healthyPop;
     public static int InfectedPop => stats.infectedPop;
-    public static int GDP => stats.gdp;
+    public static int InitialGDP => stats.initGDP;
+    public static int CurrentGDP => stats.curGDP;
 
     // Methods
 
     // Initializes class
-    public static void init(float ort, int hlt, int inf, int gdp)
+    public static void init(int pop, int hlt, int inf, int gdp)
     {
         // Create structs
         stats = new TownStatistics();
         buildings = new TownBuildings();
 
         // Initial town statistics
-        //stats.totalPop = totalCapacity * ort;
+        stats.initPop = pop;
+        stats.curPop = pop;
         stats.healthyPop = hlt;
         stats.infectedPop = inf;
-        stats.gdp = gdp;
+        stats.initGDP = gdp;
+        stats.curGDP = gdp;
 
         // Town building lists
-        buildings.residentialBuildings = new List <GameObject>();
-        buildings.commercialBuildings = new List <GameObject>();
+        buildings.residentialBuildings = new List<GameObject>();
+        buildings.commercialBuildings = new List<GameObject>();
+        buildings.hospital = GameObject.Find("Hospital");
     }
 
-    // Generates town according to zones & blocks
-    public static void generateTown() {
+    // Generates town
+    public static void generateTown()
+    {
         Debug.Log("Loading town...");
 
         // Generate Town
-        // townSpawner.spawn();
+        ViralTownEvents.SpawnTown.Invoke();
+    }
+
+    // Initializes Building Lists
+    public static void insertBuildingIntoList(GameObject prefab, string type)
+    {
+        if (type == "res")
+        {
+            buildings.residentialBuildings.Add(prefab);
+        }
+        else if (type == "off" || type == "com")
+        {
+            buildings.commercialBuildings.Add(prefab);
+        }
+        else
+        {
+            Debug.Log("ERROR: type provided to insertBuildingIntoList() function of Town class is invalid.");
+        }
+    }
+
+    // Initializes Building Data
+    public static void initBuildingData()
+    {
+        int tempPop = InitialPop;
+        int tempInf = InfectedPop;
+
+        foreach (GameObject residence in buildings.residentialBuildings)
+        {
+            BuildingTemplate residenceScript = residence.GetComponent<BuildingTemplate>();
+
+            int initOccupants = 2;
+
+            if (residence.name == "CondoRed(Clone)" || residence.name == "DuplexBlue(Clone)")
+                initOccupants *= 4;
+
+            residenceScript.origOccupants = initOccupants;
+            residenceScript.occupants = initOccupants;
+
+            residenceScript.origHealthyOccupants = initOccupants;
+            residenceScript.healthyOccupants = initOccupants;
+
+            residenceScript.origInfectedOccupants = 0;
+            residenceScript.infectedOccupants = 0;
+
+            tempPop -= initOccupants;
+        }
+
+        while (tempPop > 0)
+        {
+            int randIndex = UnityEngine.Random.Range(0, buildings.residentialBuildings.Count);
+
+            GameObject residence = buildings.residentialBuildings[randIndex];
+            BuildingTemplate residenceScript = residence.GetComponent<BuildingTemplate>();
+
+            int initOccupants = 1;
+
+            if (residence.name == "CondoRed(Clone)" || residence.name == "DuplexBlue(Clone)")
+                initOccupants *= 4;
+
+            if (initOccupants > tempPop)
+                initOccupants = tempPop;
+
+            residenceScript.origOccupants += initOccupants;
+            residenceScript.occupants += initOccupants;
+
+            residenceScript.origHealthyOccupants += initOccupants;
+            residenceScript.healthyOccupants += initOccupants;
+
+            tempPop -= initOccupants;
+        }
+
+        while (tempInf > 0)
+        {
+            int randIndex = UnityEngine.Random.Range(0, buildings.residentialBuildings.Count);
+
+            GameObject residence = buildings.residentialBuildings[randIndex];
+            BuildingTemplate residenceScript = residence.GetComponent<BuildingTemplate>();
+
+            residenceScript.origOccupants++;
+            residenceScript.occupants++;
+
+            residenceScript.origInfectedOccupants++;
+            residenceScript.infectedOccupants++;
+
+            tempInf--;
+        }
+    }
+
+    // Updates map prefabs between day & night
+    public static void updateMap(string section)
+    {
+        if (section == "day")
+        {
+
+        }
+        else if (section == "night")
+        {
+
+        }
+        else
+        {
+            Debug.Log("ERROR: Invalid section type passed to updateMap() function of Town class");
+        }
     }
 
     // Updates town's total, healthy, & infected population data
     public static void updatePop()
     {
-        stats.totalPop = 0;
+        stats.curPop = 0;
         stats.healthyPop = 0;
         stats.infectedPop = 0;
 
-        foreach (GameObject residence in buildings.residentialBuildings) {
-            /*BuildingTemplate residenceObj = residence.GetComponent<BuildingTemplate>();
+        foreach (GameObject residence in buildings.residentialBuildings)
+        {
+            BuildingTemplate residenceScript = residence.GetComponent<BuildingTemplate>();
 
-            stats.totalPop += residenceObj.Occupants;
-            stats.healthyPop += residenceObj.Healthy;
-            stats.infectedPop += residenceObj.Infected;*/
+            stats.curPop += residenceScript.occupants;
+            stats.healthyPop += residenceScript.healthyOccupants;
+            stats.infectedPop += residenceScript.infectedOccupants;
         }
     }
 
@@ -69,36 +180,24 @@ public static class Town
     {
         // ...
     }
-
-    // Iterates through residences & activates their infection propagation
-    public static void propagateTownInfections()
-    {
-        foreach (GameObject residence in buildings.residentialBuildings) {
-            //residence.GetComponent<BuildingTemplate>().propagateInfections();
-        }
-    }
-
-    // Iterates through residences & activates their fatality progagation
-    public static void propagateTownFatalities()
-    {
-        foreach (GameObject residence in buildings.residentialBuildings)
-        {
-            //residence.GetComponent<BuildingTemplate>().propagateFatalities();
-        }
-    }
 }
 
 struct TownStatistics
 {
-    // Total population
-    public int totalPop;
+    // Initial population
+    public int initPop;
+    // Current (total) population
+    public int curPop;
     // Healthy segment of population
     public int healthyPop;
     // Infected segment of population
     public int infectedPop;
+    // Initial Gross Domestic Product
+    public int initGDP;
     // Gross Domestic Product
-    public int gdp;
+    public int curGDP;
 }
+
 struct TownBuildings
 {
     // List of residential buildings (homes)

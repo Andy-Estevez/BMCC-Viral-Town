@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public static class VirusScript
+public static class Virus
 {
     // chance is how likely it is to happen
     // rate is how many people it impacts

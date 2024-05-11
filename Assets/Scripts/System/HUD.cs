@@ -17,8 +17,8 @@ public class HUD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        economyHealthText.text = "GDP: $" + ts.gdp.ToString();
-        populationText.text = "Total Population: " + ts.totalPop.ToString();
+        economyHealthText.text = "GDP: $" + ts.curGDP.ToString();
+        populationText.text = "Total Population: " + ts.curPop.ToString();
         healtyPopText.text = "Healthy Population: " + ts.healthyPop.ToString();
         infectionRateText.text = "Infected Population: " + ts.infectedPop.ToString();
     }
@@ -26,10 +26,10 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        populationText.text = "Total Population: " + Town.TotalPop.ToString();
+        populationText.text = "Total Population: " + Town.CurrentPop.ToString();
         healtyPopText.text = "Healthy Population: " + Town.HealthyPop.ToString();
         infectionRateText.text = "Infected Population: " + Town.InfectedPop.ToString();
-        economyHealthText.text = "GDP: $" + Town.GDP.ToString();
+        economyHealthText.text = "GDP: $" + Town.CurrentGDP.ToString();
 
     }
 }

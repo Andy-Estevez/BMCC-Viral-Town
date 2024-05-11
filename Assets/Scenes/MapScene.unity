@@ -1176,17 +1176,21 @@ PrefabInstance:
       propertyPath: roundLengthSec
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
+      propertyPath: initialPopulation
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4115862405010534599, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8997465
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4115862405010534599, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.626385
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4115862405010534599, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.051192872
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4115862405010534599, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
       propertyPath: m_LocalRotation.w

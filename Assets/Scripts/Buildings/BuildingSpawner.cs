@@ -24,16 +24,29 @@ public class BuildingSpawner : MonoBehaviour
 
     void Start()
     {
-
+        /*
         SpawnBuildings(residentalBuildings, residentalContainer, residentalBorder, 1, 18);
         SpawnBuildings(officeBuildings, officeContainer, officeBorder[0], 4/5, 4);
         SpawnBuildings(officeBuildings, officeContainer, officeBorder[1], 4 / 5, 4);
         SpawnBuildings(officeBuildings, officeContainer, officeBorder[2], 4 / 5, 4);
         SpawnBuildings(commercialBuildings, commercialContainer, commercialBorder, 4/5, 18);
+        */
 
+        ViralTownEvents.SpawnTown.AddListener(onSpawnTown);
     }
 
-    void SpawnBuildings(GameObject[] prefabs, Transform zoneContainer, Transform zoneBorder, float streetWidth, int amount)
+    void onSpawnTown()
+    {
+        SpawnBuildings(residentalBuildings, residentalContainer, residentalBorder, 1, 18, "res");
+        SpawnBuildings(officeBuildings, officeContainer, officeBorder[0], 4 / 5, 4, "off");
+        SpawnBuildings(officeBuildings, officeContainer, officeBorder[1], 4 / 5, 4, "off");
+        SpawnBuildings(officeBuildings, officeContainer, officeBorder[2], 4 / 5, 4, "off");
+        SpawnBuildings(commercialBuildings, commercialContainer, commercialBorder, 4 / 5, 18, "com");
+
+        Town.initBuildingData();
+    }
+
+    void SpawnBuildings(GameObject[] prefabs, Transform zoneContainer, Transform zoneBorder, float streetWidth, int amount, string type)
     {
         
         float buildingWidth = prefabs[0].transform.localScale.x;
@@ -76,6 +89,7 @@ public class BuildingSpawner : MonoBehaviour
 
             // Instantiate the building at nextPosition
             GameObject newBuilding = Instantiate(prefabs[Random.Range(0, prefabs.Length)], nextPosition, Quaternion.identity);
+            Town.insertBuildingIntoList(newBuilding, type);
 
             // Parent it to the zone container so it's organized correctly in the scene
             newBuilding.transform.SetParent(zoneContainer);
