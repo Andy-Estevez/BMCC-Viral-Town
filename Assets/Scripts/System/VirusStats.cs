@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public static class VirusScript
+public static class VirusStats
 {
 
     public static float infectionChance = 0.20f;
@@ -11,6 +11,7 @@ public static class VirusScript
     public static float infectionRate = 0.20f;
     public static float deathRate = .10f;
 
+    
 
     //void Awake()
     //{

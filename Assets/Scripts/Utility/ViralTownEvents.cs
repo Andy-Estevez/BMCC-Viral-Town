@@ -7,6 +7,7 @@ public static class ViralTownEvents
 {
     public static UnityEvent dayTime = new UnityEvent();
     public static UnityEvent nightTime = new UnityEvent();
+
 }
 
 //public class UEvent : UnityEvent<int> { }
