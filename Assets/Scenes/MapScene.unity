@@ -1173,8 +1173,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1394340193}
     - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
+      propertyPath: initialHealthy
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
       propertyPath: roundLengthSec
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
       propertyPath: initialPopulation

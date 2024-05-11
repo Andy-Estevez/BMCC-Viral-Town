@@ -16,7 +16,6 @@ public abstract class BuildingTemplate : MonoBehaviour
     public int origHealthyOccupants;
     public int origInfectedOccupants;
 
-
     // spreads the virus 
     public virtual void PropagateVirus()
     {
