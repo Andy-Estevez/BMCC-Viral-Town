@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Game : MonoBehaviour
@@ -69,7 +70,7 @@ public class Game : MonoBehaviour
                     Town.movePopToCom();
 
                     // Propagate virus infection (Optional)
-                    // ...
+                    ViralTownEvents.PropagateVirus.Invoke();
                 }
                 // DUSK: When day ends & night begins
                 else if (roundSection == "day")
@@ -77,7 +78,7 @@ public class Game : MonoBehaviour
                     Debug.Log("Day has ended...");
 
                     // Propagate hospital healing
-                    // ...
+                    ViralTownEvents.PropagateHealing.Invoke();
 
                     // Increment section
                     roundSection = "night";
@@ -96,6 +97,16 @@ public class Game : MonoBehaviour
                     Debug.LogError("Invalid roundSection value given during round #" + roundNum);
                 }
 
+                if (roundNum % 4 == 0)
+                {
+                    Virus.InfectionBuff();
+                }
+
+                if (Town.HealthyPop == 0)
+                {
+                    gameOver = true;
+                }
+
                 // Restart section timer
                 timer.startTimer();
             }
@@ -104,6 +115,10 @@ public class Game : MonoBehaviour
                 // Increment section timer
                 timer.updateTimer(Time.deltaTime);
             }
+        }
+        else
+        {
+            Debug.Log("GAME OVER!");
         }
     }
 }

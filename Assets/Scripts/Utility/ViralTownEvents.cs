@@ -8,6 +8,7 @@ public static class ViralTownEvents
     public static UnityEvent SpawnTown = new UnityEvent();
     public static UnityEvent PropagateVirus = new UnityEvent();
     public static UnityEvent PropagateDeath = new UnityEvent();
+    public static UnityEvent PropagateHealing = new UnityEvent();
 
     public static UnityEvent UpdateHUD = new UnityEvent();
 
