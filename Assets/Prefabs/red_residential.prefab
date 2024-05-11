@@ -87,6 +87,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< Updated upstream:Assets/Prefabs/red_residential.prefab
+=======
+--- !u!114 &-3361726904777140025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375222467675241815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37805915d8132943b5d1db48fb464f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capacity: 10
+  occupants: 10
+  healthyOccupants: 0
+  infectedOccupants: 10
+  residents: 10
+  healthyResidents: 0
+  infectedResidents: 10
+  exclamationMarkPrefab: {fileID: 420866692223049389, guid: 9ee7c7d1cb72a46a689628a49e953039, type: 3}
+>>>>>>> Stashed changes:Assets/Prefabs/BuildingTypes/CondoRed.prefab
 --- !u!61 &-4710937783002104739
 BoxCollider2D:
   m_ObjectHideFlags: 0
