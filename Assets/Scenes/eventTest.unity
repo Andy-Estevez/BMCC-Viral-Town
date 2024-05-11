@@ -314,7 +314,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 547621753}
         m_TargetAssemblyTypeName: OccurrencesCreator, Assembly-CSharp
-        m_MethodName: MayorOccurences
+        m_MethodName: MayorOccurrences
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
