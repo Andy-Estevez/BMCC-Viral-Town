@@ -9,25 +9,29 @@ public static class Town
     private static TownBuildings buildings;
 
     // Properties
-    public static int TotalPop => stats.totalPop;
+    public static int InitialPop => stats.initPop;
+    public static int CurrentPop => stats.curPop;
     public static int HealthyPop => stats.healthyPop;
     public static int InfectedPop => stats.infectedPop;
-    public static int GDP => stats.gdp;
+    public static int InitialGDP => stats.initGDP;
+    public static int CurrentGDP => stats.curGDP;
 
     // Methods
 
     // Initializes class
-    public static void init(float ort, int hlt, int inf, int gdp)
+    public static void init(int pop, int hlt, int inf, int gdp)
     {
         // Create structs
         stats = new TownStatistics();
         buildings = new TownBuildings();
 
         // Initial town statistics
-        //stats.totalPop = totalCapacity * ort;
+        stats.initPop = pop;
+        stats.curPop = pop;
         stats.healthyPop = hlt;
         stats.infectedPop = inf;
-        stats.gdp = gdp;
+        stats.initGDP = gdp;
+        stats.curGDP = gdp;
 
         // Town building lists
         buildings.residentialBuildings = new List <GameObject>();
@@ -45,7 +49,7 @@ public static class Town
     // Updates town's total, healthy, & infected population data
     public static void updatePop()
     {
-        stats.totalPop = 0;
+        stats.curPop = 0;
         stats.healthyPop = 0;
         stats.infectedPop = 0;
 
@@ -73,31 +77,31 @@ public static class Town
     // Iterates through residences & activates their infection propagation
     public static void propagateTownInfections()
     {
-        foreach (GameObject residence in buildings.residentialBuildings) {
-            //residence.GetComponent<BuildingTemplate>().propagateInfections();
-        }
+        // EVENT
     }
 
     // Iterates through residences & activates their fatality progagation
     public static void propagateTownFatalities()
     {
-        foreach (GameObject residence in buildings.residentialBuildings)
-        {
-            //residence.GetComponent<BuildingTemplate>().propagateFatalities();
-        }
+        // EVENT
     }
 }
 
 struct TownStatistics
 {
-    // Total population
-    public int totalPop;
+    // Initial population
+    public int initPop;
+    // Current (total) population
+    public int curPop;
     // Healthy segment of population
     public int healthyPop;
     // Infected segment of population
     public int infectedPop;
+
+    // Initial Gross Domestic Product
+    public int initGDP;
     // Gross Domestic Product
-    public int gdp;
+    public int curGDP;
 }
 struct TownBuildings
 {
