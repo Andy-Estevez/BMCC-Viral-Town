@@ -7,7 +7,7 @@ public static class Virus
 {
     // chance is how likely it is to happen
     // rate is how many people it impacts
-    public static float infectionChance = 0.70f;
+    public static float infectionChance = 0.60f;
     public static float deathChance = 0.30f;
     public static float infectionRate = 0.20f;
     public static float deathRate = 0.10f;
@@ -20,16 +20,65 @@ public static class Virus
 
     public static void InfectionBuff()
     {
-        infectionChance += Random.Range(minBuffRate, maxBuffRate);
-        deathChance += Random.Range(minBuffRate, maxBuffRate);
-        infectionRate += Random.Range(minBuffRate, maxBuffRate);
-        deathRate += Random.Range(minBuffRate, maxBuffRate);
+        float randFloat = Random.Range(minBuffRate, maxBuffRate);
+        float randFloatRounded = Mathf.Round(randFloat * 100) / 100;
+
+        if (infectionChance + randFloatRounded >= 1.0f)
+        {
+            infectionChance = 1.0f;
+        }
+        else
+        {
+            infectionChance += randFloatRounded;
+        }
+
+        if (deathChance + randFloatRounded >= 1.0f)
+        {
+            deathChance = 1.0f;
+        }
+        else
+        {
+            deathChance += randFloatRounded;
+        }
+
+        if (infectionRate + randFloatRounded >= 1.0f)
+        {
+            infectionRate = 1.0f;
+        }
+        else
+        {
+            infectionRate += randFloatRounded;
+        }
+
+        if (deathRate + randFloatRounded >= 1.0f)
+        {
+            deathRate = 1.0f;
+        }
+        else
+        {
+            deathRate += randFloatRounded;
+        }
     }
 
     public static void IncreateBuffRate()
     {
-        minBuffRate += baseBuffRateIncrease;
-        maxBuffRate += baseBuffRateIncrease;
+        if (minBuffRate + baseBuffRateIncrease >= 1.0f)
+        {
+            minBuffRate = 1.0f;
+        }
+        else
+        {
+            minBuffRate += baseBuffRateIncrease;
+        }
+
+        if (maxBuffRate + baseBuffRateIncrease >= 1.0f)
+        {
+            maxBuffRate = 1.0f;
+        }
+        else
+        {
+            maxBuffRate += baseBuffRateIncrease;
+        }
     }
     
 

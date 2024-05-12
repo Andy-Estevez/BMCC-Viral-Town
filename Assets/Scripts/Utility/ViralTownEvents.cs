@@ -17,6 +17,7 @@ public static class ViralTownEvents
 
 
 
+
     // ex1:
     // public static IndicatorEvent stageOne = new IndicatorEvent();
 

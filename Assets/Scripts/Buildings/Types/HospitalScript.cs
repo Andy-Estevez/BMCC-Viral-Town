@@ -9,11 +9,13 @@ public class HospitalScript : BuildingTemplate
 
     public void VirusCure()
     {
-        if (Random.value <= cureChance)
+        if (Random.value <= cureChance && infectedOccupants != 0)
         {
             int randCuredPeople = Random.Range(1, infectedOccupants);
             healthyOccupants = healthyOccupants + randCuredPeople;
             infectedOccupants = infectedOccupants - randCuredPeople;
+            // delete after test
+            Debug.Log($"{gameObject.name}: {randCuredPeople} of {origInfectedOccupants} sick occupants cured");
         }
     }
 

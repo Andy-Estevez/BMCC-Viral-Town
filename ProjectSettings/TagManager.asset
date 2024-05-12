@@ -8,6 +8,10 @@ TagManager:
   - residental_zone
   - commercial_zone
   - HUD
+  - office_spawn
+  - residental_spawn
+  - commercial_spawn
+  - hospital_spawn
   layers:
   - Default
   - TransparentFX

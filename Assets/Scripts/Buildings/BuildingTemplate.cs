@@ -16,6 +16,7 @@ public abstract class BuildingTemplate : MonoBehaviour
     public int origHealthyOccupants;
     public int origInfectedOccupants;
 
+
     // spreads the virus 
     public virtual void PropagateVirus()
     {
@@ -40,14 +41,14 @@ public abstract class BuildingTemplate : MonoBehaviour
             {
                 healthyOccupants = 0;
                 infectedOccupants = occupants;
-                Debug.Log($"SPECIAL | {gameObject.name}: {infectedOccupants} sick / {healthyOccupants} healthy of {occupants} occupants");
+                Debug.Log($"{gameObject.name}: {infectedOccupants} sick / {healthyOccupants} healthy of {occupants} occupants");
             }
             else
             {
+                healthyOccupants = healthyOccupants - infectAmount;
                 infectedOccupants = infectedOccupants + infectAmount;
-                healthyOccupants = occupants - infectedOccupants;
                 // delete after testing
-                Debug.Log($"{gameObject.name}: {infectedOccupants} sick / {healthyOccupants} healthy of {occupants} occupants");
+                //Debug.Log($"{gameObject.name}: {infectedOccupants} sick / {healthyOccupants} healthy of {occupants} occupants");
             }
         }
     }
@@ -61,19 +62,19 @@ public abstract class BuildingTemplate : MonoBehaviour
         }
         if (Random.value <= Virus.deathChance)
         {
-            int deathAmount = (int)(Mathf.Ceil(infectedOccupants * Random.Range(0.01f, Virus.deathRate)));
+            int deathAmount = (int)( Mathf.Ceil( infectedOccupants * Random.Range(0.01f, Virus.deathRate) ) );
 
             infectedOccupants = infectedOccupants - deathAmount;
-            occupants = infectedOccupants + healthyOccupants;
-            Debug.Log($"{gameObject.name}: {deathAmount} occupants died. {occupants} / {origOccupants} occupants left");
+            occupants = occupants - deathAmount;
+            //Debug.Log($"{gameObject.name}: {deathAmount} occupants died. {occupants} / {origOccupants} occupants left");
         }
     }
 
     public virtual void Awake()
     {
-        Debug.Log($"buildingTemplate {gameObject.name} : I'm being called");
         ViralTownEvents.PropagateVirus.AddListener(PropagateVirus);
         ViralTownEvents.PropagateDeath.AddListener(PropagateDeath);
+
     }
 
     //// Start is called before the first frame update
@@ -82,7 +83,7 @@ public abstract class BuildingTemplate : MonoBehaviour
 
     //}
 
-    //// Update is called once per frame
+    // Update is called once per frame
     //void Update()
     //{
 
