@@ -27,8 +27,8 @@ public class OccurrencesPreFab : MonoBehaviour
         leftSide = moodleHolder.transform.GetChild(0).GetComponent<TMP_Text>();
         Debug.Log(leftSide);
         rightSide = moodleHolder.transform.GetChild(1).GetComponent<TMP_Text>();
-        leftSide.text = "";
-        rightSide.text = "";
+        leftSide.text = "Cons...\n";
+        rightSide.text = "Pros...\n";
     }
 
     public void SetMainTitle(string text)
@@ -49,15 +49,25 @@ public class OccurrencesPreFab : MonoBehaviour
     {
         foreach (OccurrenceMoodles moodle in moodles)
         {
-            // If the trait is negative, go left
-            if(moodle.Trait == "Negative")
-            {
-                leftSide.text += "•" + moodle.MoodleName + "\nEffect: " + moodle.Intensity + "\n";
+            // Gets font size of the text
+            float arrowSize = leftSide.fontSize;
+            // Icrement
+            float arrowIncrement = 30f;
+            // Calculate the new font size for the arrow
+            float newArrowSize = arrowSize + arrowIncrement;
 
+            // If the trait is negative, go left
+            if (moodle.Trait == "Negative")
+            {
+                leftSide.text += moodle.TypeIntensity == "Percentage" ?
+                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">↓</size>" + moodle.Intensity + "%" + "\n":
+                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">-</size>" + + moodle.Intensity + "\n";
             }
             else // Else, go right
             {
-                rightSide.text += "•" + moodle.MoodleName + "\nEffect: " + moodle.Intensity + "\n";
+                rightSide.text += moodle.TypeIntensity == "Percentage" ?
+                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">↑</size>" + moodle.Intensity + "%" + "\n" :
+                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">+</size>" + moodle.Intensity + "\n";
             }
         }
     }

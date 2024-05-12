@@ -9,31 +9,14 @@
             "Moodles": [
                 {
                     "Trait": "Negative",
-                    "MoodleName": "Mood1",
-                    "Intensity": 3
+                    "MoodleName": "GDP",
+                    "TypeIntensity": "Percentage",
+                    "Intensity": 60
                 },
                 {
                     "Trait": "Positive",
                     "MoodleName": "Mood2",
-                    "Intensity": 2
-                }
-            ]
-        },
-        {
-            "IntensityValue": 2,
-            "EventTitle": "Example 2",
-            "Description": "Description of Example 2",
-            "SideDescription": "Description of Example 2",
-
-            "Moodles": [
-                {
-                    "Trait": "Negative",
-                    "MoodleName": "Mood1",
-                    "Intensity": 3
-                },
-                {
-                    "Trait": "Positive",
-                    "MoodleName": "Mood2",
+                    "TypeIntensity": "Arithmetic",
                     "Intensity": 2
                 }
             ]
