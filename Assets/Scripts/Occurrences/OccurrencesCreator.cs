@@ -12,6 +12,7 @@ public class OccurrenceMoodles
 {
     public string Trait;
     public string MoodleName;
+    public string TypeIntensity;
     public int Intensity;
 }
 // Addresses the details of the occurrences
