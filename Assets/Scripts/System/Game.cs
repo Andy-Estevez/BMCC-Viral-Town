@@ -37,8 +37,9 @@ public class Game : MonoBehaviour
     {
         if (!gameOver)
         {
-            // Mayor observes the infection rate during night when everyone at home
+            // Mayor observes the infection rate
             ViralTownEvents.UpdateExclamationMark.Invoke();
+            ViralTownEvents.UpdateUINotification.Invoke();
 
             // If section (night/day) is over
             if (timer.IsFinished)

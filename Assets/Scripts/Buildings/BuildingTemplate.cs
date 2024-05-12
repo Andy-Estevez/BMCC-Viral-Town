@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.Port;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 // abstract class to contain elements
 public abstract class BuildingTemplate : MonoBehaviour
@@ -18,6 +20,8 @@ public abstract class BuildingTemplate : MonoBehaviour
 
     [SerializeField] private GameObject exclamationMarkPrefab; 
     private GameObject exclamationMarkInstance;
+    [SerializeField] private GameObject infectionRatePopupPrefab;
+    private GameObject infectionRatePopupInstance;
 
     // spreads the virus 
     public virtual void PropagateVirus()
@@ -112,6 +116,7 @@ public abstract class BuildingTemplate : MonoBehaviour
         ViralTownEvents.PropagateVirus.AddListener(PropagateVirus);
         ViralTownEvents.PropagateDeath.AddListener(PropagateDeath);
         ViralTownEvents.UpdateExclamationMark.AddListener(UpdateInfectionIndicator);
+        ViralTownEvents.UpdateUINotification.AddListener(UpdateUINotificationIndicator);
     }
 
     public void UpdateInfectionIndicator()
@@ -126,12 +131,38 @@ public abstract class BuildingTemplate : MonoBehaviour
             // Instantiate the exclamation mark above the building
             Vector3 offset = new Vector3(0, 1, 0); // Offset above the building
             exclamationMarkInstance = Instantiate(exclamationMarkPrefab, transform.position + offset, Quaternion.identity, transform);
+
         }
 
         else if (infectionRate < infectionThreshold1 && exclamationMarkInstance != null)
         {
             // Destroy the exclamation mark if the condition is no longer met
             Destroy(exclamationMarkInstance);
+            Destroy(infectionRatePopupInstance);
+        }
+    }
+
+
+
+    public void UpdateUINotificationIndicator()
+    {
+ 
+        if (Input.GetMouseButtonDown(1))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.gameObject == gameObject)
+                {
+                    Debug.Log("Clicked");
+                    infectionRatePopupInstance = Instantiate(infectionRatePopupPrefab, transform.position, Quaternion.identity, transform);
+                    UnityEngine.UI.Text textComponent = infectionRatePopupInstance.GetComponentInChildren<UnityEngine.UI.Text>();
+                    textComponent.text = $"Infection: {infectedOccupants * 100:F1}%";
+                }
+            }
         }
     }
 
