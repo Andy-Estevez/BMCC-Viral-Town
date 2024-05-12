@@ -26,15 +26,12 @@ public abstract class BuildingTemplate : MonoBehaviour
     // spreads the virus 
     public virtual void PropagateVirus()
     {
-        Debug.Log($"VIRUS PROPAGATED! -{gameObject.name}");
         if (occupants == 0)
         {
-            Debug.Log($"Building [{gameObject.name}] is unoccupied. Cannot propagate virus in empty building.");
             return;
         }
         if (infectedOccupants == occupants)
         {
-            Debug.Log($"Cannot propagate virus; all residents are already infected");
             return;
         }
 
@@ -43,70 +40,41 @@ public abstract class BuildingTemplate : MonoBehaviour
             // amount of people to infect
             int infectAmount;
 
-            if (infectedOccupants > 0)
-            {
-                infectAmount = (int)(Mathf.Ceil(occupants * (Random.Range(0.01f, Virus.infectionRate) + (infectedOccupants / occupants)) ));
-            }
-            else
-            {
-                infectAmount = (int)(Mathf.Ceil(occupants * Random.Range(0.01f, Virus.infectionRate)));
-            }
+            infectAmount = (int)( Mathf.Ceil( occupants * Random.Range(0.01f, Virus.infectionRate) ) );
 
-            if (infectAmount + infectedOccupants + healthyOccupants >= occupants)
+
+            if (infectAmount >= healthyOccupants)
             {
-                Debug.Log($"Succeeded to propagate virus at {Virus.infectionChance * 100}% chance | " +
-                            $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants to {occupants} infectedOccupants / {0} healthyOccupants");
                 healthyOccupants = 0;
                 infectedOccupants = occupants;
+                Debug.Log($"{gameObject.name}: {infectedOccupants} sick / {healthyOccupants} healthy of {occupants} occupants");
             }
             else
             {
-                Debug.Log($"Succeeded to propagate virus at {Virus.infectionChance * 100}% chance | " +
-                            $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants to {infectedOccupants + infectAmount} infectedOccupants / {occupants - (infectedOccupants + infectAmount)} healthyOccupants");
+                healthyOccupants = healthyOccupants - infectAmount;
                 infectedOccupants = infectedOccupants + infectAmount;
-                healthyOccupants = occupants - infectedOccupants;
+                // delete after testing
+                //Debug.Log($"{gameObject.name}: {infectedOccupants} sick / {healthyOccupants} healthy of {occupants} occupants");
             }
         }
-        else
-        {
-            Debug.Log($"Failed to propagate virus at {Virus.infectionRate * 100}% chance| " +
-                        $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
-        }
     }
+
 
     // kills people with 10% or deathChance probability. random.value returns value bewteen 0.0 (inclusive) and 1.0 (inclusive)
     public virtual void PropagateDeath()
     {
-        Debug.Log($"DEATH PROPAGATED! -{gameObject.name}");
-        if (occupants == 0)
-        {
-            Debug.Log($"Building [{gameObject.name}] is unoccupied. Cannot propagate death in empty building.");
-            return;
-        }
         if (infectedOccupants == 0)
         {
-            Debug.Log($"Death cannot be propagated for {infectedOccupants} infectedOccupants occupants | " +
-                        $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
             return;
         }
         if (Random.value <= Virus.deathChance)
         {
-            int deathAmount = (int)(Mathf.Ceil(infectedOccupants * Random.Range(0.01f, Virus.deathRate)));
+            int deathAmount = (int)( Mathf.Ceil( infectedOccupants * Random.Range(0.01f, Virus.deathRate) ) );
 
             infectedOccupants = infectedOccupants - deathAmount;
-            occupants = infectedOccupants + healthyOccupants;
-
-            Debug.Log($"Succeeded to cause infection deaths at {Virus.deathChance * 100}% chance | " + 
-                        $"{deathAmount} out of {infectedOccupants + deathAmount} infectedOccupants occupants died | " +
-                        $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
+            occupants = occupants - deathAmount;
+            //Debug.Log($"{gameObject.name}: {deathAmount} occupants died. {occupants} / {origOccupants} occupants left");
         }
-        else
-        {
-            Debug.Log($"Failed to cause infection deaths at {Virus.deathChance * 100}% chance | " + 
-                        $"{infectedOccupants} infectedOccupants occupants still alive | " +
-                        $"{infectedOccupants} infectedOccupants / {healthyOccupants} healthyOccupants of {occupants} occupants");
-        }
-
     }
 
 

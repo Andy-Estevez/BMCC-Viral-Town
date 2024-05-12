@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ShopDeli_night_0: 8666232915565480207
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

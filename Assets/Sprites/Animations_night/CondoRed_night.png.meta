@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CondoRed_night_0: 3606516859103572093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

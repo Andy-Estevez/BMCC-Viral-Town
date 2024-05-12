@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      OfficeGrey_night_0: -2493288572329674502
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DuplexBlue_night_0: 305558020197068656
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
