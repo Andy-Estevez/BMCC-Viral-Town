@@ -5736,6 +5736,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7515925795682550358, guid: 7d596d00288084acea5f6c2fc1a1e948, type: 3}
   m_PrefabInstance: {fileID: 234651546}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1068824596 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7170505317648029235, guid: c2aa99c89c7b42d4190a436306a1f247, type: 3}
+  m_PrefabInstance: {fileID: 3394507672629967428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1088483926 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7515925795682550358, guid: 7d596d00288084acea5f6c2fc1a1e948, type: 3}
@@ -6676,6 +6681,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d596d00288084acea5f6c2fc1a1e948, type: 3}
+--- !u!1 &1322129177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7858227040849936894, guid: c2aa99c89c7b42d4190a436306a1f247, type: 3}
+  m_PrefabInstance: {fileID: 3394507672629967428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1323843527
 GameObject:
   m_ObjectHideFlags: 0
@@ -11597,13 +11607,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1394340193}
     - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
+      propertyPath: lake1
+      value: 
+      objectReference: {fileID: 1322129177}
+    - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
+      propertyPath: lake2
+      value: 
+      objectReference: {fileID: 1068824596}
+    - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
+      propertyPath: mapSprites
+      value: 
+      objectReference: {fileID: 11400000, guid: 741ea960afaff714580378f1bf6072bf, type: 2}
+    - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
       propertyPath: initialHealthy
-      value: 95
+      value: 98
       objectReference: {fileID: 0}
     - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
       propertyPath: roundLengthSec
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
+      propertyPath: initialInfected
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
+      propertyPath: mapBuildingSprites
+      value: 
+      objectReference: {fileID: 11400000, guid: 741ea960afaff714580378f1bf6072bf, type: 2}
     - target: {fileID: 4115862405010534599, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.8997465

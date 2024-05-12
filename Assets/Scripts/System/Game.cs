@@ -16,6 +16,12 @@ public class Game : MonoBehaviour
 
     private bool gameOver = false;
 
+    [SerializeField] private MapSprites mapBuildingSprites;
+    [SerializeField] private GameObject lake1;
+    [SerializeField] private GameObject lake2;
+
+    private Camera camera;
+
     private Timer timer;
 
     // Methods
@@ -28,6 +34,8 @@ public class Game : MonoBehaviour
 
         // Load map
         Town.generateTown();
+
+        camera  = Camera.main;
 
         timer = new Timer();
         timer.setTimer(roundLengthSec / 2);
@@ -68,7 +76,10 @@ public class Game : MonoBehaviour
                     roundNum++;
 
                     // Update map visuals
-                    Town.updateMap("day");
+                    Town.updateMap("day", mapBuildingSprites);
+                    camera.backgroundColor = new Color32(116, 238, 129, 255);
+                    lake1.GetComponent<SpriteRenderer>().color = new Color32(167, 245, 255, 255);
+                    lake2.GetComponent<SpriteRenderer>().color = new Color32(167, 245, 255, 255);
 
                     // Move population to commercial buildings
                     Town.movePopToCom();
@@ -88,7 +99,10 @@ public class Game : MonoBehaviour
                     roundSection = "night";
 
                     // Update map visuals
-                    Town.updateMap("night");
+                    Town.updateMap("night", mapBuildingSprites);
+                    camera.backgroundColor = new Color32(10, 45, 40, 255);
+                    lake1.GetComponent<SpriteRenderer>().color = new Color32(10, 50, 60, 255);
+                    lake2.GetComponent<SpriteRenderer>().color = new Color32(10, 50, 60, 255);
 
                     // Move population to residential buildings
                     Town.movePopToRes();

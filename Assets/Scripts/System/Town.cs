@@ -136,15 +136,131 @@ public static class Town
     }
 
     // Updates map prefabs between day & night
-    public static void updateMap(string section)
+    public static void updateMap(string section, MapSprites mapBuildingSprites)
     {
         if (section == "day")
         {
+            foreach (GameObject residence in buildings.residentialBuildings)
+            {
+                SpriteRenderer residenceSprite = residence.GetComponent<SpriteRenderer>();
 
+                switch(residence.name)
+                {
+                    case "CondoRed(Clone)":
+                        residenceSprite.sprite = mapBuildingSprites.condoRedDay;
+                        break;
+
+                    case "DuplexBlue(Clone)":
+                        residenceSprite.sprite = mapBuildingSprites.duplexBlueDay;
+                        break;
+
+                    case "House(Clone)":
+                        residenceSprite.sprite = mapBuildingSprites.houseDay;
+                        break;
+                }
+            }
+
+            foreach (GameObject commercial in buildings.commercialBuildings)
+            {
+                SpriteRenderer commercialSprite = commercial.GetComponent<SpriteRenderer>();
+
+                switch (commercial.name)
+                {
+                    case "OfficeBlue(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.officeBlueDay;
+                        break;
+
+                    case "OfficeGrey(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.officeGreyDay;
+                        break;
+
+                    case "Restaurant(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.restaurantDay;
+                        break;
+
+                    case "Shop(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shopDay;
+                        break;
+
+                    case "ShopCoffee(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shopCoffeeDay;
+                        break;
+
+                    case "ShopDeli(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shopDeliDay;
+                        break;
+
+                    case "ShoppingMall(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shoppingMallDay;
+                        break;
+
+                    case "Supermarket(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.supermarketDay;
+                        break;
+                }
+            }
         }
         else if (section == "night")
         {
+            foreach (GameObject residence in buildings.residentialBuildings)
+            {
+                SpriteRenderer residenceSprite = residence.GetComponent<SpriteRenderer>();
 
+                switch (residence.name)
+                {
+                    case "CondoRed(Clone)":
+                        residenceSprite.sprite = mapBuildingSprites.condoRedNight;
+                        break;
+
+                    case "DuplexBlue(Clone)":
+                        residenceSprite.sprite = mapBuildingSprites.duplexBlueNight;
+                        break;
+
+                    case "House(Clone)":
+                        residenceSprite.sprite = mapBuildingSprites.houseNight;
+                        break;
+                }
+            }
+
+            foreach (GameObject commercial in buildings.commercialBuildings)
+            {
+                SpriteRenderer commercialSprite = commercial.GetComponent<SpriteRenderer>();
+
+                switch (commercial.name)
+                {
+                    case "OfficeBlue(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.officeBlueNight;
+                        break;
+
+                    case "OfficeGrey(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.officeGreyNight;
+                        break;
+
+                    case "Restaurant(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.restaurantNight;
+                        break;
+
+                    case "Shop(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shopNight;
+                        break;
+
+                    case "ShopCoffee(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shopCoffeeNight;
+                        break;
+
+                    case "ShopDeli(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shopDeliNight;
+                        break;
+
+                    case "ShoppingMall(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shoppingMallNight;
+                        break;
+
+                    case "Supermarket(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.supermarketNight;
+                        break;
+                }
+            }
         }
         else
         {

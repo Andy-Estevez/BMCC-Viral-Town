@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: bce8323012244fd478d7852a502d0d19
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - condoRedDay: {fileID: 3759304052700412007, guid: b1c4723ffd0b39546a5934dc877429b6, type: 3}
+  - duplexBlueDay: {fileID: 2001038794403217477, guid: 136c05d4348e047e3b395617f2fa6a07, type: 3}
+  - houseDay: {fileID: -1808018024590927149, guid: b54a9aa89acef354197e80d755c20c97, type: 3}
+  - officeBlueDay: {fileID: -483238163770202103, guid: 523a917fc8c48464a92641a0a3c002ad, type: 3}
+  - officeGreyDay: {fileID: 8528757615209181770, guid: 37349a911aabbee4aa7a7d5a5415c0d4, type: 3}
+  - restaurantDay: {fileID: -6886366809225412869, guid: a77e473b571354a1695c2b0db4a43b72, type: 3}
+  - shopDay: {fileID: -1151905075149521417, guid: d6e0955786ebb614ba788237fd6f4cf7, type: 3}
+  - shopCoffeeDay: {fileID: -4253117911260501183, guid: 0801632c895cd47df84bf11c6109d853, type: 3}
+  - shopDeliDay: {fileID: 6147393768790123558, guid: dce016917de93d941b33c7b6f7a8eb64, type: 3}
+  - shoppingMallDay: {fileID: -2862961688057574507, guid: afaf495d43385419faabc37da0a12274, type: 3}
+  - supermarketDay: {fileID: -136205349274888039, guid: a11725c72aa643d4ba1ac96d64d08f14, type: 3}
+  - condoRedNight: {fileID: 3606516859103572093, guid: 7e0d92d32cdc14207b47b1e3952f39a7, type: 3}
+  - duplexBlueNight: {fileID: 305558020197068656, guid: 82df042597b8e4f38b05d01ae95f46b3, type: 3}
+  - houseNight: {fileID: 2356576474885269947, guid: c10d94aba1d6143c9a1aeacfc0998879, type: 3}
+  - officeBlueNight: {fileID: 6641748315386291823, guid: 45afc8c97cb6d484d94fa5b4703e4641, type: 3}
+  - officeGreyNight: {fileID: -2493288572329674502, guid: 082ef8cf3fe8b4360ba8b3ab25aa6ffc, type: 3}
+  - restaurantNight: {fileID: -5726585243431313256, guid: 74c8a1ae216204328871b18a61524a24, type: 3}
+  - shopNight: {fileID: -7483927728370927048, guid: f088f33c8024e4ba1b3b624f1c2b912d, type: 3}
+  - shopCoffeeNight: {fileID: -4253117911260501183, guid: 0801632c895cd47df84bf11c6109d853, type: 3}
+  - shopDeliNight: {fileID: 8666232915565480207, guid: 866f69d49fe184ed5a4574f7575fb5e2, type: 3}
+  - shoppingMallNight: {fileID: -7124395724838079679, guid: 2d30b84b3488d45dcb55ff571349efaa, type: 3}
+  - supermarketNight: {fileID: -4469443790329369438, guid: a03ba9af20d4f42e4bf6da0df536b93c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
