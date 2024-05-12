@@ -104,6 +104,11 @@ MonoBehaviour:
   occupants: 0
   healthyOccupants: 0
   infectedOccupants: 0
+  origOccupants: 0
+  origHealthyOccupants: 0
+  origInfectedOccupants: 0
+  exclamationMarkPrefab: {fileID: 4134787079507934220, guid: 92fa71a5c7fcd400196932dcc7291a3d, type: 3}
+  infectionRatePopupPrefab: {fileID: 2175975209267812393, guid: 8241206e4545441fd9acf46b44fc7485, type: 3}
 --- !u!61 &-4710937783002104739
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -134,7 +139,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

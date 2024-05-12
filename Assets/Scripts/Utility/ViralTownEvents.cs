@@ -11,6 +11,9 @@ public static class ViralTownEvents
     public static UnityEvent PropagateHealing = new UnityEvent();
 
     public static UnityEvent UpdateHUD = new UnityEvent();
+    public static UnityEvent UpdateExclamationMark = new UnityEvent();
+    public static UnityEvent UpdateUINotification = new UnityEvent();
+
 
     public static UnityEvent ActivateOccurrences = new UnityEvent();
     public static UnityEvent TerminateOccurrencePopups = new UnityEvent();

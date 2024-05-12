@@ -104,6 +104,10 @@ MonoBehaviour:
   occupants: 0
   healthyOccupants: 0
   infectedOccupants: 0
+  origOccupants: 0
+  origHealthyOccupants: 0
+  origInfectedOccupants: 0
+  exclamationMarkPrefab: {fileID: 4134787079507934220, guid: 92fa71a5c7fcd400196932dcc7291a3d, type: 3}
 --- !u!61 &649002842716455671
 BoxCollider2D:
   m_ObjectHideFlags: 0
