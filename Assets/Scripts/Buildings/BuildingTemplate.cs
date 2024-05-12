@@ -16,6 +16,9 @@ public abstract class BuildingTemplate : MonoBehaviour
     public int origHealthyOccupants;
     public int origInfectedOccupants;
 
+    [SerializeField] private GameObject exclamationMarkPrefab; 
+    private GameObject exclamationMarkInstance;
+
     // spreads the virus 
     public virtual void PropagateVirus()
     {
@@ -102,12 +105,36 @@ public abstract class BuildingTemplate : MonoBehaviour
 
     }
 
+
     public virtual void Awake()
     {
         Debug.Log($"buildingTemplate {gameObject.name} : I'm being called");
         ViralTownEvents.PropagateVirus.AddListener(PropagateVirus);
         ViralTownEvents.PropagateDeath.AddListener(PropagateDeath);
+        ViralTownEvents.UpdateExclamationMark.AddListener(UpdateInfectionIndicator);
     }
+
+    public void UpdateInfectionIndicator()
+    {
+        // Define the infection rate and threshold for displaying the indicator
+        float infectionRate = (float)infectedOccupants / occupants;
+        float infectionThreshold1 = 0.3f; // Example threshold, adjust as needed
+
+        // Check if an exclamation mark needs to be shown or hidden
+        if (infectionRate >= infectionThreshold1 && exclamationMarkInstance == null)
+        {
+            // Instantiate the exclamation mark above the building
+            Vector3 offset = new Vector3(0, 1, 0); // Offset above the building
+            exclamationMarkInstance = Instantiate(exclamationMarkPrefab, transform.position + offset, Quaternion.identity, transform);
+        }
+
+        else if (infectionRate < infectionThreshold1 && exclamationMarkInstance != null)
+        {
+            // Destroy the exclamation mark if the condition is no longer met
+            Destroy(exclamationMarkInstance);
+        }
+    }
+
 
     //// Start is called before the first frame update
     //void Start()

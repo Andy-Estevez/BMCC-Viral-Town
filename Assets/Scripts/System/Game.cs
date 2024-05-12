@@ -37,6 +37,9 @@ public class Game : MonoBehaviour
     {
         if (!gameOver)
         {
+            // Mayor observes the infection rate during night when everyone at home
+            ViralTownEvents.UpdateExclamationMark.Invoke();
+
             // If section (night/day) is over
             if (timer.IsFinished)
             {
@@ -74,7 +77,7 @@ public class Game : MonoBehaviour
                 // DUSK: When day ends & night begins
                 else if (roundSection == "day")
                 {
-                    Debug.Log("Day has ended...");
+                    Debug.Log("Day has ended...");                 
 
                     // Propagate hospital healing
                     // ...
