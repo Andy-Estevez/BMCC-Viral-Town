@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    TownStatistics ts = new TownStatistics();
 
     //[SerializeField]
     public Text economyHealthText;
@@ -14,22 +13,18 @@ public class HUD : MonoBehaviour
     public Text populationText;
     public Text healtyPopText;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        economyHealthText.text = "GDP: $" + ts.curGDP.ToString();
-        populationText.text = "Total Population: " + ts.curPop.ToString();
-        healtyPopText.text = "Healthy Population: " + ts.healthyPop.ToString();
-        infectionRateText.text = "Infected Population: " + ts.infectedPop.ToString();
-    }
-
     // Update is called once per frame
-    void Update()
+    void UpdateHUDIndicator()
     {
         populationText.text = "Total Population: " + Town.CurrentPop.ToString();
         healtyPopText.text = "Healthy Population: " + Town.HealthyPop.ToString();
         infectionRateText.text = "Infected Population: " + Town.InfectedPop.ToString();
         economyHealthText.text = "GDP: $" + Town.CurrentGDP.ToString();
 
+    }
+
+    private void Awake()
+    {
+        ViralTownEvents.UpdateHUD.AddListener(UpdateHUDIndicator);
     }
 }
