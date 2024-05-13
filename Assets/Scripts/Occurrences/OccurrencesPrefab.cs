@@ -25,7 +25,6 @@ public class OccurrencesPreFab : MonoBehaviour
         moodleHolder.text = "The effects of your choices:";
         // Access the child TMP_Text components
         leftSide = moodleHolder.transform.GetChild(0).GetComponent<TMP_Text>();
-        Debug.Log(leftSide);
         rightSide = moodleHolder.transform.GetChild(1).GetComponent<TMP_Text>();
         leftSide.text = "Cons...\n";
         rightSide.text = "Pros...\n";
@@ -74,6 +73,11 @@ public class OccurrencesPreFab : MonoBehaviour
 
     public void onClick_closeButton()
     {
-        Destroy(gameObject);
+        ViralTownEvents.TerminateOccurrencePopups.Invoke();
+    }
+
+    public void onClick_acceptButton()
+    {
+        ViralTownEvents.AcceptRequest.Invoke();
     }
 }
