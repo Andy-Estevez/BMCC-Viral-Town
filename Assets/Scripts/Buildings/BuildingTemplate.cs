@@ -152,5 +152,5 @@ public abstract class BuildingTemplate : MonoBehaviour
     //{
 
     //}
-}
+
 
