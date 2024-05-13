@@ -61,7 +61,7 @@ public class Game : MonoBehaviour
                     // Terminate Occurrence Pop-ups
                     ViralTownEvents.TerminateOccurrencePopups.Invoke();
 
-                    // Propagate Virus Infection & Virus Death
+                    // Propagate virus infection & virus death
                     ViralTownEvents.PropagateVirus.Invoke();
                     ViralTownEvents.PropagateDeath.Invoke();
 
@@ -90,10 +90,19 @@ public class Game : MonoBehaviour
                 // DUSK: When day ends & night begins
                 else if (roundSection == "day")
                 {
-                    Debug.Log("Day has ended...");                 
+                    Debug.Log("Day has ended...");
+
+                    // Propagate virus infection
+                    ViralTownEvents.PropagateVirus.Invoke();
 
                     // Propagate hospital healing
                     ViralTownEvents.PropagateHealing.Invoke();
+
+                    // Update population
+                    Town.updatePop();
+
+                    // Update HUD
+                    ViralTownEvents.UpdateHUD.Invoke();
 
                     // Increment section
                     roundSection = "night";
