@@ -46,13 +46,13 @@ public class Game : MonoBehaviour
     {
         if (!gameOver)
         {
-            // Mayor observes the infection rate
-            ViralTownEvents.UpdateExclamationMark.Invoke();
-            ViralTownEvents.UpdateUINotification.Invoke();
-
             // If section (night/day) is over
             if (timer.IsFinished)
             {
+                // Mayor observes the infection rate
+                ViralTownEvents.UpdateExclamationMark.Invoke();
+                ViralTownEvents.UpdateUINotification.Invoke();
+
                 // DAWN: When night ends & day begins
                 if (roundSection == "night")
                 {
@@ -115,7 +115,7 @@ public class Game : MonoBehaviour
                     Debug.LogError("Invalid roundSection value given during round #" + roundNum);
                 }
 
-                if (roundNum % 4 == 0)
+                if (roundNum % 3 == 0)
                 {
                     Virus.InfectionBuff();
                 }

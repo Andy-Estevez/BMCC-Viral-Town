@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 // Static helper class that manages high-level, town-related functionality
@@ -313,6 +314,12 @@ public static class Town
             stats.healthyPop += residenceScript.healthyOccupants;
             stats.infectedPop += residenceScript.infectedOccupants;
         }
+    }
+
+    // Decreases GDP when somebody dies
+    public static void onDeath(int deathAmount)
+    {
+        CurrentGDP -= (InitialGDP / InitialPop) * deathAmount;
     }
 
     // Moves population to residential buildings
