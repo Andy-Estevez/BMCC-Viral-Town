@@ -11,12 +11,42 @@ public static class Town
     private static BuildingSpawner spawner;
 
     // Properties
-    public static int InitialPop => stats.initPop;
-    public static int CurrentPop => stats.curPop;
-    public static int HealthyPop => stats.healthyPop;
-    public static int InfectedPop => stats.infectedPop;
-    public static int InitialGDP => stats.initGDP;
-    public static int CurrentGDP => stats.curGDP;
+    public static int InitialPop
+    {
+        get => stats.initPop;
+        set => stats.initPop = value;
+    }
+
+    public static int CurrentPop
+    {
+        get => stats.curPop;
+        set => stats.curPop = value;
+    }
+
+    public static int HealthyPop
+    {
+        get => stats.healthyPop;
+        set => stats.healthyPop = value;
+    }
+
+    public static int InfectedPop
+    {
+        get => stats.infectedPop;
+        set => stats.infectedPop = value;
+    }
+
+    public static int InitialGDP
+    {
+        get => stats.initGDP;
+        set => stats.initGDP = value;
+    }
+
+    public static int CurrentGDP
+    {
+        get => stats.curGDP;
+        set => stats.curGDP = value;
+    }
+
 
     // Methods
 
