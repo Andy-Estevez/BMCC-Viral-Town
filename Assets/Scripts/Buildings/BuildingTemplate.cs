@@ -84,14 +84,14 @@ public abstract class BuildingTemplate : MonoBehaviour
         ViralTownEvents.PropagateVirus.AddListener(PropagateVirus);
         ViralTownEvents.PropagateDeath.AddListener(PropagateDeath);
         ViralTownEvents.UpdateExclamationMark.AddListener(UpdateInfectionIndicator);
-        ViralTownEvents.UpdateUINotification.AddListener(UpdateUINotificationIndicator);
+        //ViralTownEvents.UpdateUINotification.AddListener(OnMouseDown);
     }
 
     public void UpdateInfectionIndicator()
     {
         // Define the infection rate and threshold for displaying the indicator
         float infectionRate = (float)infectedOccupants / occupants;
-        float infectionThreshold1 = 0.3f; // Example threshold, adjust as needed
+        float infectionThreshold1 = 0.5f; // Example threshold, adjust as needed
 
         // Check if an exclamation mark needs to be shown or hidden
         if (infectionRate >= infectionThreshold1 && exclamationMarkInstance == null)
@@ -112,27 +112,33 @@ public abstract class BuildingTemplate : MonoBehaviour
 
 
 
-    public void UpdateUINotificationIndicator()
+    
+    void OnMouseDown()
     {
- 
-        if (Input.GetMouseButtonDown(1))
+        Debug.Log("clicked");
+        float infectionRate = (float)infectedOccupants / occupants;
+
+        // Position the popup above the building or adjust as necessary
+        Vector3 popupPosition = transform.position + new Vector3(0, 2, 0); // Adjusts position slightly above the building
+
+        // Check if a popup already exists and destroy it if it does
+        if (infectionRatePopupInstance != null)
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    Debug.Log("Clicked");
-                    infectionRatePopupInstance = Instantiate(infectionRatePopupPrefab, transform.position, Quaternion.identity, transform);
-                    UnityEngine.UI.Text textComponent = infectionRatePopupInstance.GetComponentInChildren<UnityEngine.UI.Text>();
-                    textComponent.text = $"Infection: {infectedOccupants * 100:F1}%";
-                }
-            }
+            Destroy(infectionRatePopupInstance);
         }
+
+        // Instantiate a new popup
+        infectionRatePopupInstance = Instantiate(infectionRatePopupPrefab, popupPosition, Quaternion.identity);
+        UnityEngine.UI.Text textComponent = infectionRatePopupInstance.GetComponentInChildren<UnityEngine.UI.Text>();
+        textComponent.text = $"Infection: {infectedOccupants * 100 / occupants:F1}%";
+
+        // Destroy the popup after 2 seconds
+        Destroy(infectionRatePopupInstance, 2f);  // 2f is the time in seconds after which the popup will be destroyed
     }
+
+
+}
+    
 
 
     //// Start is called before the first frame update
