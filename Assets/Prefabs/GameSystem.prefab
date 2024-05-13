@@ -50,6 +50,7 @@ MonoBehaviour:
   initialInfected: 5
   initialGDP: 10000000
   roundLengthSec: 30
+  mapBuildingSprites: {fileID: 11400000, guid: 741ea960afaff714580378f1bf6072bf, type: 2}
 --- !u!114 &-3620493624478556969
 MonoBehaviour:
   m_ObjectHideFlags: 0

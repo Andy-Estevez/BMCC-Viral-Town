@@ -12,6 +12,7 @@ public class OccurrenceMoodles
 {
     public string Trait;
     public string MoodleName;
+    public string TypeIntensity;
     public int Intensity;
 }
 // Addresses the details of the occurrences
@@ -36,7 +37,20 @@ public class OccurrencesCreator : MonoBehaviour
 {
     // Stores the path of the prefab
     string occurrencePreFab = "Assets/Prefabs/eventCanvas.prefab";
+    // Stores the prefab
+    OccurrencesPreFab newPreFab;
+    // Choose certain occurence
+    OccurrenceInfo chosenOccurence;
 
+    // References the unity events
+    public virtual void Awake()
+    {
+        ViralTownEvents.ActivateOccurrences.AddListener(MayorOccurrences);
+        ViralTownEvents.TerminateOccurrencePopups.AddListener(DestroyOccurrence);
+        ViralTownEvents.AcceptRequest.AddListener(AcceptRequest);
+    }
+
+    // Policies/Mayor
     public void MayorOccurrences()
     {
         // Have to discuss with members but for now, lets say intensity level 1 ("Covid broke out")
@@ -55,7 +69,7 @@ public class OccurrencesCreator : MonoBehaviour
             // Deserialize JSON into a list of OccurrenceHolder objects
             OccurrencesList occurenceList = JsonUtility.FromJson<OccurrencesList>(jsonText);
             // Match an occurence based on the intensity
-            OccurrenceInfo chosenOccurence = SelectOccurrenceByClosestIntensity(occurenceList, intensity);
+            chosenOccurence = SelectOccurrenceByClosestIntensity(occurenceList, intensity);
             StartCoroutine(SummonEvent(chosenOccurence));
         }
         else
@@ -63,10 +77,34 @@ public class OccurrencesCreator : MonoBehaviour
             Debug.LogError("JSON file not found: " + fullPath);
         }
     }
+    // Random Occurrences
     public void RandomOccurrences()
     {
+        // Have to discuss with members but for now, lets say intensity level 1 ("Covid broke out")
+        int intensity = 1;
 
+        // Stores the path of the JSON file holding the occurences
+        string jsonFilePath = "Scripts/Occurrences/RandomOccurrences.json";
+        // Construct the full file path
+        string fullPath = Path.Combine(Application.dataPath, jsonFilePath);
+
+        // Check if the file exists
+        if (File.Exists(fullPath))
+        {
+            // Read the JSON file
+            string jsonText = File.ReadAllText(fullPath);
+            // Deserialize JSON into a list of OccurrenceHolder objects
+            OccurrencesList occurenceList = JsonUtility.FromJson<OccurrencesList>(jsonText);
+            // Match an occurence based on the intensity
+            chosenOccurence = SelectOccurrenceByClosestIntensity(occurenceList, intensity);
+            StartCoroutine(SummonEvent(chosenOccurence));
+        }
+        else
+        {
+            Debug.LogError("JSON file not found: " + fullPath);
+        }
     }
+
     // Function to select an occurence
     private OccurrenceInfo SelectOccurrenceByClosestIntensity(OccurrencesList data, double targetIntensity)
     {
@@ -82,8 +120,7 @@ public class OccurrencesCreator : MonoBehaviour
         if (prefab != null)
         {
             // Instantiate the prefab
-            OccurrencesPreFab newPreFab = Instantiate(prefab);
-            Debug.Log("here!!");
+            newPreFab = Instantiate(prefab);
             yield return null;
 
             // Setting up the prefab based on the information
@@ -102,4 +139,57 @@ public class OccurrencesCreator : MonoBehaviour
         }
     }
 
+    // If declined, nothing happens, just exits it out.
+    // If accepted
+    public void AcceptRequest()
+    {
+        // Sets the impact score
+        double impact = 0;
+        foreach (OccurrenceMoodles moodle in chosenOccurence.Moodles)
+        {
+            switch (moodle.MoodleName)
+            {
+                //Population
+                case "HealthyPop":
+                    if(moodle.TypeIntensity == "Arithmetic")
+                    {
+                        impact = moodle.Trait == "Positive" ?
+                            moodle.Intensity : -moodle.Intensity;
+                        Town.HealthyPop += (int)impact;
+                        Town.InfectedPop -= (int)impact;
+                    }
+                    else
+                    {
+                        impact = moodle.Trait == "Positive" ?
+                            (moodle.Intensity / 100) + 100 : 100 - moodle.Intensity;
+                        Town.HealthyPop = (int)(Town.HealthyPop * impact);
+                        Town.InfectedPop -= (int)(Town.HealthyPop * impact);
+                    }
+
+                    break;
+                case "InfectedPop":
+                    break;
+                case "Death":
+                    break;
+                // Mesc
+                case "GDP":
+                    break;
+                default:
+                    break;
+
+            }
+        }
+
+        DestroyOccurrence();
+    }
+
+    // Function to destroy the prefab
+    public void DestroyOccurrence()
+    {
+        if (newPreFab != null)
+        {
+            // Destroy the GameObject associated with the prefab
+            Destroy(newPreFab.gameObject);
+        }
+    }
 }

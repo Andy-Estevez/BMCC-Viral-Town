@@ -11,12 +11,42 @@ public static class Town
     private static BuildingSpawner spawner;
 
     // Properties
-    public static int InitialPop => stats.initPop;
-    public static int CurrentPop => stats.curPop;
-    public static int HealthyPop => stats.healthyPop;
-    public static int InfectedPop => stats.infectedPop;
-    public static int InitialGDP => stats.initGDP;
-    public static int CurrentGDP => stats.curGDP;
+    public static int InitialPop
+    {
+        get => stats.initPop;
+        set => stats.initPop = value;
+    }
+
+    public static int CurrentPop
+    {
+        get => stats.curPop;
+        set => stats.curPop = value;
+    }
+
+    public static int HealthyPop
+    {
+        get => stats.healthyPop;
+        set => stats.healthyPop = value;
+    }
+
+    public static int InfectedPop
+    {
+        get => stats.infectedPop;
+        set => stats.infectedPop = value;
+    }
+
+    public static int InitialGDP
+    {
+        get => stats.initGDP;
+        set => stats.initGDP = value;
+    }
+
+    public static int CurrentGDP
+    {
+        get => stats.curGDP;
+        set => stats.curGDP = value;
+    }
+
 
     // Methods
 
@@ -136,15 +166,131 @@ public static class Town
     }
 
     // Updates map prefabs between day & night
-    public static void updateMap(string section)
+    public static void updateMap(string section, MapSprites mapBuildingSprites)
     {
         if (section == "day")
         {
+            foreach (GameObject residence in buildings.residentialBuildings)
+            {
+                SpriteRenderer residenceSprite = residence.GetComponent<SpriteRenderer>();
 
+                switch(residence.name)
+                {
+                    case "CondoRed(Clone)":
+                        residenceSprite.sprite = mapBuildingSprites.condoRedDay;
+                        break;
+
+                    case "DuplexBlue(Clone)":
+                        residenceSprite.sprite = mapBuildingSprites.duplexBlueDay;
+                        break;
+
+                    case "House(Clone)":
+                        residenceSprite.sprite = mapBuildingSprites.houseDay;
+                        break;
+                }
+            }
+
+            foreach (GameObject commercial in buildings.commercialBuildings)
+            {
+                SpriteRenderer commercialSprite = commercial.GetComponent<SpriteRenderer>();
+
+                switch (commercial.name)
+                {
+                    case "OfficeBlue(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.officeBlueDay;
+                        break;
+
+                    case "OfficeGrey(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.officeGreyDay;
+                        break;
+
+                    case "Restaurant(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.restaurantDay;
+                        break;
+
+                    case "Shop(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shopDay;
+                        break;
+
+                    case "ShopCoffee(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shopCoffeeDay;
+                        break;
+
+                    case "ShopDeli(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shopDeliDay;
+                        break;
+
+                    case "ShoppingMall(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shoppingMallDay;
+                        break;
+
+                    case "Supermarket(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.supermarketDay;
+                        break;
+                }
+            }
         }
         else if (section == "night")
         {
+            foreach (GameObject residence in buildings.residentialBuildings)
+            {
+                SpriteRenderer residenceSprite = residence.GetComponent<SpriteRenderer>();
 
+                switch (residence.name)
+                {
+                    case "CondoRed(Clone)":
+                        residenceSprite.sprite = mapBuildingSprites.condoRedNight;
+                        break;
+
+                    case "DuplexBlue(Clone)":
+                        residenceSprite.sprite = mapBuildingSprites.duplexBlueNight;
+                        break;
+
+                    case "House(Clone)":
+                        residenceSprite.sprite = mapBuildingSprites.houseNight;
+                        break;
+                }
+            }
+
+            foreach (GameObject commercial in buildings.commercialBuildings)
+            {
+                SpriteRenderer commercialSprite = commercial.GetComponent<SpriteRenderer>();
+
+                switch (commercial.name)
+                {
+                    case "OfficeBlue(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.officeBlueNight;
+                        break;
+
+                    case "OfficeGrey(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.officeGreyNight;
+                        break;
+
+                    case "Restaurant(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.restaurantNight;
+                        break;
+
+                    case "Shop(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shopNight;
+                        break;
+
+                    case "ShopCoffee(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shopCoffeeNight;
+                        break;
+
+                    case "ShopDeli(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shopDeliNight;
+                        break;
+
+                    case "ShoppingMall(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.shoppingMallNight;
+                        break;
+
+                    case "Supermarket(Clone)":
+                        commercialSprite.sprite = mapBuildingSprites.supermarketNight;
+                        break;
+                }
+            }
         }
         else
         {

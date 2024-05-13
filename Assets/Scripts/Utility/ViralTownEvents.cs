@@ -14,12 +14,10 @@ public static class ViralTownEvents
     public static UnityEvent UpdateExclamationMark = new UnityEvent();
     public static UnityEvent UpdateUINotification = new UnityEvent();
 
-
     public static UnityEvent ActivateOccurrences = new UnityEvent();
     public static UnityEvent TerminateOccurrencePopups = new UnityEvent();
-
-
-
+    // If player presses accept policy
+    public static UnityEvent AcceptRequest = new UnityEvent();
 
     // ex1:
     // public static IndicatorEvent stageOne = new IndicatorEvent();
@@ -28,11 +26,6 @@ public static class ViralTownEvents
     // public static PolicyEvent enactPolicy = new PolicyEvent();
 
 }
-
-
-
-
-
 
 // example1 (passing one parameter):
 // public class IndicatorEvent : UnityEvent<int> { }
