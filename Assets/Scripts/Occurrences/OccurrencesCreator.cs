@@ -63,7 +63,7 @@ public class OccurrencesCreator : MonoBehaviour
     public void MayorOccurrences()
     {
         // Have to discuss with members but for now, lets say intensity level 1 ("Covid broke out")
-        int intensity = CalculateIntensityLevel();
+        int intensity = 24;
 
         // Stores the path of the JSON file holding the occurences
         string jsonFilePath = "Scripts/Occurrences/MayorOccurrences.json";
@@ -329,7 +329,13 @@ public class OccurrencesCreator : MonoBehaviour
                 case "CureRate":
                     hospitalObject.cureChance *= (float)impact;
                     break;
-
+                case "Lockdown":
+                    var keys = new List<string>(Town.lockdowns.Keys);
+                    foreach (var key in keys)
+                    {
+                        Town.lockdowns[key] = true;
+                    }
+                    break;
                 default:
                     break;
             }
