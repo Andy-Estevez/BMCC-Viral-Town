@@ -12,6 +12,18 @@ public static class Town
     private static TownBuildings buildings;
     private static BuildingSpawner spawner;
 
+    public static Dictionary <string, bool> lockdowns = new Dictionary <string, bool>()
+    {
+        {"OfficeBlue", false},
+        {"OfficeGrey", false},
+        {"Restaurant", false},
+        {"Shop", false},
+        {"ShopCoffee", false},
+        {"ShopDeli", false},
+        {"ShoppingMall", false},
+        {"Supermarket", false},
+    };
+
     // Properties
     public static int InitialPop
     {
