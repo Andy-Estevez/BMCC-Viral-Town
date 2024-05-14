@@ -56,15 +56,29 @@ public class OccurrencePrefab : MonoBehaviour
             // If the trait is negative, go left
             if (moodle.Trait == "Negative")
             {
-                leftSide.text += moodle.TemporaryValue != null ?
-                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">-</size>" + moodle.TemporaryValue + "\n" :
-                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">↓</size>" + moodle.Intensity + "%" + "\n";
+                if(moodle.Intensity != -1)
+                {
+                    leftSide.text += moodle.TemporaryValue != null ?
+                        moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">-</size>" + moodle.TemporaryValue + "\n" :
+                        moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">↓</size>" + moodle.Intensity + "%" + "\n";
+                }
+                else
+                {
+                    leftSide.text += moodle.MoodleName + "\n";
+                }
             }
             else // Else, go right
             {
-                rightSide.text += moodle.TemporaryValue != null ?
-                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">+</size>" + moodle.TemporaryValue + "\n" :
-                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">↑</size>" + moodle.Intensity + "%" + "\n";
+                if(moodle.Intensity != -1)
+                {
+                    rightSide.text += moodle.TemporaryValue != null ?
+                        moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">+</size>" + moodle.TemporaryValue + "\n" :
+                        moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">↑</size>" + moodle.Intensity + "%" + "\n";
+                }
+                else
+                {
+                    rightSide.text += moodle.MoodleName + "\n";
+                }
             }
         }
     }

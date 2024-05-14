@@ -474,22 +474,30 @@
                     "Trait": "Positive",
                     "MoodleName": "HealthyPop",
                     "Switch": false,
-                    "Intensity": 0.7,
+                    "Intensity": 2.4,
                     "TemporaryValue": null
                 },
                 {
                     "Trait": "Negative",
                     "MoodleName": "InfectedPop",
                     "Switch": false,
-                    "Intensity": 0.6,
+                    "Intensity": 0.1,
                     "TemporaryValue": null
                 },
                 {
                     "Trait": "Negative",
                     "MoodleName": "GDP",
                     "Switch": false,
-                    "Intensity": 0.5,
+                    "Intensity": 3.5,
                     "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "Lockdown",
+                    "Switch": false,
+                    "Intensity": -1,
+                    "TemporaryValue": null
+
                 }
             ]
         },
