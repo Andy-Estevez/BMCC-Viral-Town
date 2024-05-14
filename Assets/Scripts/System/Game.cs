@@ -81,9 +81,6 @@ public class Game : MonoBehaviour
                     // Move population to commercial buildings
                     Town.movePopToCom();
 
-                    // Propagate virus infection (Optional)
-                    ViralTownEvents.PropagateVirus.Invoke();
-
                     // Terminate Occurrence Pop-ups
                     ViralTownEvents.TerminateOccurrencePopups.Invoke();
                     ViralTownEvents.RandomOccurrences.Invoke();
@@ -134,6 +131,12 @@ public class Game : MonoBehaviour
 
                 if (Town.HealthyPop == 0)
                 {
+                    Debug.Log("GAME OVER: Everyone is sick");
+                    gameOver = true;
+                }
+                else if (Town.CurrentGDP <= 2500000)
+                {
+                    Debug.Log("GAME OVER: The economy has collapsed");
                     gameOver = true;
                 }
 
@@ -145,10 +148,6 @@ public class Game : MonoBehaviour
                 // Increment section timer
                 timer.updateTimer(Time.deltaTime);
             }
-        }
-        else
-        {
-            Debug.Log("GAME OVER!");
         }
     }
 }
