@@ -35,7 +35,7 @@ public class Game : MonoBehaviour
         // Load map
         Town.generateTown();
 
-        camera  = Camera.main;
+        camera = Camera.main;
 
         timer = new Timer();
         timer.setTimer(roundLengthSec / 2);

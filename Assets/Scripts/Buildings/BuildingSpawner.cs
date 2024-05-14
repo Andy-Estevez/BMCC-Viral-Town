@@ -43,7 +43,8 @@ public class BuildingSpawner : MonoBehaviour
         SpawnBuildings(officeBuildings, officeContainer, officeBorder[2], 4 / 5, 4, "off");
         SpawnBuildings(commercialBuildings, commercialContainer, commercialBorder, 4 / 5, 18, "com");
 
-        Town.initBuildingData();
+        Town.initResidentialBuildingData();
+        Town.initCommercialBuildingData();
     }
 
     void SpawnBuildings(GameObject[] prefabs, Transform zoneContainer, Transform zoneBorder, float streetWidth, int amount, string type)
