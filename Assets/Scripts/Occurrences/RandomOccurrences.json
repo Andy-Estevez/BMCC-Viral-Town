@@ -11,7 +11,7 @@
                     "Trait": "Negative",
                     "MoodleName": "GDP",
                     "Switch": false,
-                    "Intensity": 60,
+                    "Intensity": 0.1,
                     "TemporaryValue": null
                 },
                 {

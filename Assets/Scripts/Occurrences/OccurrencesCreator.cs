@@ -57,7 +57,8 @@ public class OccurrencesCreator : MonoBehaviour
     public void MayorOccurrences()
     {
         // Have to discuss with members but for now, lets say intensity level 1 ("Covid broke out")
-        int intensity = 1;
+        int intensity = CalculateIntensityLevel();
+        Debug.Log(intensity);
 
         // Stores the path of the JSON file holding the occurences
         string jsonFilePath = "Scripts/Occurrences/MayorOccurrences.json";
@@ -101,6 +102,8 @@ public class OccurrencesCreator : MonoBehaviour
             // Checks if a percentage needs to be numerical
             CheckForSwitch();
             StartCoroutine(SummonEvent(chosenOccurence, RandomPrefab));
+
+            SentOccurrenceReq();
         }
         else
         {
@@ -190,6 +193,7 @@ public class OccurrencesCreator : MonoBehaviour
                         break;
                     // Mesc
                     case "GDP":
+                        numericalImpact = Town.CurrentGDP * moodle.Intensity;
                         break;
                     default:
                         break;
@@ -231,7 +235,7 @@ public class OccurrencesCreator : MonoBehaviour
                     // Ensure the infected population does not go into negative
                     if (newInfectedPop < 0)
                     {
-                        newHealthyPop += newInfectedPop; // Subtract excess from healthy population
+                        newHealthyPop += newInfectedPop;
                         newInfectedPop = 0;
                     }
 
@@ -259,7 +263,7 @@ public class OccurrencesCreator : MonoBehaviour
                     // Ensure the healthy population does not go into negative
                     if (newHealthyPop < 0)
                     {
-                        newInfectedPop += newHealthyPop; // Subtract excess from infected population
+                        newInfectedPop += newHealthyPop;
                         newHealthyPop = 0;
                     }
 
@@ -280,7 +284,6 @@ public class OccurrencesCreator : MonoBehaviour
                     break;
             }
         }
-
     }
 
     // Function to destroy the prefab
@@ -297,5 +300,40 @@ public class OccurrencesCreator : MonoBehaviour
     {
         // Find the occurrence with intensity closest to the target intensity
         return data.Occurrences.OrderBy(occurrence => Math.Abs(occurrence.IntensityValue - targetIntensity)).FirstOrDefault();
+    }
+
+    // Function to calculate intensity level
+    public static int CalculateIntensityLevel()
+    {
+        // Calculate percentage change in population and GDP
+        double populationChangePercentage = (double)(Town.CurrentPop - Town.InitialPop) / Town.InitialPop * 100;
+        double gdpChangePercentage = (double)(Math.Abs(Town.CurrentGDP - Town.InitialGDP)) / Town.InitialGDP * 100;
+
+        // Calculate percentage of infected population
+        double infectedPopPercentage = (double)Town.InfectedPop / Town.CurrentPop * 100;
+
+        // Define weights for each factor (population change, GDP change, infected population)
+        double weightPopulationChange = 0.4;
+        double weightGDPChange = 0.3;
+        double weightInfectedPop = 0.3;
+
+        // Debug logs
+        Debug.Log($"Population change percentage: {populationChangePercentage}");
+        Debug.Log($"GDP change percentage: {gdpChangePercentage}");
+        Debug.Log($"Infected population percentage: {infectedPopPercentage}");
+
+        // Calculate weighted sum
+        double weightedSum = (populationChangePercentage * weightPopulationChange) +
+                             (gdpChangePercentage * weightGDPChange) +
+                             (infectedPopPercentage * weightInfectedPop);
+
+        // Debug log
+        Debug.Log($"Weighted sum: {weightedSum}");
+
+        // Map the weighted sum to a range from 1 to 100
+        int intensityLevel = (int)Math.Round(weightedSum);
+
+        // Ensure the intensity level is within the range of 1 to 100
+        return Mathf.Clamp(intensityLevel, 1, 100);
     }
 }
