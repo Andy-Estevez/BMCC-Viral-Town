@@ -73,6 +73,8 @@ public abstract class BuildingTemplate : MonoBehaviour
 
             infectedOccupants = infectedOccupants - deathAmount;
             occupants = occupants - deathAmount;
+
+            Town.onDeath(deathAmount);
             //Debug.Log($"{gameObject.name}: {deathAmount} occupants died. {occupants} / {origOccupants} occupants left");
         }
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 // Static helper class that manages high-level, town-related functionality
@@ -315,10 +316,121 @@ public static class Town
         }
     }
 
+    // Decreases GDP when somebody dies
+    public static void onDeath(int deathAmount)
+    {
+        CurrentGDP -= (InitialGDP / InitialPop) * deathAmount;
+    }
+
     // Moves population to residential buildings
     public static void movePopToRes()
     {
-        // ...
+        int interimTotal = 0;
+        int interimHealthy = 0;
+        int interimInfected = 0;
+        int atHospitalHealthy = 0;
+        int atHospitalInfected = 0;
+
+        // Get number of people at hospital
+        BuildingTemplate hospitalScript = buildings.hospital.GetComponent<BuildingTemplate>();
+        atHospitalHealthy = hospitalScript.healthyOccupants;
+        atHospitalInfected = hospitalScript.infectedOccupants;
+
+        // Scoop up all occupants from commercial buildings
+        foreach (GameObject commercial in buildings.commercialBuildings)
+        {
+            BuildingTemplate buildingScript = commercial.GetComponent<BuildingTemplate>();
+
+            interimTotal += buildingScript.occupants;
+            interimHealthy += buildingScript.healthyOccupants;
+            interimInfected += buildingScript.infectedOccupants;
+
+            buildingScript.occupants = 0;
+            buildingScript.healthyOccupants = 0;
+            buildingScript.infectedOccupants = 0;
+        }
+
+        // Distribute healthy residents to residentials
+        while (interimHealthy > 0)
+        {
+            int randIndex = UnityEngine.Random.Range(0, buildings.residentialBuildings.Count);
+
+            GameObject curBuilding = buildings.residentialBuildings[randIndex];
+            BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
+
+            if (buildingScript.healthyOccupants < buildingScript.origHealthyOccupants)
+            {
+                buildingScript.healthyOccupants++;
+                interimHealthy--;
+            }
+        }
+
+        // Distribute infected residents to residentials
+        while (interimInfected > 0)
+        {
+            int randIndex = UnityEngine.Random.Range(0, buildings.residentialBuildings.Count);
+
+            GameObject curBuilding = buildings.residentialBuildings[randIndex];
+            BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
+
+            if (buildingScript.infectedOccupants < buildingScript.origInfectedOccupants)
+            {
+                buildingScript.infectedOccupants++;
+                interimInfected--;
+            }
+        }
+
+        // Update Building Orig Data
+        foreach (GameObject residential in buildings.residentialBuildings)
+        {
+            BuildingTemplate buildingScript = residential.GetComponent<BuildingTemplate>();
+
+            // If healthy people missing (infectd)
+            if (buildingScript.healthyOccupants < buildingScript.origHealthyOccupants)
+            {
+                buildingScript.origHealthyOccupants = buildingScript.healthyOccupants;
+            }
+
+            // If infected people missing (died, healed, or at hospital)
+            if (buildingScript.infectedOccupants < buildingScript.origInfectedOccupants)
+            {
+                buildingScript.origInfectedOccupants = buildingScript.infectedOccupants;
+            }
+
+            // If people missing (died, or at hospital)
+            if (buildingScript.origOccupants > (buildingScript.healthyOccupants +  buildingScript.infectedOccupants))
+            {
+                buildingScript.origOccupants = (buildingScript.healthyOccupants + buildingScript.infectedOccupants);
+            }
+        }
+
+        // Reserve residential spots for hospitalized people
+        while (atHospitalInfected > 0)
+        {
+            int randIndex = UnityEngine.Random.Range(0, buildings.residentialBuildings.Count);
+
+            GameObject curBuilding = buildings.residentialBuildings[randIndex];
+            BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
+
+            buildingScript.origInfectedOccupants++;
+            buildingScript.origOccupants++;
+            atHospitalInfected--;
+        }
+
+        // Move discharged people to residentials
+        while (atHospitalHealthy > 0)
+        {
+            int randIndex = UnityEngine.Random.Range(0, buildings.residentialBuildings.Count);
+
+            GameObject curBuilding = buildings.residentialBuildings[randIndex];
+            BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
+
+            buildingScript.healthyOccupants++;
+            buildingScript.occupants++;
+            buildingScript.origHealthyOccupants++;
+            buildingScript.origOccupants++;
+            atHospitalHealthy--;
+        }
     }
 
     // Distributes population to commercial buildings

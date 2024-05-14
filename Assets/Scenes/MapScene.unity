@@ -21451,15 +21451,19 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 741ea960afaff714580378f1bf6072bf, type: 2}
     - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
       propertyPath: initialHealthy
-      value: 98
+      value: 195
       objectReference: {fileID: 0}
     - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
       propertyPath: roundLengthSec
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
       propertyPath: initialInfected
-      value: 2
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
+      propertyPath: initialPopulation
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2498483667505023220, guid: 87816bd8dded4e442a7e5fc2edd10459, type: 3}
       propertyPath: mapBuildingSprites

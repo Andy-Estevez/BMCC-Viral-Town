@@ -46,13 +46,13 @@ public class Game : MonoBehaviour
     {
         if (!gameOver)
         {
-            // Mayor observes the infection rate
-            ViralTownEvents.UpdateExclamationMark.Invoke();
-            ViralTownEvents.UpdateUINotification.Invoke();
-
             // If section (night/day) is over
             if (timer.IsFinished)
             {
+                // Mayor observes the infection rate
+                ViralTownEvents.UpdateExclamationMark.Invoke();
+                ViralTownEvents.UpdateUINotification.Invoke();
+
                 // DAWN: When night ends & day begins
                 if (roundSection == "night")
                 {
@@ -61,7 +61,7 @@ public class Game : MonoBehaviour
                     // Terminate Occurrence Pop-ups
                     ViralTownEvents.TerminateOccurrencePopups.Invoke();
 
-                    // Propagate Virus Infection & Virus Death
+                    // Propagate virus infection & virus death
                     ViralTownEvents.PropagateVirus.Invoke();
                     ViralTownEvents.PropagateDeath.Invoke();
 
@@ -90,10 +90,19 @@ public class Game : MonoBehaviour
                 // DUSK: When day ends & night begins
                 else if (roundSection == "day")
                 {
-                    Debug.Log("Day has ended...");                 
+                    Debug.Log("Day has ended...");
+
+                    // Propagate virus infection
+                    ViralTownEvents.PropagateVirus.Invoke();
 
                     // Propagate hospital healing
                     ViralTownEvents.PropagateHealing.Invoke();
+
+                    // Update population
+                    Town.updatePop();
+
+                    // Update HUD
+                    ViralTownEvents.UpdateHUD.Invoke();
 
                     // Increment section
                     roundSection = "night";
@@ -115,7 +124,7 @@ public class Game : MonoBehaviour
                     Debug.LogError("Invalid roundSection value given during round #" + roundNum);
                 }
 
-                if (roundNum % 4 == 0)
+                if (roundNum % 3 == 0)
                 {
                     Virus.InfectionBuff();
                 }

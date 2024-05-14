@@ -7,15 +7,15 @@ public static class Virus
 {
     // chance is how likely it is to happen
     // rate is how many people it impacts
-    public static float infectionChance = 0.60f;
-    public static float deathChance = 0.30f;
-    public static float infectionRate = 0.20f;
+    public static float infectionChance = 0.1f;
+    public static float deathChance = 0.05f;
+    public static float infectionRate = 0.10f;
     public static float deathRate = 0.10f;
 
-    public static float minBuffRate = 0.05f;
-    public static float maxBuffRate = 0.10f;
+    public static float minBuffRate = 0.02f;
+    public static float maxBuffRate = 0.04f;
 
-    public static float baseBuffRateIncrease = 0.05f;
+    public static float baseBuffRateIncrease = 0.03f;
 
 
     public static void InfectionBuff()
