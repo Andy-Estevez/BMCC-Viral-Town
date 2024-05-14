@@ -42,6 +42,11 @@ public class OccurrencesCreator : MonoBehaviour
     string MayorPrefab = "Assets/Prefabs/MayorOccurrence.prefab";
     // Stores the path of the random occurrence prefab
     string RandomPrefab = "Assets/Prefabs/RandomOccurrence.prefab";
+
+    // References
+    // To hospital
+    HospitalScript hospitalObject;
+
     // Choose certain occurence
     OccurrenceInfo chosenOccurence;
     // References the unity events
@@ -51,6 +56,7 @@ public class OccurrencesCreator : MonoBehaviour
         ViralTownEvents.RandomOccurrences.AddListener(RandomOccurrences);
         ViralTownEvents.TerminateOccurrencePopups.AddListener(DestroyOccurrence);
         ViralTownEvents.SentOccurrenceReq.AddListener(SentOccurrenceReq);
+        hospitalObject = GameObject.Find("Hospital").GetComponent<HospitalScript>();
     }
 
     // Policies/Mayor
@@ -58,7 +64,6 @@ public class OccurrencesCreator : MonoBehaviour
     {
         // Have to discuss with members but for now, lets say intensity level 1 ("Covid broke out")
         int intensity = CalculateIntensityLevel();
-        Debug.Log(intensity);
 
         // Stores the path of the JSON file holding the occurences
         string jsonFilePath = "Scripts/Occurrences/MayorOccurrences.json";
@@ -191,9 +196,34 @@ public class OccurrencesCreator : MonoBehaviour
                         break;
                     case "Death":
                         break;
+                    // Virus
+                    case "InfectionChance":
+                        numericalImpact = Virus.infectionChance * moodle.Intensity;
+                        break;
+                    case "DeathChance":
+                        numericalImpact = Virus.deathChance * moodle.Intensity;
+                        break;
+                    case "InfectionRate":
+                        numericalImpact = Virus.infectionRate * moodle.Intensity;
+                        break;
+                    case "DeathRate":
+                        numericalImpact = Virus.deathRate * moodle.Intensity;
+                        break;
+                    case "MinBuffRate":
+                        numericalImpact = Virus.minBuffRate * moodle.Intensity;
+                        break;
+                    case "MaxBuffRate":
+                        numericalImpact = Virus.maxBuffRate * moodle.Intensity;
+                        break;
+                    case "BaseBuffRateIncrease":
+                        numericalImpact = Virus.baseBuffRateIncrease * moodle.Intensity;
+                        break;
                     // Mesc
                     case "GDP":
                         numericalImpact = Town.CurrentGDP * moodle.Intensity;
+                        break;
+                    case "CureRate":
+                        numericalImpact = hospitalObject.cureChance * moodle.Intensity;
                         break;
                     default:
                         break;
@@ -214,13 +244,13 @@ public class OccurrencesCreator : MonoBehaviour
 
         foreach (OccurrenceMoodles moodle in chosenOccurence.Moodles)
         {
+            // Sets the impact to the proper percentage
+            impact = moodle.Trait == "Positive" ? (moodle.Intensity / 100.0) + 1.0 : 1.0 - (moodle.Intensity / 100.0);
+
             switch (moodle.MoodleName)
             {
                 //Population
                 case "HealthyPop":
-                    impact = moodle.Trait == "Positive" ?
-                        (moodle.Intensity / 100.0) + 1.0 : 1.0 - (moodle.Intensity / 100.0);
-
                     // Calculate the new population
                     newHealthyPop = (int)(Town.HealthyPop * impact);
                     newInfectedPop = Town.InfectedPop - (newHealthyPop - Town.HealthyPop);
@@ -243,12 +273,7 @@ public class OccurrencesCreator : MonoBehaviour
                     Town.HealthyPop = newHealthyPop;
                     Town.InfectedPop = newInfectedPop;
                     break;
-
-                // Population
                 case "InfectedPop":
-                    impact = moodle.Trait == "Positive" ?
-                        (moodle.Intensity / 100.0) + 1.0 : 1.0 - (moodle.Intensity / 100.0);
-
                     // Calculate the new population
                     newInfectedPop = (int)(Town.InfectedPop * impact);
                     newHealthyPop = Town.HealthyPop - (newInfectedPop - Town.InfectedPop);
@@ -271,8 +296,29 @@ public class OccurrencesCreator : MonoBehaviour
                     Town.InfectedPop = newInfectedPop;
                     Town.HealthyPop = newHealthyPop;
                     break;
-
                 case "Death":
+                    break;
+                // Virus
+                case "InfectionChance":
+                    Virus.infectionChance *= (float)impact;
+                    break;
+                case "DeathChance":
+                    Virus.deathChance *= (float)impact;
+                    break;
+                case "InfectionRate":
+                    Virus.infectionRate *= (float)impact;
+                    break;
+                case "DeathRate":
+                    Virus.deathRate *= (float)impact;
+                    break;
+                case "MinBuffRate":
+                    Virus.minBuffRate *= (float)impact;
+                    break;
+                case "MaxBuffRate":
+                    Virus.maxBuffRate *= (float)impact;
+                    break;
+                case "BaseBuffRateIncrease":
+                    Virus.baseBuffRateIncrease *= (float)impact;
                     break;
                 // Mesc
                 case "GDP":
@@ -280,6 +326,10 @@ public class OccurrencesCreator : MonoBehaviour
                         (moodle.Intensity / 100.0) + 1.0 : 1.0 - (moodle.Intensity / 100.0);
                     Town.CurrentGDP = (int)(Town.CurrentGDP * impact);
                     break;
+                case "CureRate":
+                    hospitalObject.cureChance *= (float)impact;
+                    break;
+
                 default:
                     break;
             }
@@ -317,18 +367,10 @@ public class OccurrencesCreator : MonoBehaviour
         double weightGDPChange = 0.3;
         double weightInfectedPop = 0.3;
 
-        // Debug logs
-        Debug.Log($"Population change percentage: {populationChangePercentage}");
-        Debug.Log($"GDP change percentage: {gdpChangePercentage}");
-        Debug.Log($"Infected population percentage: {infectedPopPercentage}");
-
         // Calculate weighted sum
         double weightedSum = (populationChangePercentage * weightPopulationChange) +
                              (gdpChangePercentage * weightGDPChange) +
                              (infectedPopPercentage * weightInfectedPop);
-
-        // Debug log
-        Debug.Log($"Weighted sum: {weightedSum}");
 
         // Map the weighted sum to a range from 1 to 100
         int intensityLevel = (int)Math.Round(weightedSum);

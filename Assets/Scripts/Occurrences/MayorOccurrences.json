@@ -1,30 +1,1761 @@
 {
     "Occurrences": [
         {
-            "IntensityValue": 5,
-            "EventTitle": "Economic Downturn: Markets in Turmoil",
-            "Description": "Amidst global economic uncertainty, financial markets around the world tumble into chaos. Stocks plummet, currencies fluctuate wildly, and investors scramble to salvage their portfolios. Governments race to implement emergency measures.",
-            "SideDescription": "Stock market crashes and currency devaluation impact employment, consumer confidence, and business stability.",
+            "IntensityValue": 1,
+            "EventTitle": "Public Health Advisory",
+            "Description": "Issue a public health advisory to raise awareness about preventive measures.",
+            "SideDescription": "Increased awareness reduces infection risk.",
             "Moodles": [
                 {
-                    "Trait": "Negative",
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 2,
+            "EventTitle": "Economic Stimulus Proposal",
+            "Description": "Propose an economic stimulus plan to support businesses.",
+            "SideDescription": "Stimulus measures boost economic recovery.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
                     "MoodleName": "GDP",
                     "Switch": false,
-                    "Intensity": 0.2,
+                    "Intensity": 0.7,
                     "TemporaryValue": null
-                },
+                }
+            ]
+        },
+        {
+            "IntensityValue": 3,
+            "EventTitle": "Emergency Preparedness Drill",
+            "Description": "Conduct an emergency preparedness drill to test response protocols.",
+            "SideDescription": "Drills enhance readiness among responders.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 4,
+            "EventTitle": "Infrastructure Investment Initiative",
+            "Description": "Initiate an infrastructure investment to strengthen healthcare facilities.",
+            "SideDescription": "Improved healthcare infrastructure enhances response capabilities.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 5,
+            "EventTitle": "Community Outreach Campaign",
+            "Description": "Launch a community outreach campaign to promote vaccination and hygiene practices.",
+            "SideDescription": "Community engagement fosters adherence to preventive measures.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 6,
+            "EventTitle": "Medical Supplies Shortage",
+            "Description": "Face a shortage of medical supplies due to increased demand.",
+            "SideDescription": "Shortages hinder healthcare delivery and increase mortality rates.",
+            "Moodles": [
                 {
                     "Trait": "Negative",
                     "MoodleName": "HealthyPop",
                     "Switch": false,
-                    "Intensity": 0.1,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 7,
+            "EventTitle": "School Closure Policy",
+            "Description": "Implement a policy to temporarily close schools to mitigate the spread of the virus.",
+            "SideDescription": "School closures reduce transmission among students and staff.",
+            "Moodles": [
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 8,
+            "EventTitle": "Travel Restrictions Imposed",
+            "Description": "Enforce travel restrictions to limit movement and curb the spread of infection.",
+            "SideDescription": "Restricting travel helps contain the outbreak and prevent further transmission.",
+            "Moodles": [
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 9,
+            "EventTitle": "Healthcare System Overwhelmed",
+            "Description": "Witness a surge in cases that overwhelms healthcare facilities, leading to treatment shortages.",
+            "SideDescription": "Healthcare system strain compromises patient care and increases mortality rates.",
+            "Moodles": [
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 10,
+            "EventTitle": "State of Emergency Declaration",
+            "Description": "Declare a state of emergency to mobilize additional resources and enact emergency measures.",
+            "SideDescription": "Emergency declaration enables swift and coordinated response efforts.",
+            "Moodles": [
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.9,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.8,
                     "TemporaryValue": null
                 },
                 {
                     "Trait": "Negative",
                     "MoodleName": "InfectedPop",
                     "Switch": false,
-                    "Intensity": 0.1,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 11,
+            "EventTitle": "Vaccine Development Progress",
+            "Description": "Monitor progress on vaccine development and clinical trials.",
+            "SideDescription": "Advancements in vaccine development offer hope for controlling the outbreak.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "CureRate",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 12,
+            "EventTitle": "Healthcare Worker Shortage",
+            "Description": "Experience a shortage of healthcare workers due to high demand and burnout.",
+            "SideDescription": "Shortages impede patient care and increase strain on remaining staff.",
+            "Moodles": [
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 13,
+            "EventTitle": "Critical Supply Chain Disruption",
+            "Description": "Face disruptions in critical supply chains, affecting medical equipment and essential supplies.",
+            "SideDescription": "Supply chain disruptions hamper response efforts and exacerbate resource shortages.",
+            "Moodles": [
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 14,
+            "EventTitle": "Social Distancing Enforcement",
+            "Description": "Enforce strict social distancing measures to limit person-to-person transmission.",
+            "SideDescription": "Social distancing measures reduce transmission rates and flatten the curve.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 15,
+            "EventTitle": "Public Health Awareness Campaign",
+            "Description": "Launch a public health awareness campaign to educate the population on preventive measures.",
+            "SideDescription": "Increased awareness promotes adherence to health guidelines and reduces transmission risks.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 16,
+            "EventTitle": "Temporary Hospital Establishment",
+            "Description": "Set up temporary hospitals to accommodate the surge in patient admissions.",
+            "SideDescription": "Additional hospital capacity ensures timely care for patients and prevents overwhelmed healthcare systems.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 17,
+            "EventTitle": "Economic Stimulus Package",
+            "Description": "Implement an economic stimulus package to support businesses and individuals affected by the crisis.",
+            "SideDescription": "Financial assistance mitigates economic hardships and stimulates recovery efforts.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 18,
+            "EventTitle": "Quarantine Enforcement",
+            "Description": "Enforce quarantine measures to isolate infected individuals and prevent further transmission.",
+            "SideDescription": "Effective quarantine measures minimize contact and contain the spread of the virus.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 19,
+            "EventTitle": "Medical Research Breakthrough",
+            "Description": "Achieve a significant breakthrough in medical research leading to improved treatment options.",
+            "SideDescription": "Breakthroughs in medical research offer hope for better patient outcomes and disease management.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "CureRate",
+                    "Switch": false,
+                    "Intensity": 0.9,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 20,
+            "EventTitle": "Supply Chain Resilience Initiative",
+            "Description": "Launch initiatives to strengthen supply chains and ensure continuous access to essential medical supplies.",
+            "SideDescription": "Resilient supply chains enhance response capabilities and mitigate disruptions during crises.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 21,
+            "EventTitle": "Community Volunteer Mobilization",
+            "Description": "Mobilize community volunteers to provide support services and assistance to vulnerable populations.",
+            "SideDescription": "Volunteer efforts strengthen community resilience and foster solidarity during challenging times.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 22,
+            "EventTitle": "Global Solidarity Movement",
+            "Description": "Join a global solidarity movement to coordinate international efforts in combating the pandemic.",
+            "SideDescription": "Global cooperation facilitates resource sharing and coordination of response efforts to address the crisis collectively.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 23,
+            "EventTitle": "Telemedicine Expansion",
+            "Description": "Expand telemedicine services to provide remote healthcare consultations and support.",
+            "SideDescription": "Telemedicine expansion enhances access to healthcare services and reduces the burden on physical healthcare facilities.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 24,
+            "EventTitle": "Regional Lockdown Implementation",
+            "Description": "Implement regional lockdown measures to contain localized outbreaks and prevent further spread.",
+            "SideDescription": "Lockdown measures restrict movement and interactions to limit transmission and protect public health.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 25,
+            "EventTitle": "Healthcare Worker Support Program",
+            "Description": "Implement a support program for healthcare workers to address their mental health and well-being needs.",
+            "SideDescription": "Support programs promote the resilience and effectiveness of healthcare workers in managing crises.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 26,
+            "EventTitle": "Emergency Vaccine Production Initiative",
+            "Description": "Launch an emergency initiative to accelerate vaccine production and distribution.",
+            "SideDescription": "Expediting vaccine production and distribution offers hope for controlling the pandemic and saving lives.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 27,
+            "EventTitle": "Social Distancing Enforcement",
+            "Description": "Enforce social distancing measures to reduce close contact and minimize transmission risks.",
+            "SideDescription": "Social distancing measures mitigate transmission risks and protect vulnerable populations from infection.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 28,
+            "EventTitle": "Public Awareness Campaign",
+            "Description": "Launch a comprehensive public awareness campaign to educate the population about preventive measures and health guidelines.",
+            "SideDescription": "Increasing public awareness promotes adherence to preventive measures and reduces transmission risks.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 29,
+            "EventTitle": "Emergency Medical Response Plan",
+            "Description": "Activate an emergency medical response plan to enhance healthcare capacity and provide critical care services.",
+            "SideDescription": "Emergency medical response plans bolster healthcare infrastructure and ensure timely access to life-saving treatments.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 30,
+            "EventTitle": "Mass Vaccination Campaign",
+            "Description": "Initiate a mass vaccination campaign to immunize the population and achieve herd immunity against the virus.",
+            "SideDescription": "Mass vaccination campaigns contribute to widespread immunity, curtailing transmission and protecting public health.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.9,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 31,
+            "EventTitle": "Business Support Grants",
+            "Description": "Provide financial support to businesses impacted by the crisis through grants and subsidies.",
+            "SideDescription": "Business support grants alleviate financial strains, preserving jobs and sustaining economic activity.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 32,
+            "EventTitle": "Community Testing Centers",
+            "Description": "Establish community testing centers to facilitate widespread testing and early detection of infections.",
+            "SideDescription": "Community testing centers increase testing accessibility, enabling prompt identification and isolation of cases.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 33,
+            "EventTitle": "Emergency Relief Fund Allocation",
+            "Description": "Allocate emergency relief funds to support vulnerable populations affected by the crisis.",
+            "SideDescription": "Emergency relief funds provide essential support to individuals and communities facing financial hardships.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 34,
+            "EventTitle": "Educational Institution Closures",
+            "Description": "Implement temporary closures of educational institutions to minimize transmission risks among students and staff.",
+            "SideDescription": "Educational institution closures reduce potential exposure to the virus and protect the health of students and staff.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 35,
+            "EventTitle": "Emergency Remote Work Measures",
+            "Description": "Implement emergency remote work measures to ensure business continuity and minimize workplace transmission risks.",
+            "SideDescription": "Emergency remote work measures enable organizations to maintain operations while safeguarding employee health and safety.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 36,
+            "EventTitle": "Public Transport Restrictions",
+            "Description": "Enforce restrictions on public transport to reduce crowding and limit potential exposure to the virus.",
+            "SideDescription": "Public transport restrictions minimize transmission risks by reducing close contact and maintaining physical distancing.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 37,
+            "EventTitle": "Emergency Housing Assistance",
+            "Description": "Provide emergency housing assistance to individuals and families facing homelessness or housing insecurity due to the crisis.",
+            "SideDescription": "Emergency housing assistance ensures access to safe and stable housing, mitigating health risks and promoting well-being.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 28,
+            "EventTitle": "Public Awareness Campaign",
+            "Description": "Launch a comprehensive public awareness campaign to educate the population about preventive measures and health guidelines.",
+            "SideDescription": "Increasing public awareness promotes adherence to preventive measures and reduces transmission risks.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 29,
+            "EventTitle": "Emergency Medical Response Plan",
+            "Description": "Activate an emergency medical response plan to enhance healthcare capacity and provide critical care services.",
+            "SideDescription": "Emergency medical response plans bolster healthcare infrastructure and ensure timely access to life-saving treatments.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 30,
+            "EventTitle": "Mass Vaccination Campaign",
+            "Description": "Initiate a mass vaccination campaign to immunize the population and achieve herd immunity against the virus.",
+            "SideDescription": "Mass vaccination campaigns contribute to widespread immunity, curtailing transmission and protecting public health.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.9,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 31,
+            "EventTitle": "Business Support Grants",
+            "Description": "Provide financial support to businesses impacted by the crisis through grants and subsidies.",
+            "SideDescription": "Business support grants alleviate financial strains, preserving jobs and sustaining economic activity.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 32,
+            "EventTitle": "Community Testing Centers",
+            "Description": "Establish community testing centers to facilitate widespread testing and early detection of infections.",
+            "SideDescription": "Community testing centers increase testing accessibility, enabling prompt identification and isolation of cases.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 33,
+            "EventTitle": "Emergency Relief Fund Allocation",
+            "Description": "Allocate emergency relief funds to support vulnerable populations affected by the crisis.",
+            "SideDescription": "Emergency relief funds provide essential support to individuals and communities facing financial hardships.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 34,
+            "EventTitle": "Educational Institution Closures",
+            "Description": "Implement temporary closures of educational institutions to minimize transmission risks among students and staff.",
+            "SideDescription": "Educational institution closures reduce potential exposure to the virus and protect the health of students and staff.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 35,
+            "EventTitle": "Emergency Remote Work Measures",
+            "Description": "Implement emergency remote work measures to ensure business continuity and minimize workplace transmission risks.",
+            "SideDescription": "Emergency remote work measures enable organizations to maintain operations while safeguarding employee health and safety.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 36,
+            "EventTitle": "Public Transport Restrictions",
+            "Description": "Enforce restrictions on public transport to reduce crowding and limit potential exposure to the virus.",
+            "SideDescription": "Public transport restrictions minimize transmission risks by reducing close contact and maintaining physical distancing.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 37,
+            "EventTitle": "Emergency Housing Assistance",
+            "Description": "Provide emergency housing assistance to individuals and families facing homelessness or housing insecurity due to the crisis.",
+            "SideDescription": "Emergency housing assistance ensures access to safe and stable housing, mitigating health risks and promoting well-being.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 38,
+            "EventTitle": "Emergency Preparedness Training Programs",
+            "Description": "Implement emergency preparedness training programs to educate individuals and communities on disaster response and resilience-building strategies.",
+            "SideDescription": "Emergency preparedness training programs empower individuals and communities with essential knowledge and skills to respond effectively to emergencies.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 39,
+            "EventTitle": "Emergency Remote Learning Platforms",
+            "Description": "Develop emergency remote learning platforms to ensure continuity of education for students during school closures and disruptions.",
+            "SideDescription": "Emergency remote learning platforms enable access to educational resources and opportunities for students, supporting continued learning during crises.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 40,
+            "EventTitle": "Emergency Response Vehicles Deployment",
+            "Description": "Deploy emergency response vehicles and mobile units to provide rapid medical assistance and support in hard-to-reach or affected areas.",
+            "SideDescription": "Emergency response vehicle deployments enhance response capabilities and facilitate access to critical healthcare services in emergency situations.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 41,
+            "EventTitle": "Emergency Supply Distribution Centers",
+            "Description": "Establish emergency supply distribution centers to ensure equitable access to essential goods and resources for communities affected by the crisis.",
+            "SideDescription": "Emergency supply distribution centers enable efficient distribution and allocation of essential goods, ensuring that communities receive the support they need during emergencies.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 42,
+            "EventTitle": "Emergency Childcare Assistance Programs",
+            "Description": "Implement emergency childcare assistance programs to support families and essential workers in accessing safe and reliable childcare services during the crisis.",
+            "SideDescription": "Emergency childcare assistance programs alleviate childcare burdens for families and enable essential workers to fulfill their critical roles during emergencies.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 43,
+            "EventTitle": "Emergency Mental Health Support Services",
+            "Description": "Establish emergency mental health support services to provide counseling and psychological assistance to individuals experiencing distress.",
+            "SideDescription": "Emergency mental health support services offer crucial emotional support and coping strategies during times of crisis.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 44,
+            "EventTitle": "Emergency Evacuation Plans",
+            "Description": "Develop emergency evacuation plans to facilitate the safe evacuation of vulnerable populations during emergencies and disasters.",
+            "SideDescription": "Emergency evacuation plans enhance evacuation procedures and safety measures, ensuring the well-being of vulnerable individuals during crisis events.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 45,
+            "EventTitle": "Emergency Shelter Provision",
+            "Description": "Provide emergency shelter and accommodation to individuals and families displaced by the crisis or facing homelessness.",
+            "SideDescription": "Emergency shelter provision offers temporary refuge and protection to vulnerable individuals, ensuring access to safe housing.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 46,
+            "EventTitle": "Emergency Communication Protocols",
+            "Description": "Establish emergency communication protocols to disseminate critical information and instructions to the public during crisis situations.",
+            "SideDescription": "Emergency communication protocols enhance public safety and facilitate rapid response efforts during emergency events.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 47,
+            "EventTitle": "Emergency Response Drills",
+            "Description": "Conduct emergency response drills and simulations to prepare individuals and organizations for coordinated responses to crisis scenarios.",
+            "SideDescription": "Emergency response drills enhance preparedness and build resilience, enabling effective responses to emergency situations.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 48,
+            "EventTitle": "Emergency Medical Supplies Stockpile",
+            "Description": "Establish a stockpile of emergency medical supplies and equipment to ensure sufficient resources are available for healthcare providers during emergencies.",
+            "SideDescription": "Emergency medical supplies stockpiles bolster healthcare capacity and readiness, enabling prompt responses to critical healthcare needs.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 49,
+            "EventTitle": "Emergency Response Coordination Center",
+            "Description": "Establish an emergency response coordination center to facilitate communication, coordination, and decision-making among response agencies and stakeholders.",
+            "SideDescription": "Emergency response coordination centers streamline response efforts and enhance collaboration, ensuring efficient and effective crisis management.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 50,
+            "EventTitle": "Emergency Relief Funding Allocation",
+            "Description": "Allocate emergency relief funding to support healthcare systems, essential services, and individuals impacted by the crisis.",
+            "SideDescription": "Emergency relief funding allocations provide vital support and resources to mitigate the impacts of the crisis and facilitate recovery efforts.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 51,
+            "EventTitle": "Emergency Preparedness Training Programs",
+            "Description": "Implement emergency preparedness training programs to educate individuals and communities on disaster response and resilience-building strategies.",
+            "SideDescription": "Emergency preparedness training programs empower individuals and communities with essential knowledge and skills to respond effectively to emergencies.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 52,
+            "EventTitle": "Emergency Remote Learning Platforms",
+            "Description": "Develop emergency remote learning platforms to ensure continuity of education for students during school closures and disruptions.",
+            "SideDescription": "Emergency remote learning platforms enable access to educational resources and opportunities for students, supporting continued learning during crises.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 53,
+            "EventTitle": "Emergency Response Vehicles Deployment",
+            "Description": "Deploy emergency response vehicles and mobile units to provide rapid medical assistance and support in hard-to-reach or affected areas.",
+            "SideDescription": "Emergency response vehicle deployments enhance response capabilities and facilitate access to critical healthcare services in emergency situations.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 54,
+            "EventTitle": "Emergency Supply Distribution Centers",
+            "Description": "Establish emergency supply distribution centers to ensure equitable access to essential goods and resources for communities affected by the crisis.",
+            "SideDescription": "Emergency supply distribution centers enable efficient distribution and allocation of essential goods, ensuring that communities receive the support they need during emergencies.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 55,
+            "EventTitle": "Emergency Childcare Assistance Programs",
+            "Description": "Implement emergency childcare assistance programs to support families and essential workers in accessing safe and reliable childcare services during the crisis.",
+            "SideDescription": "Emergency childcare assistance programs alleviate childcare burdens for families and enable essential workers to fulfill their critical roles during emergencies.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 56,
+            "EventTitle": "Emergency Waste Management Protocols",
+            "Description": "Establish emergency waste management protocols to ensure the safe and efficient disposal of medical waste and sanitation practices during the crisis.",
+            "SideDescription": "Emergency waste management protocols mitigate environmental and health risks associated with medical waste, ensuring safe and responsible waste disposal practices.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 57,
+            "EventTitle": "Emergency Energy Infrastructure Resilience",
+            "Description": "Strengthen emergency energy infrastructure resilience to ensure uninterrupted power supply and essential services during crisis events.",
+            "SideDescription": "Emergency energy infrastructure resilience measures enhance energy security and reliability, supporting critical services and operations during emergencies.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 58,
+            "EventTitle": "Emergency Transportation Coordination",
+            "Description": "Coordinate emergency transportation services to facilitate the safe and efficient movement of people and resources during crisis situations.",
+            "SideDescription": "Emergency transportation coordination efforts streamline evacuation and response efforts, ensuring timely access to transportation services during emergencies.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 59,
+            "EventTitle": "Emergency Response Volunteer Mobilization",
+            "Description": "Mobilize emergency response volunteers to support frontline efforts and community resilience-building initiatives during crisis events.",
+            "SideDescription": "Emergency response volunteer mobilization strengthens community resilience and enhances response capabilities, fostering collaboration and solidarity.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 60,
+            "EventTitle": "Emergency Public Health Surveillance",
+            "Description": "Enhance public health surveillance systems to monitor disease spread, identify outbreaks, and inform timely response measures during crisis events.",
+            "SideDescription": "Emergency public health surveillance systems enable early detection of outbreaks and support rapid response efforts, minimizing disease transmission and impact.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 61,
+            "EventTitle": "Emergency Crisis Communication Strategies",
+            "Description": "Develop emergency crisis communication strategies to provide accurate information, guidance, and reassurance to the public during crisis events.",
+            "SideDescription": "Effective crisis communication strategies promote transparency, trust, and public compliance with emergency measures, enhancing overall response efforts.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 62,
+            "EventTitle": "Emergency Medical Staff Deployment",
+            "Description": "Deploy additional medical staff and healthcare workers to frontline facilities to enhance capacity and response capabilities during crisis situations.",
+            "SideDescription": "Emergency medical staff deployments bolster healthcare capacity, reduce workload burdens, and improve patient care outcomes during critical periods.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 63,
+            "EventTitle": "Emergency Quarantine Protocols",
+            "Description": "Implement emergency quarantine protocols to isolate and contain disease outbreaks, preventing further transmission and safeguarding public health.",
+            "SideDescription": "Emergency quarantine protocols are essential for controlling disease spread and minimizing the impact of outbreaks, protecting vulnerable populations and communities.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 64,
+            "EventTitle": "Emergency Law Enforcement Support",
+            "Description": "Provide law enforcement support to ensure public safety, enforce emergency regulations, and prevent crime during crisis events.",
+            "SideDescription": "Emergency law enforcement support enhances public safety and security, maintaining order and compliance with emergency measures to protect communities.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 65,
+            "EventTitle": "Emergency Economic Stimulus Packages",
+            "Description": "Implement emergency economic stimulus packages to mitigate financial hardships, support businesses, and stabilize the economy during crisis events.",
+            "SideDescription": "Emergency economic stimulus packages provide vital financial assistance and incentives to individuals, businesses, and industries, fostering economic recovery and resilience.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 66,
+            "EventTitle": "Emergency Housing Assistance Programs",
+            "Description": "Implement emergency housing assistance programs to prevent homelessness, provide affordable housing options, and support vulnerable populations during the crisis.",
+            "SideDescription": "Emergency housing assistance programs offer vital support and resources to individuals and families at risk of homelessness, ensuring access to safe and stable housing.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 67,
+            "EventTitle": "Emergency Food Distribution Programs",
+            "Description": "Establish emergency food distribution programs to ensure access to nutritious food and meals for individuals and families facing food insecurity during the crisis.",
+            "SideDescription": "Emergency food distribution programs alleviate hunger and food insecurity, providing essential nutrition support to vulnerable populations during times of crisis.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 68,
+            "EventTitle": "Emergency Infrastructure Restoration",
+            "Description": "Initiate emergency infrastructure restoration efforts to repair and rebuild critical infrastructure damaged by the crisis, ensuring continuity of essential services.",
+            "SideDescription": "Emergency infrastructure restoration efforts restore vital services and utilities, promoting community recovery and resilience in the aftermath of a crisis.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 69,
+            "EventTitle": "Emergency Supply Chain Management",
+            "Description": "Enhance emergency supply chain management systems to ensure the efficient procurement, distribution, and delivery of essential goods and resources during crisis events.",
+            "SideDescription": "Emergency supply chain management systems optimize logistical operations and coordination, ensuring timely access to critical supplies and resources during emergencies.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 70,
+            "EventTitle": "Emergency Public Health Awareness Campaigns",
+            "Description": "Launch emergency public health awareness campaigns to educate the public about preventive measures, symptoms, and available support services during crisis events.",
+            "SideDescription": "Emergency public health awareness campaigns promote informed decision-making, healthy behaviors, and community solidarity, empowering individuals to protect themselves and others.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": false,
+                    "Intensity": 0.3,
                     "TemporaryValue": null
                 }
             ]

@@ -1,24 +1,602 @@
 {
     "Occurrences": [
         {
-            "IntensityValue": 1,
-            "EventTitle": "Lego City in Crisis: Chaos Unleashed",
-            "Description": "In the vibrant heart of Lego City, chaos reigns supreme. Sirens wail through the night as buildings crumble, and heroes emerge to battle against unseen foes. Against a backdrop of destruction, the fate of the city hangs in the balance. Will courage triumph, or will darkness consume all?",
-            "SideDescription": "Description of Example 1",
-
+            "IntensityValue": 0.02,
+            "EventTitle": "Public Health Awareness Campaign",
+            "Description": "Government launches public health awareness campaign to educate citizens on disease prevention, hygiene, and healthy lifestyle choices.",
+            "SideDescription": "Increased health literacy leads to proactive healthcare behaviors and reduces the burden of preventable illnesses on the healthcare system.",
             "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
                 {
                     "Trait": "Negative",
                     "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.03,
+            "EventTitle": "Investment in Research and Development",
+            "Description": "Government allocates funds to support research and development initiatives, fostering innovation in science, technology, and medicine.",
+            "SideDescription": "R&D investment drives technological breakthroughs, stimulates economic growth, and enhances national competitiveness.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
                     "Switch": false,
-                    "Intensity": 0.1,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.01,
+            "EventTitle": "Community Food Drive",
+            "Description": "Local community organizes a food drive to address hunger and food insecurity, providing assistance to vulnerable populations.",
+            "SideDescription": "Food drive fosters community solidarity, reduces food waste, and supports individuals and families in need.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.7,
                     "TemporaryValue": null
                 },
                 {
                     "Trait": "Positive",
-                    "MoodleName": "Mood2",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.02,
+            "EventTitle": "Urban Revitalization Project",
+            "Description": "Government launches urban revitalization project to improve infrastructure, housing, and public spaces in economically disadvantaged areas.",
+            "SideDescription": "Urban renewal enhances quality of life, promotes social inclusion, and revitalizes local economies through community development.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
                     "Switch": false,
-                    "Intensity": 2,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.01,
+            "EventTitle": "Job Training and Skills Development Program",
+            "Description": "Government initiates job training and skills development program to equip workers with the skills needed for employment in high-demand sectors.",
+            "SideDescription": "Skills training enhances employability, reduces unemployment, and fosters economic mobility for individuals and families.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.02,
+            "EventTitle": "Investment in Healthcare Infrastructure",
+            "Description": "Government allocates funds to upgrade healthcare infrastructure, including hospitals, clinics, and medical facilities, to improve healthcare access and quality.",
+            "SideDescription": "Modern healthcare infrastructure enhances healthcare delivery, reduces wait times, and improves patient outcomes.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.03,
+            "EventTitle": "Environmental Conservation Initiative",
+            "Description": "Government launches environmental conservation initiative to protect natural resources, mitigate climate change, and promote sustainability.",
+            "SideDescription": "Environmental conservation efforts preserve biodiversity, safeguard ecosystems, and mitigate environmental degradation.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.02,
+            "EventTitle": "Community Health Fair",
+            "Description": "Local community hosts health fair to provide free health screenings, educational resources, and wellness activities to promote public health.",
+            "SideDescription": "Health fair encourages preventive care, early detection of diseases, and empowers individuals to take control of their health.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.01,
+            "EventTitle": "Investment in Education",
+            "Description": "Government increases funding for education to improve access to quality education, enhance educational outcomes, and reduce educational disparities.",
+            "SideDescription": "Investment in education fosters economic growth, promotes social mobility, and equips individuals with the knowledge and skills for success.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.02,
+            "EventTitle": "Community Development Grant",
+            "Description": "Government provides grants to support community development projects, such as affordable housing, infrastructure improvements, and social services.",
+            "SideDescription": "Community development grants empower local communities, stimulate economic growth, and enhance quality of life for residents.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.02,
+            "EventTitle": "Renewable Energy Investment",
+            "Description": "Government announces major investment in renewable energy, boosting clean technology and creating green jobs.",
+            "SideDescription": "Transition to sustainable energy sources reduces carbon emissions and promotes environmental conservation.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.03,
+            "EventTitle": "Medical Breakthrough",
+            "Description": "Scientists discover groundbreaking treatment for a chronic illness, offering hope to millions of patients worldwide.",
+            "SideDescription": "Improved healthcare outcomes lead to increased productivity and quality of life for affected individuals.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "CureRate",
+                    "Switch": true,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.01,
+            "EventTitle": "Education Reform Initiative",
+            "Description": "Government launches ambitious education reform initiative, investing in schools, teachers, and educational resources.",
+            "SideDescription": "Improved access to quality education enhances workforce skills, innovation, and economic competitiveness.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.02,
+            "EventTitle": "Infrastructure Development Plan",
+            "Description": "Government announces large-scale infrastructure development plan, creating jobs and modernizing transportation, energy, and communication networks.",
+            "SideDescription": "Investment in infrastructure boosts economic growth, enhances connectivity, and improves quality of life for citizens.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.01,
+            "EventTitle": "Community Health Initiative",
+            "Description": "Local community launches health initiative to promote wellness, encourage physical activity, and combat preventable diseases.",
+            "SideDescription": "Improved health outcomes reduce healthcare costs and contribute to a happier, more productive population.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.02,
+            "EventTitle": "Tech Innovation Hub",
+            "Description": "Government establishes technology innovation hub to foster entrepreneurship, research, and development in emerging industries.",
+            "SideDescription": "Tech hub attracts investment, talent, and startups, driving economic growth and technological advancement.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.03,
+            "EventTitle": "International Trade Agreement",
+            "Description": "Countries sign comprehensive trade agreement, promoting global commerce, market access, and economic cooperation.",
+            "SideDescription": "Trade agreement stimulates economic activity, fosters innovation, and expands opportunities for businesses and consumers.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.8,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.02,
+            "EventTitle": "Small Business Support Program",
+            "Description": "Government launches small business support program to provide financial assistance, training, and resources to small businesses affected by economic challenges.",
+            "SideDescription": "Small business support program stimulates entrepreneurship, fosters job creation, and revitalizes local economies.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.03,
+            "EventTitle": "Community Policing Initiative",
+            "Description": "Government implements community policing initiative to build trust between law enforcement agencies and communities, improve public safety, and reduce crime rates.",
+            "SideDescription": "Community policing fosters positive police-community relations, enhances crime prevention efforts, and promotes community engagement.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.01,
+            "EventTitle": "Promotion of Mental Health Awareness",
+            "Description": "Government launches campaign to raise awareness about mental health issues, reduce stigma, and promote access to mental health services and support.",
+            "SideDescription": "Mental health awareness campaign encourages open dialogue, increases help-seeking behavior, and improves mental well-being.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.02,
+            "EventTitle": "Renewable Energy Investment",
+            "Description": "Government invests in renewable energy projects to reduce carbon emissions, combat climate change, and promote sustainable energy sources.",
+            "SideDescription": "Renewable energy investment reduces reliance on fossil fuels, creates green jobs, and enhances energy security.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.01,
+            "EventTitle": "Youth Empowerment Program",
+            "Description": "Government launches youth empowerment program to provide education, job training, and mentorship opportunities for young people, empowering them to reach their full potential.",
+            "SideDescription": "Youth empowerment program fosters youth leadership, reduces youth unemployment, and strengthens communities.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.02,
+            "EventTitle": "Investment in Public Transportation",
+            "Description": "Government invests in public transportation infrastructure to improve accessibility, reduce traffic congestion, and promote sustainable urban mobility.",
+            "SideDescription": "Public transportation investment enhances mobility options, reduces greenhouse gas emissions, and supports economic growth.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.03,
+            "EventTitle": "Community Volunteer Initiative",
+            "Description": "Government launches community volunteer initiative to mobilize volunteers, promote civic engagement, and address local community needs.",
+            "SideDescription": "Community volunteer initiative strengthens social bonds, fosters a sense of belonging, and improves quality of life for residents.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.01,
+            "EventTitle": "Renovation of Public Parks",
+            "Description": "Government renovates public parks to enhance green spaces, promote recreational activities, and improve community well-being.",
+            "SideDescription": "Renovation of public parks creates vibrant public spaces, fosters community connections, and enhances overall quality of life.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.7,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.3,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.02,
+            "EventTitle": "Digital Infrastructure Expansion",
+            "Description": "Government expands digital infrastructure to improve internet access, enhance connectivity, and promote digital inclusion for all citizens.",
+            "SideDescription": "Digital infrastructure expansion supports economic development, empowers communities, and fosters innovation.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.5,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.4,
+                    "TemporaryValue": null
+                }
+            ]
+        },
+        {
+            "IntensityValue": 0.03,
+            "EventTitle": "Public Health Education Campaign",
+            "Description": "Government launches public health education campaign to raise awareness about preventive measures, disease prevention, and health promotion.",
+            "SideDescription": "Public health education campaign empowers individuals to make informed health decisions, reduces healthcare costs, and improves overall health outcomes.",
+            "Moodles": [
+                {
+                    "Trait": "Positive",
+                    "MoodleName": "HealthyPop",
+                    "Switch": true,
+                    "Intensity": 0.6,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "GDP",
+                    "Switch": true,
+                    "Intensity": 0.4,
                     "TemporaryValue": null
                 }
             ]
