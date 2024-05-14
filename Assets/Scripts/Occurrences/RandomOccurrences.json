@@ -5,18 +5,21 @@
             "EventTitle": "Lego City in Crisis: Chaos Unleashed",
             "Description": "In the vibrant heart of Lego City, chaos reigns supreme. Sirens wail through the night as buildings crumble, and heroes emerge to battle against unseen foes. Against a backdrop of destruction, the fate of the city hangs in the balance. Will courage triumph, or will darkness consume all?",
             "SideDescription": "Description of Example 1",
+
             "Moodles": [
                 {
                     "Trait": "Negative",
                     "MoodleName": "GDP",
-                    "TypeIntensity": "Percentage",
-                    "Intensity": 60
+                    "Switch": false,
+                    "Intensity": 60,
+                    "TemporaryValue": null
                 },
                 {
                     "Trait": "Positive",
                     "MoodleName": "Mood2",
-                    "TypeIntensity": "Arithmetic",
-                    "Intensity": 2
+                    "Switch": false,
+                    "Intensity": 2,
+                    "TemporaryValue": null
                 }
             ]
         }

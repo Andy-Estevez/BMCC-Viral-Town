@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class OccurrencesPreFab : MonoBehaviour
+public class OccurrencePrefab : MonoBehaviour
 {
     [SerializeField]
     private TMP_Text mainTitle;
@@ -21,13 +21,9 @@ public class OccurrencesPreFab : MonoBehaviour
 
     private void Start()
     {
-        sideTitle.text = "Choice:";
-        moodleHolder.text = "The effects of your choices:";
         // Access the child TMP_Text components
         leftSide = moodleHolder.transform.GetChild(0).GetComponent<TMP_Text>();
         rightSide = moodleHolder.transform.GetChild(1).GetComponent<TMP_Text>();
-        leftSide.text = "Cons...\n";
-        rightSide.text = "Pros...\n";
     }
 
     public void SetMainTitle(string text)
@@ -58,26 +54,27 @@ public class OccurrencesPreFab : MonoBehaviour
             // If the trait is negative, go left
             if (moodle.Trait == "Negative")
             {
-                leftSide.text += moodle.TypeIntensity == "Percentage" ?
-                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">↓</size>" + moodle.Intensity + "%" + "\n":
-                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">-</size>" + + moodle.Intensity + "\n";
+                leftSide.text += moodle.TemporaryValue != null ?
+                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">-</size>" + moodle.TemporaryValue + "\n" :
+                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">↓</size>" + moodle.Intensity + "%" + "\n";
             }
             else // Else, go right
             {
-                rightSide.text += moodle.TypeIntensity == "Percentage" ?
-                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">↑</size>" + moodle.Intensity + "%" + "\n" :
-                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">+</size>" + moodle.Intensity + "\n";
+                rightSide.text += moodle.TemporaryValue != null ?
+                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">+</size>" + moodle.TemporaryValue + "\n" :
+                    moodle.MoodleName + " " + "<size=" + newArrowSize.ToString() + ">↑</size>" + moodle.Intensity + "%" + "\n";
             }
         }
     }
 
-    public void onClick_closeButton()
+    public void onClick_closeButton() 
     {
         ViralTownEvents.TerminateOccurrencePopups.Invoke();
     }
 
     public void onClick_acceptButton()
     {
-        ViralTownEvents.AcceptRequest.Invoke();
+        ViralTownEvents.SentOccurrenceReq.Invoke();
+        ViralTownEvents.TerminateOccurrencePopups.Invoke();
     }
 }
