@@ -10,8 +10,8 @@ public abstract class BuildingTemplate : MonoBehaviour
 {
     public int capacity;
 
-    public int occupants;
-    public int healthyOccupants;
+    public int occupants = 0;
+    public int healthyOccupants = 0;
     public int infectedOccupants;
 
     public int origOccupants;
