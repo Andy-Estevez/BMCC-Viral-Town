@@ -12,14 +12,15 @@ public class OccurrenceMoodles
 {
     public string Trait;
     public string MoodleName;
-    public string TypeIntensity;
-    public int Intensity;
+    public bool Switch;
+    public float Intensity;
+    public float? TemporaryValue;
 }
 // Addresses the details of the occurrences
 [System.Serializable]
 public class OccurrenceInfo
 {
-    public int IntensityValue;
+    public float IntensityValue;
     public string EventTitle;
     public string Description;
     public string SideDescription;
@@ -35,26 +36,29 @@ public class OccurrencesList
 
 public class OccurrencesCreator : MonoBehaviour
 {
-    // Stores the path of the prefab
-    string occurrencePreFab = "Assets/Prefabs/eventCanvas.prefab";
-    // Stores the prefab
-    OccurrencesPreFab newPreFab;
+    // Stores the occurrence prefab
+    OccurrencePrefab newPreFab;
+    // Stores the path of the mayor prefab
+    string MayorPrefab = "Assets/Prefabs/MayorOccurrence.prefab";
+    // Stores the path of the random occurrence prefab
+    string RandomPrefab = "Assets/Prefabs/RandomOccurrence.prefab";
     // Choose certain occurence
     OccurrenceInfo chosenOccurence;
-
     // References the unity events
     public virtual void Awake()
     {
-        ViralTownEvents.ActivateOccurrences.AddListener(MayorOccurrences);
+        ViralTownEvents.MayorOccurrences.AddListener(MayorOccurrences);
+        ViralTownEvents.RandomOccurrences.AddListener(RandomOccurrences);
         ViralTownEvents.TerminateOccurrencePopups.AddListener(DestroyOccurrence);
-        ViralTownEvents.AcceptRequest.AddListener(AcceptRequest);
+        ViralTownEvents.SentOccurrenceReq.AddListener(SentOccurrenceReq);
     }
 
     // Policies/Mayor
     public void MayorOccurrences()
     {
         // Have to discuss with members but for now, lets say intensity level 1 ("Covid broke out")
-        int intensity = 1;
+        int intensity = CalculateIntensityLevel();
+        Debug.Log(intensity);
 
         // Stores the path of the JSON file holding the occurences
         string jsonFilePath = "Scripts/Occurrences/MayorOccurrences.json";
@@ -70,7 +74,8 @@ public class OccurrencesCreator : MonoBehaviour
             OccurrencesList occurenceList = JsonUtility.FromJson<OccurrencesList>(jsonText);
             // Match an occurence based on the intensity
             chosenOccurence = SelectOccurrenceByClosestIntensity(occurenceList, intensity);
-            StartCoroutine(SummonEvent(chosenOccurence));
+            CheckForSwitch();
+            StartCoroutine(SummonEvent(chosenOccurence, MayorPrefab));
         }
         else
         {
@@ -80,9 +85,6 @@ public class OccurrencesCreator : MonoBehaviour
     // Random Occurrences
     public void RandomOccurrences()
     {
-        // Have to discuss with members but for now, lets say intensity level 1 ("Covid broke out")
-        int intensity = 1;
-
         // Stores the path of the JSON file holding the occurences
         string jsonFilePath = "Scripts/Occurrences/RandomOccurrences.json";
         // Construct the full file path
@@ -95,27 +97,24 @@ public class OccurrencesCreator : MonoBehaviour
             string jsonText = File.ReadAllText(fullPath);
             // Deserialize JSON into a list of OccurrenceHolder objects
             OccurrencesList occurenceList = JsonUtility.FromJson<OccurrencesList>(jsonText);
-            // Match an occurence based on the intensity
-            chosenOccurence = SelectOccurrenceByClosestIntensity(occurenceList, intensity);
-            StartCoroutine(SummonEvent(chosenOccurence));
+            // Chooses a random occurence (based on probablity)
+            chosenOccurence = SelectRandomOccurrence(occurenceList);
+            // Checks if a percentage needs to be numerical
+            CheckForSwitch();
+            StartCoroutine(SummonEvent(chosenOccurence, RandomPrefab));
+
+            SentOccurrenceReq();
         }
         else
         {
             Debug.LogError("JSON file not found: " + fullPath);
         }
     }
-
-    // Function to select an occurence
-    private OccurrenceInfo SelectOccurrenceByClosestIntensity(OccurrencesList data, double targetIntensity)
-    {
-        // Find the occurrence with intensity closest to the target intensity
-        return data.Occurrences.OrderBy(occurrence => Math.Abs(occurrence.IntensityValue - targetIntensity)).FirstOrDefault();
-    }
     // Function to summon the prefab 
-    public IEnumerator SummonEvent(OccurrenceInfo occurrence)
+    private IEnumerator SummonEvent(OccurrenceInfo occurrence, string link)
     {
         // Load the prefab
-        OccurrencesPreFab prefab = UnityEditor.AssetDatabase.LoadAssetAtPath<OccurrencesPreFab>(occurrencePreFab);
+        OccurrencePrefab prefab = UnityEditor.AssetDatabase.LoadAssetAtPath<OccurrencePrefab>(link);
         // Check if the prefab is successfully loaded
         if (prefab != null)
         {
@@ -135,61 +134,206 @@ public class OccurrencesCreator : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Failed to load prefab at path: " + occurrencePreFab);
+            Debug.LogError("Failed to load prefab at path: " + link);
         }
     }
 
-    // If declined, nothing happens, just exits it out.
-    // If accepted
-    public void AcceptRequest()
+    // Function to randomly select an occurrence based on intensity values (chances)
+    public OccurrenceInfo SelectRandomOccurrence(OccurrencesList occurrencesList)
     {
-        // Sets the impact score
+        // Access the Occurrences array from the occurrencesList
+        OccurrenceInfo[] occurrences = occurrencesList.Occurrences;
+
+        // Calculate the total intensity sum of all occurrences
+        float totalIntensitySum = 0;
+        foreach (OccurrenceInfo occurrence in occurrences)
+        {
+            totalIntensitySum += occurrence.IntensityValue;
+        }
+
+        // Generate a random number between 0 and the total intensity sum
+        float randomNumber = UnityEngine.Random.Range(0, totalIntensitySum);
+
+        // Iterate through occurrences and determine which one corresponds to the random number
+        float cumulativeIntensity = 0;
+        foreach (OccurrenceInfo occurrence in occurrences)
+        {
+            cumulativeIntensity += occurrence.IntensityValue;
+            if (randomNumber < cumulativeIntensity)
+            {
+                // Return the selected occurrence
+                return occurrence;
+            }
+        }
+
+        // This should not be reached under normal circumstances,
+        // but return null if no occurrence is selected
+        Debug.LogWarning("No occurrence selected. Returning null.");
+        return null;
+    }
+    // Check for any switches
+    private void CheckForSwitch()
+    {
+        float? numericalImpact;
+        foreach (OccurrenceMoodles moodle in chosenOccurence.Moodles)
+        {
+            numericalImpact = null;
+            if (moodle.Switch)
+            {
+                switch (moodle.MoodleName)
+                {
+                    //Population
+                    case "HealthyPop":
+                        numericalImpact = Town.HealthyPop * moodle.Intensity;
+                        break;
+                    case "InfectedPop":
+                        numericalImpact = Town.InfectedPop * moodle.Intensity;
+                        break;
+                    case "Death":
+                        break;
+                    // Mesc
+                    case "GDP":
+                        numericalImpact = Town.CurrentGDP * moodle.Intensity;
+                        break;
+                    default:
+                        break;
+
+                }
+            }
+            moodle.TemporaryValue = numericalImpact;
+        }
+    }
+
+    // If mayor declined, nothing happens, just exits it out.
+    // If mayor accepted or random request
+    public void SentOccurrenceReq()
+    {
         double impact = 0;
+        int newInfectedPop;
+        int newHealthyPop;
+
         foreach (OccurrenceMoodles moodle in chosenOccurence.Moodles)
         {
             switch (moodle.MoodleName)
             {
                 //Population
                 case "HealthyPop":
-                    if(moodle.TypeIntensity == "Arithmetic")
+                    impact = moodle.Trait == "Positive" ?
+                        (moodle.Intensity / 100.0) + 1.0 : 1.0 - (moodle.Intensity / 100.0);
+
+                    // Calculate the new population
+                    newHealthyPop = (int)(Town.HealthyPop * impact);
+                    newInfectedPop = Town.InfectedPop - (newHealthyPop - Town.HealthyPop);
+
+                    // Ensure the new population does not exceed the initial population
+                    if (newHealthyPop > Town.InitialPop)
                     {
-                        impact = moodle.Trait == "Positive" ?
-                            moodle.Intensity : -moodle.Intensity;
-                        Town.HealthyPop += (int)impact;
-                        Town.InfectedPop -= (int)impact;
-                    }
-                    else
-                    {
-                        impact = moodle.Trait == "Positive" ?
-                            (moodle.Intensity / 100) + 100 : 100 - moodle.Intensity;
-                        Town.HealthyPop = (int)(Town.HealthyPop * impact);
-                        Town.InfectedPop -= (int)(Town.HealthyPop * impact);
+                        newInfectedPop -= (newHealthyPop - Town.InitialPop);
+                        newHealthyPop = Town.InitialPop;
                     }
 
+                    // Ensure the infected population does not go into negative
+                    if (newInfectedPop < 0)
+                    {
+                        newHealthyPop += newInfectedPop;
+                        newInfectedPop = 0;
+                    }
+
+                    // Update population values
+                    Town.HealthyPop = newHealthyPop;
+                    Town.InfectedPop = newInfectedPop;
                     break;
+
+                // Population
                 case "InfectedPop":
+                    impact = moodle.Trait == "Positive" ?
+                        (moodle.Intensity / 100.0) + 1.0 : 1.0 - (moodle.Intensity / 100.0);
+
+                    // Calculate the new population
+                    newInfectedPop = (int)(Town.InfectedPop * impact);
+                    newHealthyPop = Town.HealthyPop - (newInfectedPop - Town.InfectedPop);
+
+                    // Ensure the new population does not exceed the initial population
+                    if (newInfectedPop > Town.InitialPop)
+                    {
+                        newHealthyPop -= (newInfectedPop - Town.InitialPop);
+                        newInfectedPop = Town.InitialPop;
+                    }
+
+                    // Ensure the healthy population does not go into negative
+                    if (newHealthyPop < 0)
+                    {
+                        newInfectedPop += newHealthyPop;
+                        newHealthyPop = 0;
+                    }
+
+                    // Update population values
+                    Town.InfectedPop = newInfectedPop;
+                    Town.HealthyPop = newHealthyPop;
                     break;
+
                 case "Death":
                     break;
                 // Mesc
                 case "GDP":
+                    impact = moodle.Trait == "Positive" ?
+                        (moodle.Intensity / 100.0) + 1.0 : 1.0 - (moodle.Intensity / 100.0);
+                    Town.CurrentGDP = (int)(Town.CurrentGDP * impact);
                     break;
                 default:
                     break;
-
             }
         }
-
-        DestroyOccurrence();
     }
 
     // Function to destroy the prefab
-    public void DestroyOccurrence()
+    private void DestroyOccurrence()
     {
         if (newPreFab != null)
         {
             // Destroy the GameObject associated with the prefab
             Destroy(newPreFab.gameObject);
         }
+    }
+    // Function to select an occurence
+    private OccurrenceInfo SelectOccurrenceByClosestIntensity(OccurrencesList data, double targetIntensity)
+    {
+        // Find the occurrence with intensity closest to the target intensity
+        return data.Occurrences.OrderBy(occurrence => Math.Abs(occurrence.IntensityValue - targetIntensity)).FirstOrDefault();
+    }
+
+    // Function to calculate intensity level
+    public static int CalculateIntensityLevel()
+    {
+        // Calculate percentage change in population and GDP
+        double populationChangePercentage = (double)(Town.CurrentPop - Town.InitialPop) / Town.InitialPop * 100;
+        double gdpChangePercentage = (double)(Math.Abs(Town.CurrentGDP - Town.InitialGDP)) / Town.InitialGDP * 100;
+
+        // Calculate percentage of infected population
+        double infectedPopPercentage = (double)Town.InfectedPop / Town.CurrentPop * 100;
+
+        // Define weights for each factor (population change, GDP change, infected population)
+        double weightPopulationChange = 0.4;
+        double weightGDPChange = 0.3;
+        double weightInfectedPop = 0.3;
+
+        // Debug logs
+        Debug.Log($"Population change percentage: {populationChangePercentage}");
+        Debug.Log($"GDP change percentage: {gdpChangePercentage}");
+        Debug.Log($"Infected population percentage: {infectedPopPercentage}");
+
+        // Calculate weighted sum
+        double weightedSum = (populationChangePercentage * weightPopulationChange) +
+                             (gdpChangePercentage * weightGDPChange) +
+                             (infectedPopPercentage * weightInfectedPop);
+
+        // Debug log
+        Debug.Log($"Weighted sum: {weightedSum}");
+
+        // Map the weighted sum to a range from 1 to 100
+        int intensityLevel = (int)Math.Round(weightedSum);
+
+        // Ensure the intensity level is within the range of 1 to 100
+        return Mathf.Clamp(intensityLevel, 1, 100);
     }
 }

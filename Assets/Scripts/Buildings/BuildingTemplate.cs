@@ -118,7 +118,16 @@ public abstract class BuildingTemplate : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("clicked");
-        float infectionRate = (float)infectedOccupants / occupants;
+        float infectionRate;
+
+        if(occupants == 0 || infectedOccupants == 0 )
+        {
+            infectionRate = 0;
+        }
+        else
+        {
+            infectionRate = (float)infectedOccupants * 100 / occupants;
+        }
 
         // Position the popup above the building or adjust as necessary
         Vector3 popupPosition = transform.position + new Vector3(0, 2, 0); // Adjusts position slightly above the building
@@ -132,10 +141,10 @@ public abstract class BuildingTemplate : MonoBehaviour
         // Instantiate a new popup
         infectionRatePopupInstance = Instantiate(infectionRatePopupPrefab, popupPosition, Quaternion.identity);
         UnityEngine.UI.Text textComponent = infectionRatePopupInstance.GetComponentInChildren<UnityEngine.UI.Text>();
-        textComponent.text = $"Infection: {infectedOccupants * 100 / occupants:F1}%";
+        textComponent.text = $"Infection: {infectionRate:F1}%";
 
         // Destroy the popup after 2 seconds
-        Destroy(infectionRatePopupInstance, 2f);  // 2f is the time in seconds after which the popup will be destroyed
+        Destroy(infectionRatePopupInstance, 1f);  // 2f is the time in seconds after which the popup will be destroyed
     }
 
 

@@ -1,23 +1,31 @@
 {
     "Occurrences": [
         {
-            "IntensityValue": 1,
-            "EventTitle": "Lego City in Crisis: Chaos Unleashed",
-            "Description": "In the vibrant heart of Lego City, chaos reigns supreme. Sirens wail through the night as buildings crumble, and heroes emerge to battle against unseen foes. Against a backdrop of destruction, the fate of the city hangs in the balance. Will courage triumph, or will darkness consume all?",
-            "SideDescription": "Description of Example 1",
-
+            "IntensityValue": 5,
+            "EventTitle": "Economic Downturn: Markets in Turmoil",
+            "Description": "Amidst global economic uncertainty, financial markets around the world tumble into chaos. Stocks plummet, currencies fluctuate wildly, and investors scramble to salvage their portfolios. Governments race to implement emergency measures.",
+            "SideDescription": "Stock market crashes and currency devaluation impact employment, consumer confidence, and business stability.",
             "Moodles": [
                 {
                     "Trait": "Negative",
                     "MoodleName": "GDP",
-                    "TypeIntensity": "Percentage",
-                    "Intensity": 60
+                    "Switch": false,
+                    "Intensity": 0.2,
+                    "TemporaryValue": null
                 },
                 {
-                    "Trait": "Positive",
-                    "MoodleName": "Mood2",
-                    "TypeIntensity": "Arithmetic",
-                    "Intensity": 2
+                    "Trait": "Negative",
+                    "MoodleName": "HealthyPop",
+                    "Switch": false,
+                    "Intensity": 0.1,
+                    "TemporaryValue": null
+                },
+                {
+                    "Trait": "Negative",
+                    "MoodleName": "InfectedPop",
+                    "Switch": false,
+                    "Intensity": 0.1,
+                    "TemporaryValue": null
                 }
             ]
         }

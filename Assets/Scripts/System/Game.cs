@@ -58,9 +58,6 @@ public class Game : MonoBehaviour
                 {
                     Debug.Log("Night has ended...");
 
-                    // Terminate Occurrence Pop-ups
-                    ViralTownEvents.TerminateOccurrencePopups.Invoke();
-
                     // Propagate virus infection & virus death
                     ViralTownEvents.PropagateVirus.Invoke();
                     ViralTownEvents.PropagateDeath.Invoke();
@@ -86,6 +83,10 @@ public class Game : MonoBehaviour
 
                     // Propagate virus infection (Optional)
                     ViralTownEvents.PropagateVirus.Invoke();
+
+                    // Terminate Occurrence Pop-ups
+                    ViralTownEvents.TerminateOccurrencePopups.Invoke();
+                    ViralTownEvents.RandomOccurrences.Invoke();
                 }
                 // DUSK: When day ends & night begins
                 else if (roundSection == "day")
@@ -115,9 +116,11 @@ public class Game : MonoBehaviour
 
                     // Move population to residential buildings
                     Town.movePopToRes();
-                    
+
+                    // Terminate Occurrence Pop-ups
+                    ViralTownEvents.TerminateOccurrencePopups.Invoke();
                     // Execute Random Occurrences & Player Policies
-                    ViralTownEvents.ActivateOccurrences.Invoke();
+                    ViralTownEvents.MayorOccurrences.Invoke();
                 }
                 else
                 {

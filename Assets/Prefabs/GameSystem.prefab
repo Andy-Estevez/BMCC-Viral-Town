@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4115862405010534599}
   - component: {fileID: 2498483667505023220}
   - component: {fileID: -3620493624478556969}
+  - component: {fileID: 7096279803606222408}
   m_Layer: 0
   m_Name: GameSystem
   m_TagString: Untagged
@@ -51,6 +52,8 @@ MonoBehaviour:
   initialGDP: 10000000
   roundLengthSec: 30
   mapBuildingSprites: {fileID: 11400000, guid: 741ea960afaff714580378f1bf6072bf, type: 2}
+  lake1: {fileID: 0}
+  lake2: {fileID: 0}
 --- !u!114 &-3620493624478556969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,3 +95,15 @@ MonoBehaviour:
   officeContainer: {fileID: 0}
   residentalContainer: {fileID: 0}
   commercialContainer: {fileID: 0}
+--- !u!114 &7096279803606222408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117305606206086032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b175354f002b441eeaec13833ac369dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
