@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-05-13T23:00:25.442Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="ZmuKtnHFvwHw-s3pm_J_" version="24.3.1" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2024-05-14T00:09:59.722Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="TbbV603J7EVZ-Pfj8cvH" version="24.4.0" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Initial Idea">
-    <mxGraphModel dx="2848" dy="606" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2503" dy="774" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -2002,7 +2002,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="GroupEffort v1.1 (option)" id="nvUJC31nxR2-6TPgY9fn">
-    <mxGraphModel dx="2266" dy="311" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2149" dy="408" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="4Gmb9UYu1WDTs9dMraxX-0" />
         <mxCell id="4Gmb9UYu1WDTs9dMraxX-1" parent="4Gmb9UYu1WDTs9dMraxX-0" />
@@ -2058,7 +2058,7 @@
         <mxCell id="FUIbWk2Va6qgioEETP_L-10" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="FUIbWk2Va6qgioEETP_L-8" vertex="1">
           <mxGeometry y="108" width="300" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="FUIbWk2Va6qgioEETP_L-11" value="- PropagateVirus()&lt;div&gt;- PropagateDeath()&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- UpdateInfectionIndicator() -&amp;gt; Eslem&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- OnMouseDown() -&amp;gt; Eslem&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;autosize=1;" parent="FUIbWk2Va6qgioEETP_L-8" vertex="1">
+        <mxCell id="FUIbWk2Va6qgioEETP_L-11" value="- PropagateVirus()&lt;div&gt;- PropagateDeath()&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font color=&quot;#ff0080&quot;&gt;- UpdateInfectionIndicator() -&amp;gt; Eslem&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font color=&quot;#ff0080&quot;&gt;- OnMouseDown() -&amp;gt; Eslem&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;autosize=1;" parent="FUIbWk2Va6qgioEETP_L-8" vertex="1">
           <mxGeometry y="116" width="300" height="70" as="geometry" />
         </mxCell>
         <mxCell id="FUIbWk2Va6qgioEETP_L-12" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=default;startSize=8;endArrow=classic;endSize=8;elbow=vertical;" parent="4Gmb9UYu1WDTs9dMraxX-1" source="FUIbWk2Va6qgioEETP_L-8" target="FUIbWk2Va6qgioEETP_L-89" edge="1">
@@ -2255,18 +2255,18 @@
           <mxGeometry y="76" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="FUIbWk2Va6qgioEETP_L-54" value="Virus" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=38;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;autosize=1;strokeColor=#009900;strokeWidth=2;" parent="4Gmb9UYu1WDTs9dMraxX-1" vertex="1">
-          <mxGeometry x="-150" y="350" width="480" height="146" as="geometry">
+          <mxGeometry x="-150" y="350" width="260" height="126" as="geometry">
             <mxRectangle x="456" y="270" width="100" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="FUIbWk2Va6qgioEETP_L-55" value="&lt;div&gt;- infectionRate : double&lt;/div&gt;&lt;div&gt;- deathRate : double&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;autosize=1;" parent="FUIbWk2Va6qgioEETP_L-54" vertex="1">
-          <mxGeometry y="38" width="480" height="40" as="geometry" />
+        <mxCell id="FUIbWk2Va6qgioEETP_L-55" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- infectionRate : float&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- deathRate : float&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;autosize=1;" parent="FUIbWk2Va6qgioEETP_L-54" vertex="1">
+          <mxGeometry y="38" width="260" height="40" as="geometry" />
         </mxCell>
         <mxCell id="FUIbWk2Va6qgioEETP_L-56" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="FUIbWk2Va6qgioEETP_L-54" vertex="1">
-          <mxGeometry y="78" width="480" height="8" as="geometry" />
+          <mxGeometry y="78" width="260" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="FUIbWk2Va6qgioEETP_L-57" value="- Mutate()&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- IncreaseVirusStat (float increaseTimePercent, float increaseInfectRatePercent)&lt;br&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- EndGamePunishment()&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;autosize=1;" parent="FUIbWk2Va6qgioEETP_L-54" vertex="1">
-          <mxGeometry y="86" width="480" height="60" as="geometry" />
+        <mxCell id="FUIbWk2Va6qgioEETP_L-57" value="- InfectionBuff()&lt;div&gt;- IncreateBuffRate()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;autosize=1;" parent="FUIbWk2Va6qgioEETP_L-54" vertex="1">
+          <mxGeometry y="86" width="260" height="40" as="geometry" />
         </mxCell>
         <mxCell id="FUIbWk2Va6qgioEETP_L-58" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;elbow=vertical;strokeColor=default;orthogonal=1;" parent="4Gmb9UYu1WDTs9dMraxX-1" source="FUIbWk2Va6qgioEETP_L-60" target="FUIbWk2Va6qgioEETP_L-0" edge="1">
           <mxGeometry relative="1" as="geometry" />
