@@ -460,13 +460,9 @@ public static class Town
             GameObject curBuilding = buildings.residentialBuildings[randIndex];
             BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
 
-            if (buildingScript.origInfectedOccupants > 0)
-            {
-                buildingScript.origHealthyOccupants++;
-                buildingScript.origInfectedOccupants--;
-
-                interimOrigHealthy++;
-            }
+            buildingScript.origHealthyOccupants++;
+            buildingScript.origOccupants++;
+            interimOrigHealthy++;
         }
 
         // If origInfected capacity too low, increase it
@@ -477,13 +473,9 @@ public static class Town
             GameObject curBuilding = buildings.residentialBuildings[randIndex];
             BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
 
-            if (buildingScript.origHealthyOccupants > 0)
-            {
-                buildingScript.origInfectedOccupants++;
-                buildingScript.origHealthyOccupants--;
-
-                interimOrigInfected++;
-            }
+            buildingScript.origInfectedOccupants++;
+            buildingScript.origOccupants++;
+            interimOrigInfected++;
         }
 
         // Distribute healthy residents to residentials
@@ -592,8 +584,6 @@ public static class Town
                 atHospitalHealthy--;
             }
         }
-
-        Debug.Log("Truly over");
     }
 
     // Distributes population to commercial buildings
@@ -604,6 +594,9 @@ public static class Town
 
         int interimOrigHealthy = 0;
         int interimOrigInfected = 0;
+
+        int returningHealthy = 0;
+        int returningInfected = 0;
 
         // Get number of people hospitalized
         BuildingTemplate hospitalScript = buildings.hospital.GetComponent<BuildingTemplate>();
@@ -639,12 +632,9 @@ public static class Town
             GameObject curBuilding = buildings.commercialBuildings[randIndex];
             BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
 
-            if (buildingScript.origInfectedOccupants > 0)
-            {
-                buildingScript.origHealthyOccupants++;
-
-                interimOrigHealthy++;
-            }
+            buildingScript.origHealthyOccupants++;
+            buildingScript.origOccupants++;
+            interimOrigHealthy++;
         }
 
         // If origInfected capacity too low, increase it
@@ -655,12 +645,9 @@ public static class Town
             GameObject curBuilding = buildings.commercialBuildings[randIndex];
             BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
 
-            if (buildingScript.origHealthyOccupants > 0)
-            {
-                buildingScript.origInfectedOccupants++;
-
-                interimOrigInfected++;
-            }
+            buildingScript.origInfectedOccupants++;
+            buildingScript.origOccupants++;
+            interimOrigInfected++;
         }
 
         // Distribute healthy residents to commercials
@@ -670,8 +657,15 @@ public static class Town
 
             GameObject curBuilding = buildings.commercialBuildings[randIndex];
             BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
+            string curBuildingName = buildingScript.name[0..^7];
 
-            if (buildingScript.healthyOccupants < buildingScript.origHealthyOccupants)
+            // If this building is locked down, return person
+            if (lockdowns[curBuildingName] == true)
+            {
+                returningHealthy++;
+                interimHealthy--;
+            }
+            else if (buildingScript.healthyOccupants < buildingScript.origHealthyOccupants)
             {
                 buildingScript.healthyOccupants++;
                 buildingScript.occupants++;
@@ -697,8 +691,15 @@ public static class Town
 
                 GameObject curBuilding = buildings.commercialBuildings[randIndex];
                 BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
+                string curBuildingName = buildingScript.name[0..^7];
 
-                if (buildingScript.infectedOccupants < buildingScript.origInfectedOccupants)
+                // If this building is locked down, return person
+                if (lockdowns[curBuildingName] == true)
+                {
+                    returningInfected++;
+                    interimInfected--;
+                }
+                else if (buildingScript.infectedOccupants < buildingScript.origInfectedOccupants)
                 {
                     buildingScript.infectedOccupants++;
                     buildingScript.occupants++;
@@ -707,36 +708,79 @@ public static class Town
             }
         }
 
+        // Return healthy residents to residentials
+        while (returningHealthy > 0)
+        {
+            int randIndex = UnityEngine.Random.Range(0, buildings.residentialBuildings.Count);
+
+            GameObject curBuilding = buildings.residentialBuildings[randIndex];
+            BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
+
+            if (buildingScript.healthyOccupants < buildingScript.origHealthyOccupants)
+            {
+                buildingScript.healthyOccupants++;
+                buildingScript.origHealthyOccupants++;
+                buildingScript.occupants++;
+                buildingScript.origOccupants++;
+
+                returningHealthy--;
+            }
+        }
+
+        // Return infected residents to residentials
+        while (returningInfected > 0)
+        {
+            int randIndex = UnityEngine.Random.Range(0, buildings.residentialBuildings.Count);
+
+            GameObject curBuilding = buildings.residentialBuildings[randIndex];
+            BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
+
+            if (buildingScript.infectedOccupants < buildingScript.origInfectedOccupants)
+            {
+                buildingScript.infectedOccupants++;
+                buildingScript.origInfectedOccupants++;
+                buildingScript.occupants++;
+                buildingScript.origOccupants++;
+
+                returningInfected--;
+            }
+        }
+
         // Update Building Orig Data
         foreach (GameObject commercial in buildings.commercialBuildings)
         {
             BuildingTemplate buildingScript = commercial.GetComponent<BuildingTemplate>();
+            string curBuildingName = buildingScript.name[0..^7];
 
-            // If healthy people missing (infectd)
-            if (buildingScript.healthyOccupants < buildingScript.origHealthyOccupants)
+            // If building NOT locked down, update stats
+            if (lockdowns[curBuildingName] == false)
             {
-                buildingScript.origHealthyOccupants = buildingScript.healthyOccupants;
-            }
+                // If healthy people missing (infectd)
+                if (buildingScript.healthyOccupants < buildingScript.origHealthyOccupants)
+                {
+                    buildingScript.origHealthyOccupants = buildingScript.healthyOccupants;
+                }
 
-            // If infected people missing (died, healed, or at hospital)
-            if (buildingScript.infectedOccupants < buildingScript.origInfectedOccupants)
-            {
-                buildingScript.origInfectedOccupants = buildingScript.infectedOccupants;
-            }
+                // If infected people missing (died, healed, or at hospital)
+                if (buildingScript.infectedOccupants < buildingScript.origInfectedOccupants)
+                {
+                    buildingScript.origInfectedOccupants = buildingScript.infectedOccupants;
+                }
 
-            // If people missing (died, or at hospital)
-            if (buildingScript.origOccupants > (buildingScript.healthyOccupants + buildingScript.infectedOccupants))
-            {
-                buildingScript.origOccupants = (buildingScript.healthyOccupants + buildingScript.infectedOccupants);
+                // If people missing (died, or at hospital)
+                if (buildingScript.origOccupants > (buildingScript.healthyOccupants + buildingScript.infectedOccupants))
+                {
+                    buildingScript.origOccupants = (buildingScript.healthyOccupants + buildingScript.infectedOccupants);
+                }
             }
         }
 
         // Reserve commercial spots for hospitalized people
         while (atHospitalInfected > 0)
         {
-            int randIndex = UnityEngine.Random.Range(0, buildings.residentialBuildings.Count);
+            int randIndex = UnityEngine.Random.Range(0, buildings.commercialBuildings.Count);
 
-            GameObject curBuilding = buildings.residentialBuildings[randIndex];
+            GameObject curBuilding = buildings.commercialBuildings[randIndex];
             BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
 
             buildingScript.origInfectedOccupants++;
