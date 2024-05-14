@@ -117,7 +117,7 @@ public class Game : MonoBehaviour
                     Town.movePopToRes();
                     
                     // Execute Random Occurrences & Player Policies
-                    ViralTownEvents.ActivateOccurrences.Invoke();
+                    ViralTownEvents.MayorOccurrences.Invoke();
                 }
                 else
                 {

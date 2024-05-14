@@ -10,14 +10,16 @@
                 {
                     "Trait": "Negative",
                     "MoodleName": "GDP",
-                    "TypeIntensity": "Percentage",
-                    "Intensity": 60
+                    "Switch": false,
+                    "Intensity": 3.4,
+                    "TemporaryValue": null
                 },
                 {
                     "Trait": "Positive",
                     "MoodleName": "Mood2",
-                    "TypeIntensity": "Arithmetic",
-                    "Intensity": 2
+                    "Switch": false,
+                    "Intensity": 2,
+                    "TemporaryValue": null
                 }
             ]
         }
