@@ -24,6 +24,8 @@ public class OccurrencePrefab : MonoBehaviour
         // Access the child TMP_Text components
         leftSide = moodleHolder.transform.GetChild(0).GetComponent<TMP_Text>();
         rightSide = moodleHolder.transform.GetChild(1).GetComponent<TMP_Text>();
+        leftSide.text = "\n";
+        rightSide.text = "\n";
     }
 
     public void SetMainTitle(string text)

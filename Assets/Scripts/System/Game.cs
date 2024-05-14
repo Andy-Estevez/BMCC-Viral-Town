@@ -58,6 +58,9 @@ public class Game : MonoBehaviour
                 {
                     Debug.Log("Night has ended...");
 
+                    // Terminate Occurrence Pop-ups (if any)
+                    ViralTownEvents.TerminateOccurrencePopups.Invoke();
+
                     // Propagate virus infection & virus death
                     ViralTownEvents.PropagateVirus.Invoke();
                     ViralTownEvents.PropagateDeath.Invoke();
@@ -80,15 +83,20 @@ public class Game : MonoBehaviour
 
                     // Move population to commercial buildings
                     Town.movePopToCom();
+                    
+                    // Propagate virus infection (Optional)
+                    ViralTownEvents.PropagateVirus.Invoke();
 
-                    // Terminate Occurrence Pop-ups
-                    ViralTownEvents.TerminateOccurrencePopups.Invoke();
-                    ViralTownEvents.RandomOccurrences.Invoke();
+                    // Summons a random occurence on 20%
+                    if(Random.value <= .20) ViralTownEvents.RandomOccurrences.Invoke();
                 }
                 // DUSK: When day ends & night begins
                 else if (roundSection == "day")
                 {
                     Debug.Log("Day has ended...");
+
+                    // Terminate Occurrence Pop-ups
+                    ViralTownEvents.TerminateOccurrencePopups.Invoke();
 
                     // Propagate virus infection
                     ViralTownEvents.PropagateVirus.Invoke();
@@ -114,10 +122,8 @@ public class Game : MonoBehaviour
                     // Move population to residential buildings
                     Town.movePopToRes();
 
-                    // Terminate Occurrence Pop-ups
-                    ViralTownEvents.TerminateOccurrencePopups.Invoke();
-                    // Execute Random Occurrences & Player Policies
-                    ViralTownEvents.MayorOccurrences.Invoke();
+                    // Execute Player Policies
+                    if (Random.value <= .20) ViralTownEvents.MayorOccurrences.Invoke();
                 }
                 else
                 {
