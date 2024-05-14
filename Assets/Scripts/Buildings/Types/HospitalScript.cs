@@ -14,7 +14,7 @@ public class HospitalScript : BuildingTemplate
             int randCuredPeople = Random.Range(1, infectedOccupants);
             healthyOccupants = healthyOccupants + randCuredPeople;
             infectedOccupants = infectedOccupants - randCuredPeople;
-            //Town.moveDischargedToRes(randCuredPeople);
+
             // delete after test
             Debug.Log($"{gameObject.name}: {randCuredPeople} of {origInfectedOccupants} sick occupants cured");
         }

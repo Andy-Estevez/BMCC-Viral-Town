@@ -572,8 +572,8 @@ public static class Town
             // If healthy people missing (at hospital)
             if (buildingScript.origHealthyOccupants > buildingScript.healthyOccupants)
             {
-                //buildingScript.healthyOccupants++;
-                //buildingScript.occupants++;
+                buildingScript.healthyOccupants++;
+                buildingScript.occupants++;
 
                 hospitalScript.healthyOccupants--;
                 hospitalScript.occupants--;
@@ -583,21 +583,6 @@ public static class Town
 
         Debug.Log("Truly over");
     }
-
-    /*public static void moveDischargedToRes(int numDischarged)
-    {
-        while (numDischarged > 0)
-        {
-            int randIndex = UnityEngine.Random.Range(0, buildings.residentialBuildings.Count);
-
-            GameObject curBuilding = buildings.residentialBuildings[randIndex];
-            BuildingTemplate buildingScript = curBuilding.GetComponent<BuildingTemplate>();
-
-
-
-            numDischarged--;
-        }
-    }*/
 
     // Distributes population to commercial buildings
     public static void movePopToCom()
@@ -645,7 +630,6 @@ public static class Town
             if (buildingScript.origInfectedOccupants > 0)
             {
                 buildingScript.origHealthyOccupants++;
-                buildingScript.origInfectedOccupants--;
 
                 interimOrigHealthy++;
             }
@@ -662,7 +646,6 @@ public static class Town
             if (buildingScript.origHealthyOccupants > 0)
             {
                 buildingScript.origInfectedOccupants++;
-                buildingScript.origHealthyOccupants--;
 
                 interimOrigInfected++;
             }
