@@ -63,7 +63,7 @@ public class OccurrencesCreator : MonoBehaviour
     public void MayorOccurrences()
     {
         // Have to discuss with members but for now, lets say intensity level 1 ("Covid broke out")
-        int intensity = 24;
+        int intensity = CalculateIntensityLevel();
 
         // Stores the path of the JSON file holding the occurences
         string jsonFilePath = "Scripts/Occurrences/MayorOccurrences.json";
@@ -189,41 +189,41 @@ public class OccurrencesCreator : MonoBehaviour
                 {
                     //Population
                     case "HealthyPop":
-                        numericalImpact = Town.HealthyPop * moodle.Intensity;
+                        numericalImpact = Town.HealthyPop * (1 - moodle.Intensity);
                         break;
                     case "InfectedPop":
-                        numericalImpact = Town.InfectedPop * moodle.Intensity;
+                        numericalImpact = Town.InfectedPop * (1 - moodle.Intensity);
                         break;
                     case "Death":
                         break;
                     // Virus
                     case "InfectionChance":
-                        numericalImpact = Virus.infectionChance * moodle.Intensity;
+                        numericalImpact = Virus.infectionChance * (1 - moodle.Intensity);
                         break;
                     case "DeathChance":
-                        numericalImpact = Virus.deathChance * moodle.Intensity;
+                        numericalImpact = Virus.deathChance * (1 - moodle.Intensity);
                         break;
                     case "InfectionRate":
-                        numericalImpact = Virus.infectionRate * moodle.Intensity;
+                        numericalImpact = Virus.infectionRate * (1 - moodle.Intensity);
                         break;
                     case "DeathRate":
-                        numericalImpact = Virus.deathRate * moodle.Intensity;
+                        numericalImpact = Virus.deathRate * (1 - moodle.Intensity);
                         break;
                     case "MinBuffRate":
-                        numericalImpact = Virus.minBuffRate * moodle.Intensity;
+                        numericalImpact = Virus.minBuffRate * (1 - moodle.Intensity);
                         break;
                     case "MaxBuffRate":
-                        numericalImpact = Virus.maxBuffRate * moodle.Intensity;
+                        numericalImpact = Virus.maxBuffRate * (1 - moodle.Intensity);
                         break;
                     case "BaseBuffRateIncrease":
-                        numericalImpact = Virus.baseBuffRateIncrease * moodle.Intensity;
+                        numericalImpact = Virus.baseBuffRateIncrease * (1 - moodle.Intensity);
                         break;
                     // Mesc
                     case "GDP":
-                        numericalImpact = Town.CurrentGDP * moodle.Intensity;
+                        numericalImpact = Town.CurrentGDP * (1 - moodle.Intensity);
                         break;
                     case "CureRate":
-                        numericalImpact = hospitalObject.cureChance * moodle.Intensity;
+                        numericalImpact = hospitalObject.cureChance * (1 - moodle.Intensity);
                         break;
                     default:
                         break;
