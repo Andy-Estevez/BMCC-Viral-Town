@@ -1,3 +1,4 @@
+using Unity.IO.LowLevel.Unsafe;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -138,11 +139,13 @@ public class Game : MonoBehaviour
                 if (Town.HealthyPop == 0)
                 {
                     Debug.Log("GAME OVER: Everyone is sick");
+                    ViralTownEvents.GameOver.Invoke("Everyone is sick!");
                     gameOver = true;
                 }
                 else if (Town.CurrentGDP <= 2500000)
                 {
                     Debug.Log("GAME OVER: The economy has collapsed");
+                    ViralTownEvents.GameOver.Invoke("The economy has collapsed!");
                     gameOver = true;
                 }
 

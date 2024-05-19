@@ -13,6 +13,7 @@ public static class ViralTownEvents
     public static UnityEvent UpdateHUD = new UnityEvent();
     public static UnityEvent UpdateExclamationMark = new UnityEvent();
     public static UnityEvent UpdateUINotification = new UnityEvent();
+    public static UnityEvent <string> GameOver = new UnityEvent <string>();
 
     public static UnityEvent MayorOccurrences = new UnityEvent();
     public static UnityEvent RandomOccurrences = new UnityEvent();
