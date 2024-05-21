@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-05-14T17:18:47.753Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="W02uIILV8KXdMIrv8U7t" version="24.4.0" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2024-05-21T20:41:35.925Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="OT2G1SAp92pPZxCp_dZU" version="24.4.4" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Initial Idea">
     <mxGraphModel dx="3115" dy="775" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -1482,8 +1482,8 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram name="GroupEffort v1.1 (colored)" id="g2t6HUoqN2ZdbB6AUw-u">
-    <mxGraphModel dx="3825" dy="1102" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <diagram name="GroupEffort v1.2 (color)" id="g2t6HUoqN2ZdbB6AUw-u">
+    <mxGraphModel dx="3258" dy="1035" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="dqh5m128prUnY6DaBQGt-0" />
         <mxCell id="dqh5m128prUnY6DaBQGt-1" parent="dqh5m128prUnY6DaBQGt-0" />
@@ -2001,8 +2001,8 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram name="GroupEffort v1.1 (option)" id="nvUJC31nxR2-6TPgY9fn">
-    <mxGraphModel dx="3825" dy="1102" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <diagram name="GroupEffort v1.3 (final)" id="nvUJC31nxR2-6TPgY9fn">
+    <mxGraphModel dx="4594" dy="1897" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="4Gmb9UYu1WDTs9dMraxX-0" />
         <mxCell id="4Gmb9UYu1WDTs9dMraxX-1" parent="4Gmb9UYu1WDTs9dMraxX-0" />
